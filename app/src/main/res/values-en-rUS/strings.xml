@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">TimeManager</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+
+    <!-- toolbar_main -->
+    <string name="toolbar_main_menu">Menu</string>
+    <string name="toolbar_main_title">Sundial</string>
+    <string name="toolbar_main_task">Add Task</string>
+    <string name="toolbar_main_schedule">Add Schedule</string>
+    <!-- toolbar_main -->
+
+    <!-- bottom_main -->
+    <string name="bottom_main_year">year</string>
+    <string name="bottom_main_month">month</string>
+    <string name="bottom_main_add">+</string>
+    <!-- bottom_main -->
+
+    <!-- nav_menu -->
+    <string name="nav_menu_task_table">Task Table</string>
+    <string name="nav_menu_schedule_table">Schedule Table</string>
+    <string name="nav_menu_daily_introspection_table">Daily Introspect</string>
+    <string name="nav_menu_task_completed_table">Completed Task</string>
+    <string name="nav_menu_schedule_completed_table">Completed Schedule</string>
+    <!-- nav_menu -->
+</resources>

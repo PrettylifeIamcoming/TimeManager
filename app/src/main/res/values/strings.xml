@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">日晷</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+
+    <!-- toolbar_main -->
+    <string name="toolbar_main_menu">菜单</string>
+    <string name="toolbar_main_title">日晷</string>
+    <string name="toolbar_main_task">添加任务</string>
+    <string name="toolbar_main_schedule">添加日程</string>
+    <!-- toolbar_main -->
+
+    <!-- bottom_main -->
+    <string name="bottom_main_year">年</string>
+    <string name="bottom_main_month">月</string>
+    <string name="bottom_main_add">+</string>
+    <!-- bottom_main -->
+
+    <!-- nav_menu -->
+    <string name="nav_menu_task_table">任务表</string>
+    <string name="nav_menu_schedule_table">日程表</string>
+    <string name="nav_menu_daily_introspection_table">日省表</string>
+    <string name="nav_menu_task_completed_table">已完成任务表</string>
+    <string name="nav_menu_schedule_completed_table">已完成日程表</string>
+    <!-- nav_menu -->
+</resources>
