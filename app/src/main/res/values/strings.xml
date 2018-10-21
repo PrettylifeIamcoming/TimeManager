@@ -11,11 +11,11 @@
     <string name="toolbar_main_schedule">添加日程</string>
     <!-- toolbar_main -->
 
-    <!-- bottom_main -->
-    <string name="bottom_main_year">年</string>
-    <string name="bottom_main_month">月</string>
-    <string name="bottom_main_add">+</string>
-    <!-- bottom_main -->
+    <!-- navigation_main -->
+    <string name="navigation_main_year">年表</string>
+    <string name="navigation_main_month">月表</string>
+    <string name="navigation_main_add">添加任务</string>
+    <!-- navigation_main -->
 
     <!-- nav_menu -->
     <string name="nav_menu_task_table">任务表</string>

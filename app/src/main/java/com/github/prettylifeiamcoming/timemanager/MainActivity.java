@@ -1,4 +1,4 @@
-package com.example.abc.timemanager;
+package com.github.prettylifeiamcoming.timemanager;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -11,12 +11,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.TextView;
 import android.widget.Toast;
+
+import com.github.prettylifeiamcoming.timemanager.R;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView mTextMessage;
     private DrawerLayout mDrawerLayout;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -47,7 +47,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mTextMessage = findViewById(R.id.message);
         BottomNavigationView navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         Toolbar toolbar = findViewById(R.id.toolbar);

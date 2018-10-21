@@ -12,7 +12,7 @@
     -->
     <item android:id="@+id/toolbar_r_img"
         android:title="@string/toolbar_main_menu"
-        android:icon="@drawable/ic_menu"
+        android:icon="@drawable/ic_add"
         app:showAsAction="ifRoom"
         >
         <!-- item包含menu表示该menu是item下的子菜单 -->

@@ -22,7 +22,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_alignParentCenter="true"
         android:layout_marginLeft="71dp"
         android:layout_marginTop="66dp"
         android:text="学习" />
@@ -32,7 +31,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentCenter="true"
         android:layout_marginTop="66dp"
         android:layout_marginRight="71dp"
         android:text="学习" />

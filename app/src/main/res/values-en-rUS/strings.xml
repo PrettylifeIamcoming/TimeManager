@@ -11,11 +11,11 @@
     <string name="toolbar_main_schedule">Add Schedule</string>
     <!-- toolbar_main -->
 
-    <!-- bottom_main -->
-    <string name="bottom_main_year">year</string>
-    <string name="bottom_main_month">month</string>
-    <string name="bottom_main_add">+</string>
-    <!-- bottom_main -->
+    <!-- navigation_main -->
+    <string name="navigation_main_year">Year</string>
+    <string name="navigation_main_month">Month</string>
+    <string name="navigation_main_add">Add Task</string>
+    <!-- navigation_main -->
 
     <!-- nav_menu -->
     <string name="nav_menu_task_table">Task Table</string>
