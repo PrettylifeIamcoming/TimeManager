@@ -1,4 +1,4 @@
-package com.example.abc.timemanager;
+package com.github.prettylifeiamcoming.timemanager;
 
 import org.junit.Test;
 

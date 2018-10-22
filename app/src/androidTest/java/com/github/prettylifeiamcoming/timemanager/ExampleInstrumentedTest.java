@@ -1,4 +1,4 @@
-package com.example.abc.timemanager;
+package com.github.prettylifeiamcoming.timemanager;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

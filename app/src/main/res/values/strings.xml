@@ -1,8 +1,5 @@
 <resources>
     <string name="app_name">日晷</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
 
     <!-- toolbar_main -->
     <string name="toolbar_main_menu">菜单</string>
