@@ -1,4 +1,4 @@
-package com.github.prettylifeiamcoming.timemanager;
+package com.prettylifeiamcoming.timemanager.activity;
 
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package com.github.prettylifeiamcoming.timemanager;
+package com.prettylifeiamcoming.timemanager.activity;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -11,13 +11,20 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 import android.widget.Toast;
 
-import com.github.prettylifeiamcoming.timemanager.R;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
 
     private DrawerLayout mDrawerLayout;
+
+    private TextView mTextView;
+
+    private Date date;
+    private SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd");
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -47,17 +54,26 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //底部导航栏
         BottomNavigationView navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+
+        //设置toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle("");
         setSupportActionBar(toolbar);
         mDrawerLayout = findViewById(R.id.drawer_layout);
+        mTextView = findViewById(R.id.toolbar_main_time);
+        date = new Date();
+        String a = sdf.format(date);
+        mTextView.setText(a);
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
             actionBar.setHomeAsUpIndicator(R.drawable.ic_menu);
         }
+
+        //设置菜单栏
         NavigationView navView = findViewById(R.id.nav_view);
         navView.setCheckedItem(R.id.nav_menu_task_table);
         navView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
@@ -94,12 +110,13 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
+    //toolbar菜单填充
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.toolbar, menu);
         return true;
     }
 
+    //测试用
     public void test(int i){
         switch (i) {
             case 0:
@@ -122,6 +139,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    //toolbar菜单栏按钮监控
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
