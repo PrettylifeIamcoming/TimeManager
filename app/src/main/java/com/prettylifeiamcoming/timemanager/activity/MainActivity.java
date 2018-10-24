@@ -14,8 +14,12 @@ import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.prettylifeiamcoming.timemanager.R;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -32,16 +36,13 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
-                case R.id.navigation_home:
-                    //mTextMessage.setText(R.string.title_home);
+                case R.id.navigation_main_day:
                     test(0);
                     return true;
-                case R.id.navigation_dashboard:
-                    //mTextMessage.setText(R.string.title_dashboard);
+                case R.id.navigation_main_month:
                     test(1);
                     return true;
-                case R.id.navigation_notifications:
-                    //mTextMessage.setText(R.string.title_notifications);
+                case R.id.navigation_main_year:
                     test(2);
                     return true;
             }
@@ -151,6 +152,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.toolbar_main_schedule:
                 Toast.makeText(this, "You clicked Add Schedule", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.toolbar_main_add:
+                Toast.makeText(this, "You clicked Add Today Task", Toast.LENGTH_SHORT).show();
                 break;
             default:
         }

@@ -6,12 +6,13 @@
     <string name="toolbar_main_title">Sundial</string>
     <string name="toolbar_main_task">Add Task</string>
     <string name="toolbar_main_schedule">Add Schedule</string>
+    <string name="toolbar_main_add">Add Today Task</string>
     <!-- toolbar_main -->
 
     <!-- navigation_main -->
     <string name="navigation_main_year">Year</string>
     <string name="navigation_main_month">Month</string>
-    <string name="navigation_main_add">Add Task</string>
+    <string name="navigation_main_day">Day</string>
     <!-- navigation_main -->
 
     <!-- nav_menu -->
