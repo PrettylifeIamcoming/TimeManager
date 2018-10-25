@@ -1,30 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
 
     <TextView
+        android:id="@+id/fragment_activity_main_schedule_begin_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="08:00"/>
+        android:layout_marginStart="48dp"
+        android:layout_marginLeft="48dp"
+        android:layout_marginTop="8dp"
+        android:text="08:00"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/fragment_activity_main_schedule_terminal_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="12:00"/>
-
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="48dp"
+        android:layout_marginRight="48dp"
+        android:text="12:00"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <TextView
+        android:id="@+id/fragment_activity_main_schedule"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="学习" />
+        android:layout_marginStart="48dp"
+        android:layout_marginLeft="48dp"
+        android:layout_marginTop="48dp"
+        android:text="日程"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/fragment_activity_main_schedule_type"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="学习" />
+        android:layout_marginStart="48dp"
+        android:layout_marginLeft="48dp"
+        android:layout_marginTop="24dp"
+        android:text="日程性质"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fragment_activity_main_schedule" />
 
-</LinearLayout>
+    <TextView
+        android:id="@+id/fragment_activity_main_schedule_type_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="140dp"
+        android:layout_marginLeft="140dp"
+        android:layout_marginTop="24dp"
+        android:text="日晨属性"
+        app:layout_constraintStart_toEndOf="@+id/fragment_activity_main_schedule_type"
+        app:layout_constraintTop_toBottomOf="@+id/fragment_activity_main_schedule" />
+
+</android.support.constraint.ConstraintLayout>
