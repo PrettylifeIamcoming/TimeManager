@@ -3,12 +3,17 @@ package com.prettylifeiamcoming.timemanager.bean;
 import java.io.Serializable;
 import java.util.UUID;
 
-public class Schedule implements Serializable {
+import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
+
+public class Schedule extends RealmObject implements Serializable {
+    @PrimaryKey
     private UUID mScheduleID;
     private String mScheduleName;
     private long mBeginTimestamp;
     private long mTerminalTimestamp;
     private int mScheduleType;
+    private UUID mUserID;
 
     public Schedule(){
         mScheduleID = UUID.randomUUID();

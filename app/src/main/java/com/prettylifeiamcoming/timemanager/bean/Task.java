@@ -3,7 +3,11 @@ package com.prettylifeiamcoming.timemanager.bean;
 import java.io.Serializable;
 import java.util.UUID;
 
-public class Task implements Serializable {
+import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
+
+public class Task extends RealmObject implements Serializable {
+    @PrimaryKey
     private UUID mTaskID;
     private String mTaskName;
     private long mBeginTimestamp;
@@ -12,6 +16,7 @@ public class Task implements Serializable {
     private int mTaskLevel;
     private int mTaskProcess;
     private int mTaskCustomLevel;
+    private UUID mUserID;
 
     public Task(){
         mTaskID = UUID.randomUUID();

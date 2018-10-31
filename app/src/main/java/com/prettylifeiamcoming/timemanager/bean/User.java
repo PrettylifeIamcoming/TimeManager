@@ -5,7 +5,11 @@ import android.widget.ImageView;
 import java.io.Serializable;
 import java.util.UUID;
 
-public class User implements Serializable {
+import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
+
+public class User extends RealmObject implements Serializable {
+    @PrimaryKey
     private UUID mUserID;
     private String mUserTelephone;
     private String mPassword;
