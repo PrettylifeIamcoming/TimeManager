@@ -2,10 +2,10 @@ package com.prettylifeiamcoming.timemanager;
 
 import android.app.Application;
 
+import com.prettylifeiamcoming.timemanager.db.RealmHelper;
+
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
-
-import com.prettylifeiamcoming.timemanager.db.RealmHelper;
 
 
 /**
@@ -24,4 +24,3 @@ public class Sundial extends Application {
         Realm.setDefaultConfiguration(configuration);
     }
 }
-
