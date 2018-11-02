@@ -3,15 +3,18 @@ package com.prettylifeiamcoming.timemanager.bean;
 import java.io.Serializable;
 import java.util.UUID;
 
-public class Plan implements Serializable {
-    private UUID mPlanID;
+import io.realm.RealmObject;
+
+public class Plan extends RealmObject implements Serializable {
+    private String mPlanID;
     private String mPlanContent;
     private int mPlanType;
     private int mPlanProcess;
     private long mTimestamp;          //后期获取时间戳当完成界面逻辑时具体跟进
+    private String mUserId;
 
     public Plan(){
-        mPlanID = UUID.randomUUID();
+        mPlanID = UUID.randomUUID().toString();
     }
 
     public void setmPlanContent(String planContent) {
@@ -26,7 +29,7 @@ public class Plan implements Serializable {
         mPlanProcess = planProcess;
     }
 
-    public UUID getmPlanID() {
+    public String getmPlanID() {
 
         return mPlanID;
     }

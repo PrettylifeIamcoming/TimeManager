@@ -1,20 +1,20 @@
 package com.prettylifeiamcoming.timemanager.bean;
 
-import android.widget.ImageView;
-
 import java.io.Serializable;
 import java.util.UUID;
 
-public class User implements Serializable {
-    private UUID mUserID;
+import io.realm.RealmObject;
+
+public  class User extends RealmObject implements Serializable {
+    private String mUserID;
     private String mUserTelephone;
     private String mPassword;
     private String mUserName;
     private String mUserSignature;
-    private ImageView mUserHeadPortrait;
+    //private ImageView mUserHeadPortrait;             //后期添加
 
     public User(){
-        mUserID = UUID.randomUUID();
+        mUserID = UUID.randomUUID().toString();
     }
 
     public void setmUserTelephone(String userTelephone) {
@@ -33,11 +33,12 @@ public class User implements Serializable {
         mUserSignature = userSignature;
     }
 
+    /*
     public void setmUserHeadPortrait(ImageView userHeadPortrait) {
         mUserHeadPortrait = userHeadPortrait;
-    }
+    }*/
 
-    public UUID getmUserID() {
+    public String getmUserID() {
         return mUserID;
     }
 
@@ -57,7 +58,8 @@ public class User implements Serializable {
         return mUserSignature;
     }
 
+    /*
     public ImageView getmUserHeadPortrait() {
         return mUserHeadPortrait;
-    }
+    }*/
 }

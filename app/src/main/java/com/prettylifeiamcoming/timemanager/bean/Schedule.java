@@ -3,15 +3,18 @@ package com.prettylifeiamcoming.timemanager.bean;
 import java.io.Serializable;
 import java.util.UUID;
 
-public class Schedule implements Serializable {
-    private UUID mScheduleID;
+import io.realm.RealmObject;
+
+public class Schedule extends RealmObject implements Serializable {
+    private String mScheduleID;
     private String mScheduleName;
     private long mBeginTimestamp;
     private long mTerminalTimestamp;
     private int mScheduleType;
+    private String mUserId;
 
     public Schedule(){
-        mScheduleID = UUID.randomUUID();
+        mScheduleID = UUID.randomUUID().toString();
     }
 
     public void setmScheduleName(String scheduleName) {
@@ -30,7 +33,7 @@ public class Schedule implements Serializable {
         mScheduleType = scheduleType;
     }
 
-    public UUID getmScheduleID() {
+    public String getmScheduleID() {
         return mScheduleID;
     }
 
