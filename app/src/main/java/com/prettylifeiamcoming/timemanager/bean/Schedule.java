@@ -8,15 +8,15 @@ import io.realm.annotations.PrimaryKey;
 
 public class Schedule extends RealmObject implements Serializable {
     @PrimaryKey
-    private UUID mScheduleID;
+    private String mScheduleID;
     private String mScheduleName;
     private long mBeginTimestamp;
     private long mTerminalTimestamp;
     private int mScheduleType;
-    private UUID mUserID;
+    private String mUserId;
 
     public Schedule(){
-        mScheduleID = UUID.randomUUID();
+        mScheduleID = UUID.randomUUID().toString();
     }
 
     public void setmScheduleName(String scheduleName) {
@@ -35,7 +35,7 @@ public class Schedule extends RealmObject implements Serializable {
         mScheduleType = scheduleType;
     }
 
-    public UUID getmScheduleID() {
+    public String getmScheduleID() {
         return mScheduleID;
     }
 

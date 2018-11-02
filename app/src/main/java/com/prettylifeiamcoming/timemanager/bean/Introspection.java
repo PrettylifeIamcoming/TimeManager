@@ -8,21 +8,21 @@ import io.realm.annotations.PrimaryKey;
 
 public class Introspection extends RealmObject implements Serializable {
     @PrimaryKey
-    private UUID mIntrospectionID;
+    private String mIntrospectionID;
     private String mIntrospectionMyself;
     private int mIntrospectionType;
     private long mTimestamp;             //后期获取时间戳当完成界面逻辑时具体跟进
-    private UUID mUserID;
+    private String mUserId;
 
     public Introspection(){
-        mIntrospectionID = UUID.randomUUID();
+        mIntrospectionID = UUID.randomUUID().toString();
     }
 
     public void setmIntrospectionMyself(String introspectionMyself) {
         mIntrospectionMyself = introspectionMyself;
     }
 
-    public UUID getmIntrospectionID() {
+    public String getmIntrospectionID() {
         return mIntrospectionID;
     }
 

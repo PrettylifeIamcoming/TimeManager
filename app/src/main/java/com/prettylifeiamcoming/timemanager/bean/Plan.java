@@ -8,15 +8,15 @@ import io.realm.annotations.PrimaryKey;
 
 public class Plan extends RealmObject implements Serializable {
     @PrimaryKey
-    private UUID mPlanID;
+    private String mPlanID;
     private String mPlanContent;
     private int mPlanType;
     private int mPlanProcess;
     private long mTimestamp;          //后期获取时间戳当完成界面逻辑时具体跟进
-    private UUID mUserID;
+    private String mUserId;
 
     public Plan(){
-        mPlanID = UUID.randomUUID();
+        mPlanID = UUID.randomUUID().toString();
     }
 
     public void setmPlanContent(String planContent) {
@@ -31,7 +31,7 @@ public class Plan extends RealmObject implements Serializable {
         mPlanProcess = planProcess;
     }
 
-    public UUID getmPlanID() {
+    public String getmPlanID() {
 
         return mPlanID;
     }

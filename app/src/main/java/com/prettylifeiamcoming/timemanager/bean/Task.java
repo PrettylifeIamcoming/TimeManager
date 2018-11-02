@@ -8,18 +8,19 @@ import io.realm.annotations.PrimaryKey;
 
 public class Task extends RealmObject implements Serializable {
     @PrimaryKey
-    private UUID mTaskID;
+    private String mTaskID;
     private String mTaskName;
     private long mBeginTimestamp;
     private long mTerminalTimestamp;
+    private long mDeadline;
     private int mTaskType;
     private int mTaskLevel;
     private int mTaskProcess;
     private int mTaskCustomLevel;
-    private UUID mUserID;
+    private String mUserId;
 
     public Task(){
-        mTaskID = UUID.randomUUID();
+        mTaskID = UUID.randomUUID().toString();
     }
 
     public void setmTaskName(String taskName) {
@@ -50,7 +51,15 @@ public class Task extends RealmObject implements Serializable {
         mTaskCustomLevel = taskCustomLevel;
     }
 
-    public UUID getmTaskID() {
+    public long getmDeadline() {
+        return mDeadline;
+    }
+
+    public void setmDeadline(long mDeadline) {
+        this.mDeadline = mDeadline;
+    }
+
+    public String getmTaskID() {
         return mTaskID;
     }
 

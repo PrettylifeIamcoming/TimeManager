@@ -2,14 +2,16 @@ package com.prettylifeiamcoming.timemanager;
 
 import android.app.Application;
 
-import com.prettylifeiamcoming.timemanager.db.RealmHelper;
-
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
+
+import com.prettylifeiamcoming.timemanager.db.RealmHelper;
+
 
 /**
  * 创建名为Sundial的realm数据库
  */
+
 public class Sundial extends Application {
     @Override
     public void onCreate() {
@@ -22,3 +24,4 @@ public class Sundial extends Application {
         Realm.setDefaultConfiguration(configuration);
     }
 }
+
