@@ -4,8 +4,10 @@ import java.io.Serializable;
 import java.util.UUID;
 
 import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
 
 public class Introspection extends RealmObject implements Serializable {
+    @PrimaryKey
     private String mIntrospectionID;
     private String mIntrospectionMyself;
     private int mIntrospectionType;

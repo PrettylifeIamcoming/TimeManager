@@ -4,8 +4,10 @@ import java.io.Serializable;
 import java.util.UUID;
 
 import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
 
 public class Schedule extends RealmObject implements Serializable {
+    @PrimaryKey
     private String mScheduleID;
     private String mScheduleName;
     private long mBeginTimestamp;
