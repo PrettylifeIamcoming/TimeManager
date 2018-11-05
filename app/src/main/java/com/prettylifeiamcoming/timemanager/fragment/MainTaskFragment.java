@@ -33,7 +33,7 @@ public class MainTaskFragment extends Fragment {
         mBeginTime = (TextView)v.findViewById(R.id.fragment_activity_main_task_begin_time);
         mTerminalTime = (TextView)v.findViewById(R.id.fragment_activity_main_task_terminal_time);
         mTaskName = (TextView)v.findViewById(R.id.fragment_activity_main_task);
-        mTaskType = (TextView)v.findViewById(R.id.fragment_activity_main_task_type_name);
+        mTaskType = (TextView)v.findViewById(R.id.fragment_activity_main_task_type);
         mTomatoWatch = (RadioButton)v.findViewById(R.id.fragment_activity_main_task_tomato_watch_choose);
 
 

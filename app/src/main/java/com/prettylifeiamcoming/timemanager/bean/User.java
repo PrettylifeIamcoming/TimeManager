@@ -8,60 +8,50 @@ import io.realm.annotations.PrimaryKey;
 
 public  class User extends RealmObject implements Serializable {
     @PrimaryKey
-    private String mUserID;
-    private String mUserTelephone;
-    private String mPassword;
-    private String mUserName;
-    private String mUserSignature;
+    private String mUserID;                            //用户的ID，一个人只拥有一个
+    private String mUserTelephone;                     //用户的电话号码
+    private String mPassword;                          //用户的密码
+    private String mUserName;                          //用户名称
+    private String mUserSignature;                     //用户的签名
     //private ImageView mUserHeadPortrait;             //后期添加
 
     public User(){
         mUserID = UUID.randomUUID().toString();
     }
 
-    public void setmUserTelephone(String userTelephone) {
-        mUserTelephone = userTelephone;
-    }
-
-    public void setmPassword(String password) {
-        mPassword = password;
-    }
-
-    public void setmUserName(String userName) {
-        mUserName = userName;
-    }
-
-    public void setmUserSignature(String userSignature) {
-        mUserSignature = userSignature;
-    }
-
-    /*
-    public void setmUserHeadPortrait(ImageView userHeadPortrait) {
-        mUserHeadPortrait = userHeadPortrait;
-    }*/
-
-    public String getmUserID() {
+    public String getUserID() {
         return mUserID;
     }
 
-    public String getmUserTelephone() {
+    public String getUserTelephone() {
         return mUserTelephone;
     }
 
-    public String getmPassword() {
+    public String getPassword() {
         return mPassword;
     }
 
-    public String getmUserName() {
+    public String getUserName() {
         return mUserName;
     }
 
-    public String getmUserSignature() {
+    public String getUserSignature() {
         return mUserSignature;
     }
 
-    /*
-    public ImageView getmUserHeadPortrait() {
-        return mUserHeadPortrait;
-    }*/
+    public void setUserTelephone(String userTelephone) {
+        mUserTelephone = userTelephone;
+    }
+
+    public void setPassword(String password) {
+        mPassword = password;
+    }
+
+    public void setUserName(String userName) {
+        mUserName = userName;
+    }
+
+    public void setUserSignature(String userSignature) {
+        mUserSignature = userSignature;
+    }
 }

@@ -8,58 +8,23 @@ import io.realm.annotations.PrimaryKey;
 
 public class Task extends RealmObject implements Serializable {
     @PrimaryKey
-    private String mTaskID;
-    private String mTaskName;
-    private long mBeginTimestamp;
-    private long mTerminalTimestamp;
-    private long mDeadline;
-    private int mTaskType;
-    private int mTaskLevel;
-    private int mTaskProcess;
-    private int mTaskCustomLevel;
-    private String mUserId;
+    private String mTaskID;                          //任务ID
+    private String mTaskName;                        //任务名称
+    private long mBeginTimestamp;                    //任务的起始时间
+    private long mTerminalTimestamp;                 //任务的终止时间
+    private double mDuration;                        //任务持续的时长，(mTerminalTimestamp-mBeginTimestamp),单位为小时
+    private long mDeadline;                          //任务的deadline
+    private int mTaskType;                           //任务类型，后期用switch绑定上具体的类型名称
+    private int mTaskLevel;                          //任务级别，四象限，有四个级别，后期为了显示fragment的颜色服务
+    private int mTaskProcess;                        //任务的进度，需要由用户来进行填写
+    private int mTaskCustomLevel;                    //任务的用户自定义级别，由用户来决定，让用户来具体区分
+    private String mUserID;                          // 用户ID，为从数据库中寻找用户的日程服务
 
     public Task(){
         mTaskID = UUID.randomUUID().toString();
     }
 
-    public void setmTaskName(String taskName) {
-        mTaskName = taskName;
-    }
-
-    public void setmBeginTimestamp(long beginTimestamp) {
-        mBeginTimestamp = beginTimestamp;
-    }
-
-    public void setmTerminalTimestamp(long terminalTimestamp) {
-        mTerminalTimestamp = terminalTimestamp;
-    }
-
-    public void setmTaskType(int taskType) {
-        mTaskType = taskType;
-    }
-
-    public void setmTaskLevel(int taskLevel) {
-        mTaskLevel = taskLevel;
-    }
-
-    public void setmTaskProcess(int taskProcess) {
-        mTaskProcess = taskProcess;
-    }
-
-    public void setmTaskCustomLevel(int taskCustomLevel) {
-        mTaskCustomLevel = taskCustomLevel;
-    }
-
-    public long getmDeadline() {
-        return mDeadline;
-    }
-
-    public void setmDeadline(long mDeadline) {
-        this.mDeadline = mDeadline;
-    }
-
-    public String getmTaskID() {
+    public String getTaskID() {
         return mTaskID;
     }
 
@@ -67,27 +32,75 @@ public class Task extends RealmObject implements Serializable {
         return mTaskName;
     }
 
-    public long getmBeginTimestamp() {
+    public long getBeginTimestamp() {
         return mBeginTimestamp;
     }
 
-    public long getmTerminalTimestamp() {
+    public long getTerminalTimestamp() {
         return mTerminalTimestamp;
     }
 
-    public int getmTaskType() {
+    public double getDuration() {
+        return mDuration;
+    }
+
+    public long getDeadline() {
+        return mDeadline;
+    }
+
+    public int getTaskType() {
         return mTaskType;
     }
 
-    public int getmTaskLevel() {
+    public int getTaskLevel() {
         return mTaskLevel;
     }
 
-    public int getmTaskProcess() {
+    public int getTaskProcess() {
         return mTaskProcess;
     }
 
-    public int getmTaskCustomLevel() {
+    public int getTaskCustomLevel() {
         return mTaskCustomLevel;
+    }
+
+    public void setTaskName(String taskName) {
+        mTaskName = taskName;
+    }
+
+    public void setBeginTimestamp(long beginTimestamp) {
+        mBeginTimestamp = beginTimestamp;
+    }
+
+    public void setTerminalTimestamp(long terminalTimestamp) {
+        mTerminalTimestamp = terminalTimestamp;
+    }
+
+    public void setDuration(double duration) {
+        mDuration = duration;
+    }
+
+    public void setDeadline(long deadline) {
+        mDeadline = deadline;
+    }
+
+    public void setTaskType(int taskType) {
+        mTaskType = taskType;
+    }
+
+    public void setTaskLevel(int taskLevel) {
+        mTaskLevel = taskLevel;
+    }
+
+    public void setTaskProcess(int taskProcess) {
+        mTaskProcess = taskProcess;
+    }
+
+    public void setTaskCustomLevel(int taskCustomLevel) {
+        mTaskCustomLevel = taskCustomLevel;
+    }
+
+    public void setUserID(String userID) {
+        mUserID = userID;
     }
 }

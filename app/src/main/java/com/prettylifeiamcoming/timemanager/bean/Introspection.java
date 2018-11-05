@@ -8,33 +8,37 @@ import io.realm.annotations.PrimaryKey;
 
 public class Introspection extends RealmObject implements Serializable {
     @PrimaryKey
-    private String mIntrospectionID;
-    private String mIntrospectionMyself;
-    private int mIntrospectionType;
+    private String mIntrospectionID;           //反省ID
+    private String mIntrospectionMyself;       //自我反省的内容
+    private int mIntrospectionType;            //反省的类型，根据任务中进行分配类别，用switch匹配类型，（1,2,3）对应（日省，月省，年省）
     private long mTimestamp;             //后期获取时间戳当完成界面逻辑时具体跟进
-    private String mUserId;
+    private String mUserID;
 
     public Introspection(){
         mIntrospectionID = UUID.randomUUID().toString();
     }
 
-    public void setmIntrospectionMyself(String introspectionMyself) {
-        mIntrospectionMyself = introspectionMyself;
-    }
-
-    public String getmIntrospectionID() {
+    public String getIntrospectionID() {
         return mIntrospectionID;
     }
 
-    public String getmIntrospectionMyself() {
+    public String getIntrospectionMyself() {
         return mIntrospectionMyself;
     }
 
-    public int getmIntrospectionType() {
+    public int getIntrospectionType() {
         return mIntrospectionType;
     }
 
-    public long getmTimestamp() {
+    public long getTimestamp() {
         return mTimestamp;
+    }
+
+    public void setIntrospectionMyself(String introspectionMyself) {
+        mIntrospectionMyself = introspectionMyself;
+    }
+
+    public void setUserID(String userID) {
+        mUserID = userID;
     }
 }

@@ -13,6 +13,7 @@
         android:layout_marginLeft="48dp"
         android:layout_marginTop="48dp"
         android:text="任务名称"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -23,7 +24,9 @@
         android:layout_marginTop="48dp"
         android:layout_marginEnd="48dp"
         android:layout_marginRight="48dp"
-        android:text="2018.12.01"
+        android:text="2018.12.01/00:00"
+        android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -34,7 +37,7 @@
         android:layout_marginStart="48dp"
         android:layout_marginLeft="48dp"
         android:layout_marginTop="48dp"
-        android:text="学习"
+        android:text="任务类型"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fragment_task_table_name" />
 
