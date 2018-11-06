@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">日晷</string>
 
+    <!-- MainActivity -->
     <!-- toolbar_main -->
     <string name="toolbar_main_menu">菜单</string>
     <string name="toolbar_main_title">日晷</string>
@@ -22,7 +23,9 @@
     <string name="nav_menu_task_completed_table">已完成任务表</string>
     <string name="nav_menu_schedule_completed_table">已完成日程表</string>
     <!-- nav_menu -->
+    <!-- MainActivity -->
 
+    <!-- LoginActivity -->
     <!-- Strings related to login -->
     <string name="prompt_email">手机号码</string>
     <string name="prompt_password">密码</string>
@@ -35,12 +38,54 @@
     <string name="error_field_required">此字段必填</string>
     <string name="permission_rationale">提供EMAIL完成所需的联系人权限。</string>
     <!-- Strings related to login -->
+    <!-- LoginActivity -->
 
     <!-- TaskTableActivity -->
-    <string name="task_table_title">任务表</string>
+    <!-- TaskTableToolbar -->
+    <string name="task_table_toolbar_return">日晷</string>
+    <string name="task_table_toolbar_title">任务表</string>
+    <string name="task_table_toolbar_add">添加任务</string>
+    <string name="task_table_toolbar_delete">删除任务</string>
+    <!-- TaskTableToolbar -->
     <!-- TaskTableActivity -->
 
-    <!-- TaskScheduleActivity -->
-    <string name="schedule_table_title">日程表</string>
-    <!-- TaskScheduleActivity -->
+    <!-- ScheduleActivity -->
+    <!-- ScheduleTableToolbar -->
+    <string name="schedule_table_toolbar_return">日晷</string>
+    <string name="schedule_table_toolbar_title">日程表</string>
+    <string name="schedule_table_toolbar_add">添加日程</string>
+    <string name="schedule_table_toolbar_delete">删除日程</string>
+    <!-- ScheduleTableToolbar -->
+    <!-- ScheduleActivity -->
+
+    <!-- AddTaskActivity -->
+    <!-- AddTaskToolbar -->
+    <string name="add_task_toolbar_title">任务添加</string>
+    <string name="add_task_toolbar_return">任务表</string>
+    <!-- AddTaskToolbar -->
+
+    <string name="add_task_name">任务名称</string>
+    <string name="add_task_begin_time">起始时间</string>
+    <string name="add_task_terminal_time">终止时间</string>
+    <string name="add_task_type">任务类型</string>
+    <string name="add_task_level">任务级别</string>
+    <string name="add_task_custom_level">自定义级别</string>
+    <string name="add_task_deadline">截止时间</string>
+    <string name="add_task_ok">确定</string>
+    <string name="add_task_cancel">取消</string>
+    <string name="add_task_name_edittext">任务名称</string>
+    <string name="add_task_begin_time_edittext">时间格式为:1997.00.00/00:00</string>
+    <string name="add_task_terminal_time_edittext">时间格式为:1997.00.00/00:00</string>
+    <string name="add_task_type_edittext">填写整数：1为学习，2为工作，3为其他</string>
+    <string name="add_task_level_edittext">四象限级别，1,2,3,4</string>
+    <string name="add_task_custom_level_edittext">自己定义任务级别</string>
+    <string name="add_task_deadline_edittext">时间格式为:1997.00.00</string>
+    <!-- AddTaskActivity -->
+
+    <!-- AddScheduleActivity -->
+    <!-- AddScheduleToolbar -->
+    <string name="add_schedule_toolbar_title">日程添加</string>
+    <string name="add_schedule_toolbar_return">日程表</string>
+    <!-- AddScheduleToolbar -->
+    <!-- AddScheduleActivity -->
 </resources>

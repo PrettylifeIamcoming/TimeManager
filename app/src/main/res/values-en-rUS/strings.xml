@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">TimeManager</string>
 
+    <!-- MainActivity -->
     <!-- toolbar_main -->
     <string name="toolbar_main_menu">Menu</string>
     <string name="toolbar_main_title">Sundial</string>
@@ -22,7 +23,9 @@
     <string name="nav_menu_task_completed_table">Completed Task</string>
     <string name="nav_menu_schedule_completed_table">Completed Schedule</string>
     <!-- nav_menu -->
+    <!-- MainActivity -->
 
+    <!-- LoginActivity -->
     <!-- Strings related to login -->
     <string name="prompt_email">Telephone Number</string>
     <string name="prompt_password">Password (optional)</string>
@@ -35,12 +38,54 @@
     <string name="error_field_required">This field is required</string>
     <string name="permission_rationale">"Contacts permissions are needed for providing emailcompletions."</string>
     <!-- Strings related to login -->
+    <!-- LoginActivity -->
 
     <!-- TaskTableActivity -->
-    <string name="task_table_title">Task Table</string>
+    <!-- TaskToolbarToolbar -->
+    <string name="task_table_toolbar_return">Signal</string>
+    <string name="task_table_toolbar_title">Task Table</string>
+    <string name="task_table_toolbar_add">Add Task</string>
+    <string name="task_table_toolbar_delete">Delete Task</string>
+    <!-- TaskToolbarToolbar -->
     <!-- TaskTableActivity -->
 
-    <!-- TaskScheduleActivity -->
-    <string name="schedule_table_title">Schedule Table</string>
-    <!-- TaskScheduleActivity -->
+    <!-- ScheduleActivity -->
+    <!-- ScheduleTableToolbar -->
+    <string name="schedule_table_toolbar_return">Signal</string>
+    <string name="schedule_table_toolbar_title">Schedule Table</string>
+    <string name="schedule_table_toolbar_add">Add Schedule</string>
+    <string name="schedule_table_toolbar_delete">Delete Schedule</string>
+    <!-- ScheduleTableToolbar -->
+    <!-- ScheduleActivity -->
+
+    <!-- AddTaskActivity -->
+    <!-- AddTaskToolbar -->
+    <string name="add_task_toolbar_title">Add Task</string>
+    <string name="add_task_toolbar_return">Task Table</string>
+    <!-- AddTaskToolbar -->
+
+    <string name="add_task_name">Task Name</string>
+    <string name="add_task_begin_time">Begin Time</string>
+    <string name="add_task_terminal_time">Terminal Time</string>
+    <string name="add_task_type">Task Type</string>
+    <string name="add_task_level">Task Level</string>
+    <string name="add_task_custom_level">Custom Level</string>
+    <string name="add_task_deadline">Deadline</string>
+    <string name="add_task_ok">ok</string>
+    <string name="add_task_cancel">cancel</string>
+    <string name="add_task_name_edittext">Task Name</string>
+    <string name="add_task_begin_time_edittext">Time Format:1997.00.00/00:00</string>
+    <string name="add_task_terminal_time_edittext">Time Format:1997.00.00/00:00</string>
+    <string name="add_task_type_edittext">Int：1.study，2.work，3.others</string>
+    <string name="add_task_level_edittext">Four Quadrant Level，1,2,3,4</string>
+    <string name="add_task_custom_level_edittext">CustomLevel</string>
+    <string name="add_task_deadline_edittext">Time Format:1997.00.00</string>
+    <!-- AddTaskActivity -->
+
+    <!-- AddScheduleActivity -->
+    <!-- AddScheduleToolbar -->
+    <string name="add_schedule_toolbar_title">Add Schedule</string>
+    <string name="add_schedule_toolbar_return">Schedule Table</string>
+    <!-- AddScheduleToolbar -->
+    <!-- AddScheduleActivity -->
 </resources>
