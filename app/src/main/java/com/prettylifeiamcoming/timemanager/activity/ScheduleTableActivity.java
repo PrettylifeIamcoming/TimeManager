@@ -58,6 +58,8 @@ public class ScheduleTableActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.schedule_table_toolbar_add:
+                Intent intent = new Intent(ScheduleTableActivity.this, AddScheduleActivity.class);
+                startActivity(intent);
                 Toast.makeText(this, "You clicked Add Schedule", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.schedule_table_toolbar_delete:

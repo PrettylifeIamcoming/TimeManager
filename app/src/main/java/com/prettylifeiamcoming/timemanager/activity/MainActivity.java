@@ -28,9 +28,7 @@ import androidx.fragment.app.FragmentManager;
 public class MainActivity extends AppCompatActivity {
 
     private DrawerLayout mDrawerLayout;
-
     private TextView mTextView;
-
     private BottomNavigationView navigation;
 
     private Date date;
@@ -161,18 +159,25 @@ public class MainActivity extends AppCompatActivity {
     //toolbar菜单栏按钮监控
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        Intent intent;
         switch (item.getItemId()) {
             case android.R.id.home:
                 mDrawerLayout.openDrawer(GravityCompat.START);
                 break;
             case R.id.toolbar_main_task:
                 Toast.makeText(this, "You clicked Add Task", Toast.LENGTH_SHORT).show();
+                intent = new Intent(MainActivity.this, AddTaskActivity.class);
+                startActivity(intent);
                 break;
             case R.id.toolbar_main_schedule:
                 Toast.makeText(this, "You clicked Add Schedule", Toast.LENGTH_SHORT).show();
+                intent = new Intent(MainActivity.this, AddScheduleActivity.class);
+                startActivity(intent);
                 break;
             case R.id.toolbar_main_add:
                 Toast.makeText(this, "You clicked Add Today Task", Toast.LENGTH_SHORT).show();
+                intent = new Intent(MainActivity.this, TaskTableActivity.class);
+                startActivity(intent);
                 break;
             default:
         }

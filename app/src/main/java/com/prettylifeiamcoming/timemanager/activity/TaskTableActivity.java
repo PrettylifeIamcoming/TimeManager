@@ -58,6 +58,8 @@ public class TaskTableActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.task_table_toolbar_add:
+                Intent intent = new Intent(TaskTableActivity.this, AddTaskActivity.class);
+                startActivity(intent);
                 Toast.makeText(this, "You clicked Add Task", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.task_table_toolbar_delete:

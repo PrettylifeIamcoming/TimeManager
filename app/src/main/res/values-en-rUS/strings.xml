@@ -71,15 +71,15 @@
     <string name="add_task_level">Task Level</string>
     <string name="add_task_custom_level">Custom Level</string>
     <string name="add_task_deadline">Deadline</string>
-    <string name="add_task_ok">ok</string>
-    <string name="add_task_cancel">cancel</string>
+    <string name="add_task_ok">OK</string>
+    <string name="add_task_cancel">Cancel</string>
     <string name="add_task_name_edittext">Task Name</string>
-    <string name="add_task_begin_time_edittext">Time Format:1997.00.00/00:00</string>
-    <string name="add_task_terminal_time_edittext">Time Format:1997.00.00/00:00</string>
+    <string name="add_task_begin_time_edittext">1997.00.00/00:00</string>
+    <string name="add_task_terminal_time_edittext">1997.00.00/00:00</string>
     <string name="add_task_type_edittext">Int：1.study，2.work，3.others</string>
-    <string name="add_task_level_edittext">Four Quadrant Level，1,2,3,4</string>
+    <string name="add_task_level_edittext">Four Quadrant Level:1,2,3,4</string>
     <string name="add_task_custom_level_edittext">CustomLevel</string>
-    <string name="add_task_deadline_edittext">Time Format:1997.00.00</string>
+    <string name="add_task_deadline_edittext">1997.00.00</string>
     <!-- AddTaskActivity -->
 
     <!-- AddScheduleActivity -->
@@ -87,5 +87,16 @@
     <string name="add_schedule_toolbar_title">Add Schedule</string>
     <string name="add_schedule_toolbar_return">Schedule Table</string>
     <!-- AddScheduleToolbar -->
+
+    <string name="add_schedule_name">Schedule Name</string>
+    <string name="add_schedule_begin_time">Begin Time</string>
+    <string name="add_schedule_terminal_time">Terminal Time</string>
+    <string name="add_schedule_type">Schedule Type</string>
+    <string name="add_schedule_ok">OK</string>
+    <string name="add_schedule_cancel">Cancel</string>
+    <string name="add_schedule_name_edittext">Schedule Name</string>
+    <string name="add_schedule_begin_time_edittext">1997.00.00/00:00</string>
+    <string name="add_schedule_terminal_time_edittext">1997.00.00/00:00</string>
+    <string name="add_schedule_type_edittext">Int：1.study，2.work，3.others</string>
     <!-- AddScheduleActivity -->
 </resources>

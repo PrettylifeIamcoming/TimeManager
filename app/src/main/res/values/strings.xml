@@ -74,12 +74,12 @@
     <string name="add_task_ok">确定</string>
     <string name="add_task_cancel">取消</string>
     <string name="add_task_name_edittext">任务名称</string>
-    <string name="add_task_begin_time_edittext">时间格式为:1997.00.00/00:00</string>
-    <string name="add_task_terminal_time_edittext">时间格式为:1997.00.00/00:00</string>
-    <string name="add_task_type_edittext">填写整数：1为学习，2为工作，3为其他</string>
-    <string name="add_task_level_edittext">四象限级别，1,2,3,4</string>
+    <string name="add_task_begin_time_edittext">1997.00.00/00:00</string>
+    <string name="add_task_terminal_time_edittext">1997.00.00/00:00</string>
+    <string name="add_task_type_edittext">1.学习，2.工作，3.其他</string>
+    <string name="add_task_level_edittext">四象限级别:1,2,3,4</string>
     <string name="add_task_custom_level_edittext">自己定义任务级别</string>
-    <string name="add_task_deadline_edittext">时间格式为:1997.00.00</string>
+    <string name="add_task_deadline_edittext">1997.00.00</string>
     <!-- AddTaskActivity -->
 
     <!-- AddScheduleActivity -->
@@ -87,5 +87,16 @@
     <string name="add_schedule_toolbar_title">日程添加</string>
     <string name="add_schedule_toolbar_return">日程表</string>
     <!-- AddScheduleToolbar -->
+
+    <string name="add_schedule_name">日程名称</string>
+    <string name="add_schedule_begin_time">起始时间</string>
+    <string name="add_schedule_terminal_time">终止时间</string>
+    <string name="add_schedule_type">日程类型</string>
+    <string name="add_schedule_ok">确定</string>
+    <string name="add_schedule_cancel">取消</string>
+    <string name="add_schedule_name_edittext">日程名称</string>
+    <string name="add_schedule_begin_time_edittext">1997.00.00/00:00</string>
+    <string name="add_schedule_terminal_time_edittext">1997.00.00/00:00</string>
+    <string name="add_schedule_type_edittext">1.学习，2.工作，3.其他</string>
     <!-- AddScheduleActivity -->
 </resources>
