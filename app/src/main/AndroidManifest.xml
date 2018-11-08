@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.prettylifeiamcoming.timemanager">
-
     <application
         android:name=".Sundial"
         android:allowBackup="true"
@@ -38,6 +37,17 @@
             android:name=".activity.AddScheduleActivity"
             android:label="@string/add_schedule_toolbar_title">
         </activity>
+        <activity
+            android:name=".activity.DailyIntrospectionActivity"
+            android:label="@string/daily_introspection_toolbar_title">
+        </activity>
+        <activity
+            android:name=".activity.CompletedTaskTableActivity"
+            android:label="@string/completed_task_table_toolbar_title">
+        </activity>
+        <activity
+            android:name=".activity.CompletedScheduleTableActivity"
+            android:label="@string/completed_schedule_table_toolbar_title">
+        </activity>
     </application>
-
 </manifest>

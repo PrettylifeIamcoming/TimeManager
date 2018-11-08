@@ -99,14 +99,20 @@ public class MainActivity extends AppCompatActivity {
                         mDrawerLayout.closeDrawers();
                         break;
                     case R.id.nav_menu_daily_introspection_table:
+                        intent = new Intent(MainActivity.this, DailyIntrospectionActivity.class);
+                        startActivity(intent);
                         test(2);
                         mDrawerLayout.closeDrawers();
                         break;
                     case R.id.nav_menu_task_completed_table:
+                        intent = new Intent(MainActivity.this, CompletedTaskTableActivity.class);
+                        startActivity(intent);
                         test(3);
                         mDrawerLayout.closeDrawers();
                         break;
                     case R.id.nav_menu_schedule_completed_table:
+                        intent = new Intent(MainActivity.this, CompletedScheduleTableActivity.class);
+                        startActivity(intent);
                         test(4);
                         mDrawerLayout.closeDrawers();
                         break;

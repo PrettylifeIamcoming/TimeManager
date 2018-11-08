@@ -49,14 +49,14 @@
     <!-- TaskTableToolbar -->
     <!-- TaskTableActivity -->
 
-    <!-- ScheduleActivity -->
+    <!-- ScheduleTableActivity -->
     <!-- ScheduleTableToolbar -->
     <string name="schedule_table_toolbar_return">日晷</string>
     <string name="schedule_table_toolbar_title">日程表</string>
     <string name="schedule_table_toolbar_add">添加日程</string>
     <string name="schedule_table_toolbar_delete">删除日程</string>
     <!-- ScheduleTableToolbar -->
-    <!-- ScheduleActivity -->
+    <!-- ScheduleTableActivity -->
 
     <!-- AddTaskActivity -->
     <!-- AddTaskToolbar -->
@@ -99,4 +99,27 @@
     <string name="add_schedule_terminal_time_edittext">1997.00.00/00:00</string>
     <string name="add_schedule_type_edittext">1.学习，2.工作，3.其他</string>
     <!-- AddScheduleActivity -->
+
+    <!-- DailyIntrospectionActivity -->
+    <!-- DailyIntrospectionToolbar -->
+    <string name="daily_introspection_toolbar_return">日晷</string>
+    <string name="daily_introspection_toolbar_title">日省表</string>
+    <!-- DailyIntrospectionToolbar -->
+    <!-- DailyIntrospectionActivity -->
+
+    <!-- CompletedTaskTableActivity -->
+    <!-- CompletedTaskTableToolbar -->
+    <string name="completed_task_table_toolbar_return">日晷</string>
+    <string name="completed_task_table_toolbar_title">已完成任务表</string>
+    <!-- CompletedTaskTableToolbar -->
+    <!-- CompletedTaskTableActivity -->
+
+    <!-- CompletedScheduleTableActivity -->
+    <!-- CompletedScheduleTableToolbar -->
+    <string name="completed_schedule_table_toolbar_return">日晷</string>
+    <string name="completed_schedule_table_toolbar_title">已完成日程表</string>
+    <!-- CompletedScheduleTableToolbar -->
+    <!-- CompletedScheduleTableActivity -->
+
+
 </resources>

@@ -76,8 +76,8 @@
     <string name="add_task_name_edittext">Task Name</string>
     <string name="add_task_begin_time_edittext">1997.00.00/00:00</string>
     <string name="add_task_terminal_time_edittext">1997.00.00/00:00</string>
-    <string name="add_task_type_edittext">Int：1.study，2.work，3.others</string>
-    <string name="add_task_level_edittext">Four Quadrant Level:1,2,3,4</string>
+    <string name="add_task_type_edittext">1.study,2.work,3.others</string>
+    <string name="add_task_level_edittext">1,2,3,4</string>
     <string name="add_task_custom_level_edittext">CustomLevel</string>
     <string name="add_task_deadline_edittext">1997.00.00</string>
     <!-- AddTaskActivity -->
@@ -97,6 +97,27 @@
     <string name="add_schedule_name_edittext">Schedule Name</string>
     <string name="add_schedule_begin_time_edittext">1997.00.00/00:00</string>
     <string name="add_schedule_terminal_time_edittext">1997.00.00/00:00</string>
-    <string name="add_schedule_type_edittext">Int：1.study，2.work，3.others</string>
+    <string name="add_schedule_type_edittext">1,2,3</string>
     <!-- AddScheduleActivity -->
+
+    <!-- DailyIntrospectionActivity -->
+    <!-- DailyIntrospectionToolbar -->
+    <string name="daily_introspection_toolbar_return">Signal</string>
+    <string name="daily_introspection_toolbar_title">Daily Introspection</string>
+    <!-- TDailyIntrospectionToolbar -->
+    <!-- DailyIntrospectionActivity -->
+
+    <!-- CompletedTaskTableActivity -->
+    <!-- CompletedTaskTableToolbar -->
+    <string name="completed_task_table_toolbar_return">Signal</string>
+    <string name="completed_task_table_toolbar_title">Completed Task</string>
+    <!-- CompletedTaskTableToolbar -->
+    <!-- CompletedTaskTableActivity -->
+
+    <!-- CompletedScheduleTableActivity -->
+    <!-- CompletedScheduleTableToolbar -->
+    <string name="completed_schedule_table_toolbar_return">Signal</string>
+    <string name="completed_schedule_table_toolbar_title">Completed Schedule</string>
+    <!-- CompletedScheduleTableToolbar -->
+    <!-- CompletedScheduleTableActivity -->
 </resources>
