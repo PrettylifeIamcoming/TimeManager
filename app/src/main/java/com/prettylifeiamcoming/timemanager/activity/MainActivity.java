@@ -8,11 +8,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.navigation.NavigationView;
-import com.prettylifeiamcoming.timemanager.R;
-
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
@@ -21,37 +16,69 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 
+import com.google.android.material.navigation.NavigationView;
+import com.prettylifeiamcoming.timemanager.R;
+import com.prettylifeiamcoming.timemanager.fragment.DayFragment;
+import com.prettylifeiamcoming.timemanager.fragment.MonthFragment;
+import com.prettylifeiamcoming.timemanager.fragment.YearFragment;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 
 public class MainActivity extends AppCompatActivity {
 
-    private DrawerLayout mDrawerLayout;
+    private Toolbar mToolbar;
     private TextView mTextView;
-    private BottomNavigationView navigation;
 
-    private Date date;
-    private SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd");
+    private DrawerLayout mDrawerLayout;
+    private NavigationView mNavigationView;
+    private BottomNavigationView mBottomNavigationView;
+
+    private DayFragment mDayFragment = new DayFragment();
+    private MonthFragment mMonthFragment = new MonthFragment();
+    private YearFragment mYearFragment = new YearFragment();
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            Fragment selectedFragment = null;
+            SimpleDateFormat sdf;
+            Date date = new Date();
+            String a;
             switch (item.getItemId()) {
-                case R.id.navigation_main_day:
-                    test(0);
-                    return true;
-                case R.id.navigation_main_month:
-                    test(1);
-                    return true;
-                case R.id.navigation_main_year:
-                    test(2);
-                    return true;
+                case R.id.bottom_main_day:
+                    mTextView = findViewById(R.id.toolbar_time);
+                    sdf = new SimpleDateFormat("yyyy.MM.dd");
+                    a = sdf.format(date);
+                    mTextView.setText(a);
+                    invalidateOptionsMenu();
+                    selectedFragment = mDayFragment;
+                    break;
+                case R.id.bottom_main_month:
+                    sdf = new SimpleDateFormat("yyyy.MM");
+                    mTextView = findViewById(R.id.toolbar_time);
+                    a = sdf.format(date);
+                    mTextView.setText(a);
+                    invalidateOptionsMenu();
+                    selectedFragment = mMonthFragment;
+                    break;
+                case R.id.bottom_main_year:
+                    sdf = new SimpleDateFormat("yyyy");
+                    mTextView = findViewById(R.id.toolbar_time);
+                    a = sdf.format(date);
+                    mTextView.setText(a);
+                    invalidateOptionsMenu();
+                    selectedFragment = mYearFragment;
+                    break;
             }
-            return false;
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
+            return true;
         }
+
     };
 
     @Override
@@ -59,18 +86,18 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //底部导航栏
-        navigation = findViewById(R.id.navigation);
-        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-
-        //设置toolbar
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        toolbar.setTitle("");
-        setSupportActionBar(toolbar);
-        mDrawerLayout = findViewById(R.id.drawer_layout);
-        mTextView = findViewById(R.id.toolbar_main_time);
-        date = new Date();
-        String a = sdf.format(date);
+        /**
+         * 设置toolbar_day,toolbar_month,toolbar_year
+         */
+        mToolbar =findViewById(R.id.toolbar_main);
+        mToolbar.setTitle("");
+        setSupportActionBar(mToolbar);
+        mTextView = findViewById(R.id.toolbar_time);
+        SimpleDateFormat sdf;
+        Date date = new Date();
+        String a;
+        sdf = new SimpleDateFormat("yyyy.MM.dd");
+        a = sdf.format(date);
         mTextView.setText(a);
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
@@ -78,10 +105,13 @@ public class MainActivity extends AppCompatActivity {
             actionBar.setHomeAsUpIndicator(R.drawable.ic_menu);
         }
 
-        //设置菜单栏
-        NavigationView navView = findViewById(R.id.nav_view);
-        navView.setCheckedItem(R.id.nav_menu_task_table);
-        navView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+        /**
+         * DrawerLayout和NavigationView
+         */
+        mDrawerLayout = findViewById(R.id.drawer_layout);
+        mNavigationView = findViewById(R.id.nav_view);
+        mNavigationView.setCheckedItem(R.id.nav_menu_task_table);
+        mNavigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 Intent intent;
@@ -124,18 +154,70 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        //fragment管理
-        FragmentManager fm = getSupportFragmentManager();
-        Fragment fragment = fm.findFragmentById(R.id.fragment_container);
-
-        if (fragment == null){
-
-        }
+        /**
+         * 底部导航栏
+         */
+        mBottomNavigationView = findViewById(R.id.bottom_navigation);
+        mBottomNavigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, mDayFragment).commit();
     }
 
-    //toolbar菜单填充
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.toolbar, menu);
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        // 动态设置ToolBar状态
+        switch (mBottomNavigationView.getSelectedItemId()) {
+            case R.id.bottom_main_day:
+                getMenuInflater().inflate(R.menu.toolbar_day, menu);
+                Toast.makeText(this,"day",Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.bottom_main_month:
+                getMenuInflater().inflate(R.menu.toolbar_month, menu);
+                Toast.makeText(this,"month",Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.bottom_main_year:
+                getMenuInflater().inflate(R.menu.toolbar_year, menu);
+                Toast.makeText(this,"year",Toast.LENGTH_SHORT).show();
+                break;
+        }
+        return true;
+    }
+
+    //toolbar菜单栏按钮监控
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Intent intent;
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                mDrawerLayout.openDrawer(GravityCompat.START);
+                break;
+            case R.id.toolbar_day_task:
+                Toast.makeText(this, "You clicked Add Task", Toast.LENGTH_SHORT).show();
+                intent = new Intent(MainActivity.this, AddTaskActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.toolbar_day_schedule:
+                Toast.makeText(this, "You clicked Add Schedule", Toast.LENGTH_SHORT).show();
+                intent = new Intent(MainActivity.this, AddScheduleActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.toolbar_day_add:
+                Toast.makeText(this, "You clicked Add Today Task", Toast.LENGTH_SHORT).show();
+                intent = new Intent(MainActivity.this, TaskTableActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.toolbar_month_add:
+                Toast.makeText(this,"You clicked Add Month Plan",Toast.LENGTH_LONG).show();
+                break;
+            case R.id.toolbar_month_delete:
+                Toast.makeText(this,"You clicked Delete Month Plan",Toast.LENGTH_LONG).show();
+                break;
+            case R.id.toolbar_year_add:
+                Toast.makeText(this,"You clicked Add Year Plan",Toast.LENGTH_LONG).show();
+                break;
+            case R.id.toolbar_year_delete:
+                Toast.makeText(this,"You clicked Delete Year Plan",Toast.LENGTH_LONG).show();
+                break;
+        }
         return true;
     }
 
@@ -160,33 +242,5 @@ public class MainActivity extends AppCompatActivity {
             default:
                 break;
         }
-    }
-
-    //toolbar菜单栏按钮监控
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        Intent intent;
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                mDrawerLayout.openDrawer(GravityCompat.START);
-                break;
-            case R.id.toolbar_main_task:
-                Toast.makeText(this, "You clicked Add Task", Toast.LENGTH_SHORT).show();
-                intent = new Intent(MainActivity.this, AddTaskActivity.class);
-                startActivity(intent);
-                break;
-            case R.id.toolbar_main_schedule:
-                Toast.makeText(this, "You clicked Add Schedule", Toast.LENGTH_SHORT).show();
-                intent = new Intent(MainActivity.this, AddScheduleActivity.class);
-                startActivity(intent);
-                break;
-            case R.id.toolbar_main_add:
-                Toast.makeText(this, "You clicked Add Today Task", Toast.LENGTH_SHORT).show();
-                intent = new Intent(MainActivity.this, TaskTableActivity.class);
-                startActivity(intent);
-                break;
-            default:
-        }
-        return true;
     }
 }

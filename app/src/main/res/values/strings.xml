@@ -2,13 +2,25 @@
     <string name="app_name">日晷</string>
 
     <!-- MainActivity -->
-    <!-- toolbar_main -->
-    <string name="toolbar_main_menu">菜单</string>
-    <string name="toolbar_main_title">日晷</string>
-    <string name="toolbar_main_task">添加任务</string>
-    <string name="toolbar_main_schedule">添加日程</string>
-    <string name="toolbar_main_add">添加今日任务</string>
-    <!-- toolbar_main -->
+    <!-- toolbar_day -->
+    <string name="toolbar_day_menu">菜单</string>
+    <string name="toolbar_day_title">日晷</string>
+    <string name="toolbar_day_task">添加任务</string>
+    <string name="toolbar_day_schedule">添加日程</string>
+    <string name="toolbar_day_add">添加今日任务</string>
+    <!-- toolbar_day -->
+
+    <!-- toolbar_month -->
+    <string name="toolbar_month_menu">菜单</string>
+    <string name="toolbar_month_add">添加月计划</string>
+    <string name="toolbar_month_delete">删除月计划</string>
+    <!-- toolbar_month -->
+
+    <!-- toolbar_year -->
+    <string name="toolbar_year_menu">菜单</string>
+    <string name="toolbar_year_add">添加年计划</string>
+    <string name="toolbar_year_delete">删除年计划</string>
+    <!-- toolbar_year -->
 
     <!-- navigation_main -->
     <string name="navigation_main_year">年</string>

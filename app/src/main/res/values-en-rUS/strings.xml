@@ -2,13 +2,25 @@
     <string name="app_name">TimeManager</string>
 
     <!-- MainActivity -->
-    <!-- toolbar_main -->
-    <string name="toolbar_main_menu">Menu</string>
-    <string name="toolbar_main_title">Sundial</string>
-    <string name="toolbar_main_task">Add Task</string>
-    <string name="toolbar_main_schedule">Add Schedule</string>
-    <string name="toolbar_main_add">Add Today Task</string>
-    <!-- toolbar_main -->
+    <!-- toolbar_day -->
+    <string name="toolbar_day_menu">Menu</string>
+    <string name="toolbar_day_title">Sundial</string>
+    <string name="toolbar_day_task">Add Task</string>
+    <string name="toolbar_day_schedule">Add Schedule</string>
+    <string name="toolbar_day_add">Add Today Task</string>
+    <!-- toolbar_day -->
+
+    <!-- toolbar_month -->
+    <string name="toolbar_month_menu">Menu</string>
+    <string name="toolbar_month_add">Add Month Plan</string>
+    <string name="toolbar_month_delete">Delete Month Plan</string>
+    <!-- toolbar_month -->
+
+    <!-- toolbar_year -->
+    <string name="toolbar_year_menu">Menu</string>
+    <string name="toolbar_year_add">Add Year Plan</string>
+    <string name="toolbar_year_delete">Delete Year Plan</string>
+    <!-- toolbar_year -->
 
     <!-- navigation_main -->
     <string name="navigation_main_year">Year</string>
@@ -19,7 +31,7 @@
     <!-- nav_menu -->
     <string name="nav_menu_task_table">Task Table</string>
     <string name="nav_menu_schedule_table">Schedule Table</string>
-    <string name="nav_menu_daily_introspection_table">Daily Introspect</string>
+    <string name="nav_menu_daily_introspection_table">Daily Introspection</string>
     <string name="nav_menu_task_completed_table">Completed Task</string>
     <string name="nav_menu_schedule_completed_table">Completed Schedule</string>
     <!-- nav_menu -->
