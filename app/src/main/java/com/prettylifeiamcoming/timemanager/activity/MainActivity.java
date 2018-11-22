@@ -239,8 +239,6 @@ public class MainActivity extends AppCompatActivity {
             case 4:
                 Toast.makeText(this, "You clicked Schedule Competed Table", Toast.LENGTH_SHORT).show();
                 break;
-            default:
-                break;
         }
     }
 }

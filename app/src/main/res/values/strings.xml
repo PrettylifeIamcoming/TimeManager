@@ -91,7 +91,17 @@
     <string name="add_task_type_edittext">1.学习，2.工作，3.其他</string>
     <string name="add_task_level_edittext">四象限级别:1,2,3,4</string>
     <string name="add_task_custom_level_edittext">自己定义任务级别</string>
-    <string name="add_task_deadline_edittext">1997.00.00</string>
+    <string name="add_task_deadline_edittext">1997.00.00/00:00</string>
+    <string name="add_task_study">学习</string>
+    <string name="add_task_social">社交</string>
+    <string name="add_task_work">工作</string>
+    <string name="add_task_play">娱乐</string>
+    <string name="add_task_sleep">睡觉</string>
+    <string name="add_task_others">其它</string>
+    <string name="add_task_level_first">第一象限级</string>
+    <string name="add_task_level_second">第二象限级</string>
+    <string name="add_task_level_third">第三象限级</string>
+    <string name="add_task_level_fourth">第四象限级</string>
     <!-- AddTaskActivity -->
 
     <!-- AddScheduleActivity -->

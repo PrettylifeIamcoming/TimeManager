@@ -92,15 +92,25 @@
     <string name="add_task_level_edittext">1,2,3,4</string>
     <string name="add_task_custom_level_edittext">CustomLevel</string>
     <string name="add_task_deadline_edittext">1997.00.00</string>
+    <string name="add_task_study">Study</string>
+    <string name="add_task_social">Social</string>
+    <string name="add_task_work">Work</string>
+    <string name="add_task_play">Play</string>
+    <string name="add_task_sleep">Sleep</string>
+    <string name="add_task_others">Others</string>
+    <string name="add_task_level_first">First Quadrant Level</string>
+    <string name="add_task_level_second">Second Quadrant Level</string>
+    <string name="add_task_level_third">Third Quadrant Level</string>
+    <string name="add_task_level_fourth">Fourth Quadrant Level</string>
     <!-- AddTaskActivity -->
 
     <!-- AddScheduleActivity -->
     <!-- AddScheduleToolbar -->
     <string name="add_schedule_toolbar_title">Add Schedule</string>
-    <string name="add_schedule_toolbar_return">Schedule Table</string>
+    <string name="add_schedule_toolbar_return">Schedule</string>
     <!-- AddScheduleToolbar -->
 
-    <string name="add_schedule_name">Schedule Name</string>
+    <string name="add_schedule_name">Name</string>
     <string name="add_schedule_begin_time">Begin Time</string>
     <string name="add_schedule_terminal_time">Terminal Time</string>
     <string name="add_schedule_type">Schedule Type</string>
