@@ -1,6 +1,7 @@
 package com.prettylifeiamcoming.timemanager.activity;
 
 import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -16,6 +17,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.prettylifeiamcoming.timemanager.R;
@@ -81,11 +83,11 @@ public class AddTaskActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Date date = new Date();
-                DateFormat fmt = new SimpleDateFormat("yyyy.MM.dd");
+                DateFormat fmt = new SimpleDateFormat("yyyy.MM.dd/kk:mm");
                 //判断输入是否有误
-                if (TextUtils.isEmpty(mEditText1.getText().toString())){                 //任务名称不能为空
+                if (TextUtils.isEmpty(mEditText1.getText().toString())) {                 //任务名称不能为空
                     hint(1);
-                }else {
+                } else {
                     if (TextUtils.isEmpty(mEditText2.getText().toString())) {            //日期不能为空
                         hint(2);
                     } else {
@@ -93,10 +95,10 @@ public class AddTaskActivity extends AppCompatActivity {
                         try {
                             f = fmt.parse(mEditText2.getText().toString()).getTime();
                             h = fmt.parse(fmt.format(new Date())).getTime();
-                        }catch (ParseException e){
+                        } catch (ParseException e) {
                             e.printStackTrace();
                         }
-                        if (f <  h){                                   //日期不能小于当前日期
+                        if (f < h) {                                   //日期不能小于当前日期
                             hint(0);
                         } else {
                             if (TextUtils.isEmpty(mEditText7.getText().toString())) {     //自定义等级不能为空
@@ -112,43 +114,43 @@ public class AddTaskActivity extends AppCompatActivity {
                                 try {
                                     date = fmt.parse(mEditText2.getText().toString());
                                     task.setDeadline(date.getTime());
-                                }catch (ParseException e){
+                                } catch (ParseException e) {
                                     e.printStackTrace();
                                 }
 
                                 //提取任务类型
                                 String a = mSpinner1.getSelectedItem().toString();
-                                if (a.equals("学习")  || a.equals("Study")){
+                                if (a.equals("学习") || a.equals("Study")) {
                                     task.setTaskType(1);
                                 }
-                                if (a.equals("社交") || a.equals("Social")){
+                                if (a.equals("社交") || a.equals("Social")) {
                                     task.setTaskType(2);
                                 }
-                                if (a.equals("工作") || a.equals("Work")){
+                                if (a.equals("工作") || a.equals("Work")) {
                                     task.setTaskType(3);
                                 }
-                                if (a.equals("娱乐") || a.equals("Play")){
+                                if (a.equals("娱乐") || a.equals("Play")) {
                                     task.setTaskType(4);
                                 }
-                                if (a.equals("睡觉") || a.equals("Sleep")){
+                                if (a.equals("睡觉") || a.equals("Sleep")) {
                                     task.setTaskType(5);
                                 }
-                                if (a.equals("其它") || a.equals("Others")){
+                                if (a.equals("其它") || a.equals("Others")) {
                                     task.setTaskType(6);
                                 }
 
                                 //提取任务四象限等级
                                 String b = mSpinner2.getSelectedItem().toString();
-                                if (b.equals("第一象限级") || b.equals("First Quadrant Level")){
+                                if (b.equals("第一象限级") || b.equals("First Quadrant Level")) {
                                     task.setTaskLevel(1);
                                 }
-                                if (b.equals("第二象限级") || b.equals("Second Quadrant Level")){
+                                if (b.equals("第二象限级") || b.equals("Second Quadrant Level")) {
                                     task.setTaskLevel(2);
                                 }
-                                if (b.equals("第三象限级") || b.equals("Third Quadrant Level")){
+                                if (b.equals("第三象限级") || b.equals("Third Quadrant Level")) {
                                     task.setTaskLevel(3);
                                 }
-                                if (b.equals("第一四象限级") || b.equals("Fourth Quadrant Level")){
+                                if (b.equals("第一四象限级") || b.equals("Fourth Quadrant Level")) {
                                     task.setTaskLevel(4);
                                 }
                                 task.setTaskCustomLevel(Integer.parseInt(mEditText7.getText().toString()));
@@ -157,6 +159,7 @@ public class AddTaskActivity extends AppCompatActivity {
 
                                 Intent intent = new Intent(AddTaskActivity.this, TaskTableActivity.class);
                                 startActivity(intent);
+                                finish();
                             }
                         }
                     }
@@ -169,6 +172,7 @@ public class AddTaskActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(AddTaskActivity.this, TaskTableActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -185,7 +189,7 @@ public class AddTaskActivity extends AppCompatActivity {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
                 // 日期对话框
-                if(hasFocus) {
+                if (hasFocus) {
                     showDatePickerDialog();
                 }
             }
@@ -196,7 +200,6 @@ public class AddTaskActivity extends AppCompatActivity {
                 showDatePickerDialog();
             }
         });
-
 
 
         //为Spinner设置内容
@@ -215,7 +218,7 @@ public class AddTaskActivity extends AppCompatActivity {
         dataList1.add(string5);
         dataList1.add(string6);
 
-        adapter1 = new ArrayAdapter<>(this,android.R.layout.simple_spinner_item,dataList1);
+        adapter1 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, dataList1);
         adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mSpinner1.setAdapter(adapter1);
         mSpinner1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -223,6 +226,7 @@ public class AddTaskActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
             }
+
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
 
@@ -240,7 +244,7 @@ public class AddTaskActivity extends AppCompatActivity {
         dataList2.add(string9);
         dataList2.add(string10);
 
-        adapter2 = new ArrayAdapter<>(this,android.R.layout.simple_spinner_item,dataList2);
+        adapter2 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, dataList2);
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mSpinner2.setAdapter(adapter2);
     }
@@ -249,32 +253,44 @@ public class AddTaskActivity extends AppCompatActivity {
      * 展示日期选择对话框
      */
     private void showDatePickerDialog() {
-        Calendar c = Calendar.getInstance();
+        Calendar calendar = Calendar.getInstance();
         new DatePickerDialog(AddTaskActivity.this, new DatePickerDialog.OnDateSetListener() {
 
             @Override
             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                String a = year+"."+(monthOfYear+1)+"."+dayOfMonth;
-                mEditText2.setText(a);
+                final String a = year + "." + (monthOfYear + 1) + "." + dayOfMonth;
+                // 时间对话框
+                new TimePickerDialog(AddTaskActivity.this, new TimePickerDialog.OnTimeSetListener() {
+                    @Override
+                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                        String b = null;
+                        if (minute < 10) {
+                            b = hourOfDay + ":0" + minute;
+                        } else {
+                            b = hourOfDay + ":" + minute;
+                        }
+                        String c = a + "/" + b;
+                        mEditText2.setText(c);
+                    }
+                }, Calendar.getInstance().get(Calendar.HOUR), Calendar.getInstance().get(Calendar.MINUTE), true).show();
             }
-        }, c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DAY_OF_MONTH)).show();
-
+        }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH)).show();
     }
 
     //测试用
-    private void hint(int i){
+    private void hint(int i) {
         switch (i) {
             case 0:
-                Toast.makeText(this, "所选日期不能小于当前日期", Toast.LENGTH_SHORT).show();
-                break;
-            case 2:
-                Toast.makeText(this, "日期不能为空", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, R.string.add_task_hint_deadline_time, Toast.LENGTH_SHORT).show();
                 break;
             case 1:
-                Toast.makeText(this, "任务名称不能为空", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, R.string.add_task_hint_name, Toast.LENGTH_SHORT).show();
+                break;
+            case 2:
+                Toast.makeText(this, R.string.add_task_hint_deadline, Toast.LENGTH_SHORT).show();
                 break;
             case 3:
-                Toast.makeText(this,"自定义等级不能为空",Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, R.string.add_task_hint_custom_level, Toast.LENGTH_SHORT).show();
                 break;
         }
     }

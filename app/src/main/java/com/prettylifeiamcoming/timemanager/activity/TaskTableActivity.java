@@ -9,14 +9,31 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.prettylifeiamcoming.timemanager.R;
+import com.prettylifeiamcoming.timemanager.adapter.TaskAdapter;
+import com.prettylifeiamcoming.timemanager.bean.Task;
+import com.prettylifeiamcoming.timemanager.db.RealmHelper;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 public class TaskTableActivity extends AppCompatActivity {
     private ImageView mImageView;
     private TextView mTextView;
+
+    private RecyclerView mRecyclerView;
+
+    private RealmHelper mRealmHelper;
+    private List<Task> mTasks = new ArrayList<>();
+    private TaskAdapter mAdapter;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +62,36 @@ public class TaskTableActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        //RecyclerView设置
+        mRecyclerView = findViewById(R.id.recycler_view_task_table);
+        mRecyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
+
+        try {
+            initData();
+        } catch (NullPointerException e) {
+            throw e;
+        }
+
+    }
+
+    //从数据库中读取数据
+    private void initData() {
+        mRealmHelper = new RealmHelper(this);
+
+        mTasks = mRealmHelper.queryAllTask();
+
+        LinearLayoutManager manager = new LinearLayoutManager(this);
+        try {
+            mRecyclerView.setLayoutManager(manager);
+        } catch (NullPointerException e) {
+            throw e;
+        }
+        mRecyclerView.setItemAnimator(new DefaultItemAnimator());
+
+        mAdapter = new TaskAdapter(this, mTasks, R.layout.item_task_table);
+        mRecyclerView.setAdapter(mAdapter);
+
     }
 
     //toolbar菜单填充

@@ -11,7 +11,7 @@ import androidx.fragment.app.Fragment;
 
 public class YearFragment extends Fragment {
 
-    public YearFragment(){
+    public YearFragment() {
 
     }
 

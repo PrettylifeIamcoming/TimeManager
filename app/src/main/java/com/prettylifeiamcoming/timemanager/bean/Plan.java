@@ -15,7 +15,7 @@ public class Plan extends RealmObject implements Serializable {
     private long mTimestamp;          //后期获取时间戳当完成界面逻辑时具体跟进
     private String mUserID;
 
-    public Plan(){
+    public Plan() {
         mPlanID = UUID.randomUUID().toString();
     }
 

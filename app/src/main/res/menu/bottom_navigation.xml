@@ -4,7 +4,7 @@
     <item
         android:id="@+id/bottom_main_day"
         android:icon="@drawable/botto_day"
-        android:title="@string/navigation_main_day"/>
+        android:title="@string/navigation_main_day" />
 
     <item
         android:id="@+id/bottom_main_month"

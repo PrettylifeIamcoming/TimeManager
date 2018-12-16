@@ -3,14 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/toolbar_month_add"
-        android:title="@string/toolbar_month_add"
         android:icon="@drawable/ic_add"
-        app:showAsAction="ifRoom"/>
+        android:title="@string/toolbar_month_add"
+        app:showAsAction="ifRoom" />
 
-    <item android:id="@+id/toolbar_month_delete"
-        android:title="@string/toolbar_month_delete"
+    <item
+        android:id="@+id/toolbar_month_delete"
         android:icon="@drawable/ic_delete"
-        app:showAsAction="always"
-        >
+        android:title="@string/toolbar_month_delete"
+        app:showAsAction="always">
     </item>
 </menu>

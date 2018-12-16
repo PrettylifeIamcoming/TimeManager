@@ -17,6 +17,7 @@
             android:id="@+id/add_schedule_toolbar_return"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:contentDescription="@string/add_schedule_toolbar_return"
             android:src="@drawable/ic_return" />
 
         <TextView
@@ -58,11 +59,40 @@
         android:layout_marginEnd="24dp"
         android:layout_marginRight="24dp"
         android:hint="@string/add_schedule_name_edittext"
+        android:inputType=""
         android:singleLine="true"
         app:layout_constraintBottom_toBottomOf="@+id/textView01"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView01"
         app:layout_constraintTop_toTopOf="@+id/textView01" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/add_schedule_place"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView01" />
+
+    <EditText
+        android:id="@+id/add_schedule_place"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:hint="@string/add_schedule_place"
+        android:inputType="text"
+        android:singleLine="true"
+        app:layout_constraintBottom_toBottomOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintTop_toTopOf="@+id/textView" />
 
     <TextView
         android:id="@+id/textView02"
@@ -74,7 +104,7 @@
         android:text="@string/add_schedule_begin_time"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView01" />
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <EditText
         android:id="@+id/add_schedule_begin_time"
@@ -84,11 +114,11 @@
         android:layout_marginLeft="24dp"
         android:layout_marginEnd="24dp"
         android:layout_marginRight="24dp"
-        android:hint="@string/add_schedule_begin_time_edittext"
+        android:focusable="false"
         android:focusableInTouchMode="true"
+        android:hint="@string/add_schedule_begin_time_edittext"
         android:inputType="none"
         android:singleLine="true"
-        android:focusable="false"
         app:layout_constraintBottom_toBottomOf="@+id/textView02"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView02"
@@ -114,11 +144,11 @@
         android:layout_marginLeft="24dp"
         android:layout_marginEnd="24dp"
         android:layout_marginRight="24dp"
+        android:focusable="false"
         android:focusableInTouchMode="true"
         android:hint="@string/add_schedule_terminal_time_edittext"
         android:inputType="none"
         android:singleLine="true"
-        android:focusable="false"
         app:layout_constraintBottom_toBottomOf="@+id/textView03"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"

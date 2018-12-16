@@ -4,21 +4,21 @@
 
     <item
         android:id="@+id/toolbar_day_add"
-        android:title="@string/toolbar_day_add"
         android:icon="@drawable/ic_add"
-        app:showAsAction="always"/>
+        android:title="@string/toolbar_day_add"
+        app:showAsAction="always" />
 
-    <item android:id="@+id/toolbar_r_img"
-        android:title="@string/toolbar_day_menu"
+    <item
+        android:id="@+id/toolbar_r_img"
         android:icon="@drawable/ic_right_menu"
-        app:showAsAction="ifRoom"
-        >
+        android:title="@string/toolbar_day_menu"
+        app:showAsAction="ifRoom">
         <menu>
             <group>
                 <item
                     android:id="@+id/toolbar_day_task"
                     android:title="@string/toolbar_day_task"
-                    app:showAsAction="never"/>
+                    app:showAsAction="never" />
                 <item
                     android:id="@+id/toolbar_day_schedule"
                     android:title="@string/toolbar_day_schedule"

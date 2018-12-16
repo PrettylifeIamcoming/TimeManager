@@ -89,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
         /**
          * 设置toolbar_day,toolbar_month,toolbar_year
          */
-        mToolbar =findViewById(R.id.toolbar_main);
+        mToolbar = findViewById(R.id.toolbar_main);
         mToolbar.setTitle("");
         setSupportActionBar(mToolbar);
         mTextView = findViewById(R.id.toolbar_time);
@@ -168,15 +168,15 @@ public class MainActivity extends AppCompatActivity {
         switch (mBottomNavigationView.getSelectedItemId()) {
             case R.id.bottom_main_day:
                 getMenuInflater().inflate(R.menu.toolbar_day, menu);
-                Toast.makeText(this,"day",Toast.LENGTH_SHORT).show();
+//                Toast.makeText(this,"day",Toast.LENGTH_SHORT).show();
                 break;
             case R.id.bottom_main_month:
                 getMenuInflater().inflate(R.menu.toolbar_month, menu);
-                Toast.makeText(this,"month",Toast.LENGTH_SHORT).show();
+//                Toast.makeText(this,"month",Toast.LENGTH_SHORT).show();
                 break;
             case R.id.bottom_main_year:
                 getMenuInflater().inflate(R.menu.toolbar_year, menu);
-                Toast.makeText(this,"year",Toast.LENGTH_SHORT).show();
+//                Toast.makeText(this,"year",Toast.LENGTH_SHORT).show();
                 break;
         }
         return true;
@@ -206,23 +206,23 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
                 break;
             case R.id.toolbar_month_add:
-                Toast.makeText(this,"You clicked Add Month Plan",Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "You clicked Add Month Plan", Toast.LENGTH_LONG).show();
                 break;
             case R.id.toolbar_month_delete:
-                Toast.makeText(this,"You clicked Delete Month Plan",Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "You clicked Delete Month Plan", Toast.LENGTH_LONG).show();
                 break;
             case R.id.toolbar_year_add:
-                Toast.makeText(this,"You clicked Add Year Plan",Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "You clicked Add Year Plan", Toast.LENGTH_LONG).show();
                 break;
             case R.id.toolbar_year_delete:
-                Toast.makeText(this,"You clicked Delete Year Plan",Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "You clicked Delete Year Plan", Toast.LENGTH_LONG).show();
                 break;
         }
         return true;
     }
 
     //测试用
-    public void test(int i){
+    public void test(int i) {
         switch (i) {
             case 0:
                 Toast.makeText(this, "You clicked Add Task", Toast.LENGTH_SHORT).show();

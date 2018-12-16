@@ -8,7 +8,10 @@ import com.prettylifeiamcoming.timemanager.bean.Schedule;
 import com.prettylifeiamcoming.timemanager.bean.Task;
 import com.prettylifeiamcoming.timemanager.bean.User;
 
+import java.util.List;
+
 import io.realm.Realm;
+import io.realm.RealmResults;
 
 public class RealmHelper {
     public static final String DB_NAME = "Sundial.realm";
@@ -18,13 +21,13 @@ public class RealmHelper {
         mRealm = Realm.getDefaultInstance();
     }
 
-    public Realm getRealm(){
+    public Realm getRealm() {
 
         return mRealm;
     }
 
-    public void close(){
-        if (mRealm!=null){
+    public void close() {
+        if (mRealm != null) {
             mRealm.close();
         }
     }
@@ -105,4 +108,23 @@ public class RealmHelper {
     /**
      * query （查）
      */
+    //查询所有任务
+    public List<Task> queryAllTask() {
+        RealmResults<Task> tasks = mRealm.where(Task.class).findAll();
+
+        //根据deadline越近排在越上面
+        tasks = tasks.sort("mDeadline");
+
+        return mRealm.copyFromRealm(tasks);
+    }
+
+    //查询所有日程
+    public List<Schedule> queryAllSchedule() {
+        RealmResults<Schedule> schedules = mRealm.where(Schedule.class).findAll();
+
+        //根据日程发生时间排序，越近越在上面
+        schedules = schedules.sort("mBeginTimestamp");
+
+        return mRealm.copyFromRealm(schedules);
+    }
 }

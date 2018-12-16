@@ -11,7 +11,7 @@ import androidx.fragment.app.Fragment;
 
 public class MonthFragment extends Fragment {
 
-    public MonthFragment(){
+    public MonthFragment() {
 
     }
 

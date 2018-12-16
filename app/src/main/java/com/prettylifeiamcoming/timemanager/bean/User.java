@@ -6,7 +6,7 @@ import java.util.UUID;
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 
-public  class User extends RealmObject implements Serializable {
+public class User extends RealmObject implements Serializable {
     @PrimaryKey
     private String mUserID;                            //用户的ID，一个人只拥有一个
     private String mUserTelephone;                     //用户的电话号码
@@ -15,7 +15,7 @@ public  class User extends RealmObject implements Serializable {
     private String mUserSignature;                     //用户的签名
     //private ImageView mUserHeadPortrait;             //后期添加
 
-    public User(){
+    public User() {
         mUserID = UUID.randomUUID().toString();
     }
 

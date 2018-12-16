@@ -14,7 +14,7 @@ public class Introspection extends RealmObject implements Serializable {
     private long mTimestamp;             //后期获取时间戳当完成界面逻辑时具体跟进
     private String mUserID;
 
-    public Introspection(){
+    public Introspection() {
         mIntrospectionID = UUID.randomUUID().toString();
     }
 

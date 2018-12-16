@@ -21,20 +21,20 @@ public class MainTaskFragment extends Fragment {
     private RadioButton mTomatoWatch;
 
     @Override
-    public void onCreate(Bundle savedInstanceState){
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mTask = new Task();
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_activity_main_task, container, false);
 
-        mBeginTime = (TextView)v.findViewById(R.id.fragment_activity_main_task_begin_time);
-        mTerminalTime = (TextView)v.findViewById(R.id.fragment_activity_main_task_terminal_time);
-        mTaskName = (TextView)v.findViewById(R.id.fragment_activity_main_task);
-        mTaskType = (TextView)v.findViewById(R.id.fragment_activity_main_task_type);
-        mTomatoWatch = (RadioButton)v.findViewById(R.id.fragment_activity_main_task_tomato_watch_choose);
+        mBeginTime = (TextView) v.findViewById(R.id.fragment_activity_main_task_begin_time);
+        mTerminalTime = (TextView) v.findViewById(R.id.fragment_activity_main_task_terminal_time);
+        mTaskName = (TextView) v.findViewById(R.id.fragment_activity_main_task);
+        mTaskType = (TextView) v.findViewById(R.id.fragment_activity_main_task_type);
+        mTomatoWatch = (RadioButton) v.findViewById(R.id.fragment_activity_main_task_tomato_watch_choose);
 
 
         return v;

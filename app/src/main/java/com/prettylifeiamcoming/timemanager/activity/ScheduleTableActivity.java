@@ -10,13 +10,31 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.prettylifeiamcoming.timemanager.R;
+import com.prettylifeiamcoming.timemanager.adapter.ScheduleAdapter;
+import com.prettylifeiamcoming.timemanager.adapter.TaskAdapter;
+import com.prettylifeiamcoming.timemanager.bean.Schedule;
+import com.prettylifeiamcoming.timemanager.bean.Task;
+import com.prettylifeiamcoming.timemanager.db.RealmHelper;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 public class ScheduleTableActivity extends AppCompatActivity {
     private ImageView mImageView;
     private TextView mTextView;
+
+    private RecyclerView mRecyclerView;
+
+    private RealmHelper mRealmHelper;
+    private List<Schedule> mSchedules = new ArrayList<>();
+    private ScheduleAdapter mAdapter;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,12 +63,41 @@ public class ScheduleTableActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        //RecyclerView设置
+        mRecyclerView = findViewById(R.id.recycler_view_schedule_table);
+        mRecyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
+
+        try {
+            initData();
+        } catch (NullPointerException e) {
+            throw e;
+        }
     }
 
     //toolbar菜单填充
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.schedule_table_toolbar, menu);
         return true;
+    }
+
+    //从数据库中读取数据
+    private void initData() {
+        mRealmHelper = new RealmHelper(this);
+
+        mSchedules = mRealmHelper.queryAllSchedule();
+
+        LinearLayoutManager manager = new LinearLayoutManager(this);
+        try {
+            mRecyclerView.setLayoutManager(manager);
+        } catch (NullPointerException e) {
+            throw e;
+        }
+        mRecyclerView.setItemAnimator(new DefaultItemAnimator());
+
+        mAdapter = new ScheduleAdapter(this, mSchedules, R.layout.item_schedule_table);
+        mRecyclerView.setAdapter(mAdapter);
+
     }
 
     //toolbar菜单栏按钮监控

@@ -10,6 +10,7 @@ public class Task extends RealmObject implements Serializable {
     @PrimaryKey
     private String mTaskID;                          //任务ID
     private String mTaskName;                        //任务名称
+    private String mTaskPlace;                       //任务地点
     private long mBeginTimestamp;                    //任务的起始时间
     private long mTerminalTimestamp;                 //任务的终止时间
     private double mDuration;                        //任务持续的时长，(mTerminalTimestamp-mBeginTimestamp),单位为小时
@@ -20,7 +21,7 @@ public class Task extends RealmObject implements Serializable {
     private int mTaskCustomLevel;                    //任务的用户自定义级别，由用户来决定，让用户来具体区分
     private String mUserID;                          // 用户ID，为从数据库中寻找用户的日程服务
 
-    public Task(){
+    public Task() {
         mTaskID = UUID.randomUUID().toString();
     }
 
@@ -30,6 +31,10 @@ public class Task extends RealmObject implements Serializable {
 
     public String getTaskName() {
         return mTaskName;
+    }
+
+    public String getmTaskPlace() {
+        return mTaskPlace;
     }
 
     public long getBeginTimestamp() {
@@ -66,6 +71,10 @@ public class Task extends RealmObject implements Serializable {
 
     public void setTaskName(String taskName) {
         mTaskName = taskName;
+    }
+
+    public void setmTaskPlace(String taskPlace) {
+        mTaskPlace = taskPlace;
     }
 
     public void setBeginTimestamp(long beginTimestamp) {

@@ -1,39 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/daily_introspection_toolbar"
+    <!--AppBarLayout解决了Toolbar被RecyclerView遮住问题-->
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="?android:attr/actionBarSize"
-        android:background="@android:color/holo_blue_dark"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        app:popupTheme="@style/OverflowMenuStyle">
+        android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/daily_introspection_toolbar_return"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_return" />
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/daily_introspection_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/actionBarSize"
+            android:background="@android:color/holo_blue_dark"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:popupTheme="@style/OverflowMenuStyle">
 
-        <TextView
-            android:id="@+id/daily_introspection_toolbar_return_word"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            android:text="@string/daily_introspection_toolbar_return"
-            android:textColor="#FFF" />
+            <ImageView
+                android:id="@+id/daily_introspection_toolbar_return"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/daily_introspection_toolbar_return"
+                android:src="@drawable/ic_return" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="@string/daily_introspection_toolbar_title"
-            android:textSize="18sp"
-            android:textColor="#FFF" />
-    </androidx.appcompat.widget.Toolbar>
+            <TextView
+                android:id="@+id/daily_introspection_toolbar_return_word"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:text="@string/daily_introspection_toolbar_return"
+                android:textColor="#FFF" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/daily_introspection_toolbar_title"
+                android:textColor="#FFF"
+                android:textSize="18sp" />
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refresh_daily_introspection"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view_daily_introspection"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="4dp"
+            android:scrollbars="vertical" />
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 </LinearLayout>

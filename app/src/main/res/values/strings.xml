@@ -77,6 +77,7 @@
     <!-- AddTaskToolbar -->
 
     <string name="add_task_name">任务名称</string>
+    <string name="add_task_place">任务地点</string>
     <string name="add_task_begin_time">起始时间</string>
     <string name="add_task_terminal_time">终止时间</string>
     <string name="add_task_type">任务类型</string>
@@ -86,6 +87,7 @@
     <string name="add_task_ok">确定</string>
     <string name="add_task_cancel">取消</string>
     <string name="add_task_name_edittext">任务名称</string>
+    <string name="add_task_place_edittext">任务地点</string>
     <string name="add_task_begin_time_edittext">1997.00.00/00:00</string>
     <string name="add_task_terminal_time_edittext">1997.00.00/00:00</string>
     <string name="add_task_type_edittext">1.学习，2.工作，3.其他</string>
@@ -102,6 +104,13 @@
     <string name="add_task_level_second">第二象限级</string>
     <string name="add_task_level_third">第三象限级</string>
     <string name="add_task_level_fourth">第四象限级</string>
+
+    <!-- AddTaskHint -->
+    <string name="add_task_hint_name">任务名称不能为空</string>
+    <string name="add_task_hint_deadline">截止日期不能为空</string>
+    <string name="add_task_hint_deadline_time">截止时间不能小于当前时间</string>
+    <string name="add_task_hint_custom_level">用户自定义等级不能为空</string>
+    <!-- AddTaskHint -->
     <!-- AddTaskActivity -->
 
     <!-- AddScheduleActivity -->
@@ -111,15 +120,27 @@
     <!-- AddScheduleToolbar -->
 
     <string name="add_schedule_name">日程名称</string>
+    <string name="add_schedule_place">日程地点</string>
     <string name="add_schedule_begin_time">起始时间</string>
     <string name="add_schedule_terminal_time">终止时间</string>
     <string name="add_schedule_type">日程类型</string>
     <string name="add_schedule_ok">确定</string>
     <string name="add_schedule_cancel">取消</string>
     <string name="add_schedule_name_edittext">日程名称</string>
+    <string name="add_schedule_place_edittext">日程地点</string>
     <string name="add_schedule_begin_time_edittext">1997.00.00/00:00</string>
     <string name="add_schedule_terminal_time_edittext">1997.00.00/00:00</string>
     <string name="add_schedule_type_edittext">1.学习，2.工作，3.其他</string>
+
+    <!-- AddScheduleHint -->
+    <string name="add_schedule_hint_name">日程名称不能为空</string>
+    <string name="add_schedule_hint_begin">起始时间不能为空</string>
+    <string name="add_schedule_hint_begin_time">起始时间不能小于当前时间</string>
+    <string name="add_schedule_hint_terminal">终止时间不能为空</string>
+    <string name="add_schedule_hint_terminal_time">终止时间不能小于当前时间</string>
+    <string name="add_schedule_hint_begin_terminal">起始时间不能小于终止时间</string>
+    <string name="add_schedule_hint_place">日程地点不能为空</string>
+    <!-- AddScheduleHint -->
     <!-- AddScheduleActivity -->
 
     <!-- DailyIntrospectionActivity -->
@@ -143,5 +164,17 @@
     <!-- CompletedScheduleTableToolbar -->
     <!-- CompletedScheduleTableActivity -->
 
+    <!-- item_task_table -->
+    <string name="item_task_table_deadline">截止时间</string>
+    <string name="item_task_table_type">任务类型</string>
+    <string name="item_task_table_process">任务进度</string>
+    <string name="item_task_table_custom_level">自定义等级</string>
+    <!-- item_task_table -->
 
+    <!-- item_schedule_table -->
+    <string name="item_schedule_table_type">日程类型</string>
+    <string name="item_schedule_table_begin">起始时间</string>
+    <string name="item_schedule_table_terminal">终止时间</string>
+    <string name="item_schedule_table_place">日程地点</string>
+    <!-- item_schedule_table -->
 </resources>
