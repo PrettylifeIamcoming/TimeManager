@@ -4,18 +4,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.material.snackbar.Snackbar;
 import com.prettylifeiamcoming.timemanager.R;
 import com.prettylifeiamcoming.timemanager.adapter.TaskAdapter;
 import com.prettylifeiamcoming.timemanager.bean.Task;
 import com.prettylifeiamcoming.timemanager.db.RealmHelper;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -26,14 +23,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class TaskTableActivity extends AppCompatActivity {
-    private ImageView mImageView;
-    private TextView mTextView;
 
     private RecyclerView mRecyclerView;
-
-    private RealmHelper mRealmHelper;
-    private List<Task> mTasks = new ArrayList<>();
-    private TaskAdapter mAdapter;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,51 +36,37 @@ public class TaskTableActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         //设置ImageView和TextView返回MainActivity
-        mImageView = findViewById(R.id.task_table_toolbar_return);
-        mTextView = findViewById(R.id.task_table_toolbar_return_word);
+        ImageView mImageView = findViewById(R.id.task_table_toolbar_return);
+        TextView mTextView = findViewById(R.id.task_table_toolbar_return_word);
 
-        mImageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(TaskTableActivity.this, MainActivity.class);
-                startActivity(intent);
-            }
+        mImageView.setOnClickListener(v -> {
+            Intent intent = new Intent(TaskTableActivity.this, MainActivity.class);
+            startActivity(intent);
         });
-        mTextView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(TaskTableActivity.this, MainActivity.class);
-                startActivity(intent);
-            }
+        mTextView.setOnClickListener(v -> {
+            Intent intent = new Intent(TaskTableActivity.this, MainActivity.class);
+            startActivity(intent);
         });
 
         //RecyclerView设置
         mRecyclerView = findViewById(R.id.recycler_view_task_table);
         mRecyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
 
-        try {
-            initData();
-        } catch (NullPointerException e) {
-            throw e;
-        }
+        initData();
 
     }
 
     //从数据库中读取数据
     private void initData() {
-        mRealmHelper = new RealmHelper(this);
+        RealmHelper mRealmHelper = new RealmHelper(this);
 
-        mTasks = mRealmHelper.queryAllTask();
+        List<Task> mTasks = mRealmHelper.queryAllTask();
 
         LinearLayoutManager manager = new LinearLayoutManager(this);
-        try {
-            mRecyclerView.setLayoutManager(manager);
-        } catch (NullPointerException e) {
-            throw e;
-        }
+        mRecyclerView.setLayoutManager(manager);
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
 
-        mAdapter = new TaskAdapter(this, mTasks, R.layout.item_task_table);
+        TaskAdapter mAdapter = new TaskAdapter(this, mTasks, R.layout.item_task_table);
         mRecyclerView.setAdapter(mAdapter);
 
     }

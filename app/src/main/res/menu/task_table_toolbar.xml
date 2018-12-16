@@ -5,12 +5,12 @@
         android:id="@+id/task_table_toolbar_add"
         android:icon="@drawable/ic_add"
         android:title="@string/task_table_toolbar_add"
-        app:showAsAction="always" />
+        app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/task_table_toolbar_delete"
         android:icon="@drawable/ic_delete"
         android:title="@string/task_table_toolbar_delete"
-        app:showAsAction="always">
+        app:showAsAction="ifRoom">
     </item>
 </menu>

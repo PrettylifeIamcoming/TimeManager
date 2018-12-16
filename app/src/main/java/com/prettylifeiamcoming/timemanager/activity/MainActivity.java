@@ -25,22 +25,22 @@ import com.prettylifeiamcoming.timemanager.fragment.YearFragment;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
+import java.util.Objects;
 
 
 public class MainActivity extends AppCompatActivity {
 
-    private Toolbar mToolbar;
     private TextView mTextView;
 
     private DrawerLayout mDrawerLayout;
-    private NavigationView mNavigationView;
     private BottomNavigationView mBottomNavigationView;
 
-    private DayFragment mDayFragment = new DayFragment();
-    private MonthFragment mMonthFragment = new MonthFragment();
-    private YearFragment mYearFragment = new YearFragment();
+    private final DayFragment mDayFragment = new DayFragment();
+    private final MonthFragment mMonthFragment = new MonthFragment();
+    private final YearFragment mYearFragment = new YearFragment();
 
-    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
+    private final BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
         @Override
@@ -52,14 +52,14 @@ public class MainActivity extends AppCompatActivity {
             switch (item.getItemId()) {
                 case R.id.bottom_main_day:
                     mTextView = findViewById(R.id.toolbar_time);
-                    sdf = new SimpleDateFormat("yyyy.MM.dd");
+                    sdf = new SimpleDateFormat("yyyy.MM.dd",Locale.getDefault());
                     a = sdf.format(date);
                     mTextView.setText(a);
                     invalidateOptionsMenu();
                     selectedFragment = mDayFragment;
                     break;
                 case R.id.bottom_main_month:
-                    sdf = new SimpleDateFormat("yyyy.MM");
+                    sdf = new SimpleDateFormat("yyyy.MM",Locale.getDefault());
                     mTextView = findViewById(R.id.toolbar_time);
                     a = sdf.format(date);
                     mTextView.setText(a);
@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
                     selectedFragment = mMonthFragment;
                     break;
                 case R.id.bottom_main_year:
-                    sdf = new SimpleDateFormat("yyyy");
+                    sdf = new SimpleDateFormat("yyyy",Locale.getDefault());
                     mTextView = findViewById(R.id.toolbar_time);
                     a = sdf.format(date);
                     mTextView.setText(a);
@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
                     selectedFragment = mYearFragment;
                     break;
             }
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, Objects.requireNonNull(selectedFragment)).commit();
             return true;
         }
 
@@ -86,17 +86,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        /**
-         * 设置toolbar_day,toolbar_month,toolbar_year
+        /*
+          设置toolbar_day,toolbar_month,toolbar_year
          */
-        mToolbar = findViewById(R.id.toolbar_main);
+        Toolbar mToolbar = findViewById(R.id.toolbar_main);
         mToolbar.setTitle("");
         setSupportActionBar(mToolbar);
         mTextView = findViewById(R.id.toolbar_time);
         SimpleDateFormat sdf;
         Date date = new Date();
         String a;
-        sdf = new SimpleDateFormat("yyyy.MM.dd");
+        sdf = new SimpleDateFormat("yyyy.MM.dd",Locale.getDefault());
         a = sdf.format(date);
         mTextView.setText(a);
         ActionBar actionBar = getSupportActionBar();
@@ -105,57 +105,54 @@ public class MainActivity extends AppCompatActivity {
             actionBar.setHomeAsUpIndicator(R.drawable.ic_menu);
         }
 
-        /**
-         * DrawerLayout和NavigationView
+        /*
+          DrawerLayout和NavigationView
          */
         mDrawerLayout = findViewById(R.id.drawer_layout);
-        mNavigationView = findViewById(R.id.nav_view);
+        NavigationView mNavigationView = findViewById(R.id.nav_view);
         mNavigationView.setCheckedItem(R.id.nav_menu_task_table);
-        mNavigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                Intent intent;
-                switch (item.getItemId()) {
-                    case R.id.nav_menu_task_table:
-                        intent = new Intent(MainActivity.this, TaskTableActivity.class);
-                        startActivity(intent);
-                        test(0);
-                        mDrawerLayout.closeDrawers();
-                        break;
-                    case R.id.nav_menu_schedule_table:
-                        intent = new Intent(MainActivity.this, ScheduleTableActivity.class);
-                        startActivity(intent);
-                        test(1);
-                        mDrawerLayout.closeDrawers();
-                        break;
-                    case R.id.nav_menu_daily_introspection_table:
-                        intent = new Intent(MainActivity.this, DailyIntrospectionActivity.class);
-                        startActivity(intent);
-                        test(2);
-                        mDrawerLayout.closeDrawers();
-                        break;
-                    case R.id.nav_menu_task_completed_table:
-                        intent = new Intent(MainActivity.this, CompletedTaskTableActivity.class);
-                        startActivity(intent);
-                        test(3);
-                        mDrawerLayout.closeDrawers();
-                        break;
-                    case R.id.nav_menu_schedule_completed_table:
-                        intent = new Intent(MainActivity.this, CompletedScheduleTableActivity.class);
-                        startActivity(intent);
-                        test(4);
-                        mDrawerLayout.closeDrawers();
-                        break;
-                    default:
-                        mDrawerLayout.closeDrawers();
-                        break;
-                }
-                return true;
+        mNavigationView.setNavigationItemSelectedListener(item -> {
+            Intent intent;
+            switch (item.getItemId()) {
+                case R.id.nav_menu_task_table:
+                    intent = new Intent(MainActivity.this, TaskTableActivity.class);
+                    startActivity(intent);
+                    test(0);
+                    mDrawerLayout.closeDrawers();
+                    break;
+                case R.id.nav_menu_schedule_table:
+                    intent = new Intent(MainActivity.this, ScheduleTableActivity.class);
+                    startActivity(intent);
+                    test(1);
+                    mDrawerLayout.closeDrawers();
+                    break;
+                case R.id.nav_menu_daily_introspection_table:
+                    intent = new Intent(MainActivity.this, DailyIntrospectionActivity.class);
+                    startActivity(intent);
+                    test(2);
+                    mDrawerLayout.closeDrawers();
+                    break;
+                case R.id.nav_menu_task_completed_table:
+                    intent = new Intent(MainActivity.this, CompletedTaskTableActivity.class);
+                    startActivity(intent);
+                    test(3);
+                    mDrawerLayout.closeDrawers();
+                    break;
+                case R.id.nav_menu_schedule_completed_table:
+                    intent = new Intent(MainActivity.this, CompletedScheduleTableActivity.class);
+                    startActivity(intent);
+                    test(4);
+                    mDrawerLayout.closeDrawers();
+                    break;
+                default:
+                    mDrawerLayout.closeDrawers();
+                    break;
             }
+            return true;
         });
 
-        /**
-         * 底部导航栏
+        /*
+          底部导航栏
          */
         mBottomNavigationView = findViewById(R.id.bottom_navigation);
         mBottomNavigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
@@ -222,7 +219,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //测试用
-    public void test(int i) {
+    private void test(int i) {
         switch (i) {
             case 0:
                 Toast.makeText(this, "You clicked Add Task", Toast.LENGTH_SHORT).show();

@@ -29,6 +29,8 @@
     <!-- navigation_main -->
 
     <!-- nav_menu -->
+    <string name="nav_menu_name">Alex Mercer</string>
+    <string name="nav_menu_motto">No pain,no gain.</string>
     <string name="nav_menu_task_table">Task Table</string>
     <string name="nav_menu_schedule_table">Schedule Table</string>
     <string name="nav_menu_daily_introspection_table">Daily Introspection</string>

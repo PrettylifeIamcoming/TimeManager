@@ -19,14 +19,13 @@ public class LoginActivity extends AppCompatActivity{
     private EditText mPasswordView;
     private View mProgressView;
     private View mLoginFormView;
-    private Toolbar mToolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        mToolbar = findViewById(R.id.login_toolbar);
+        Toolbar mToolbar = findViewById(R.id.login_toolbar);
         mToolbar.setTitle("日晷");
         setSupportActionBar(mToolbar);
     }

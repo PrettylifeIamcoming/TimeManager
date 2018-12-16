@@ -10,6 +10,7 @@ import com.prettylifeiamcoming.timemanager.db.RealmHelper;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class ScheduleAdapter extends BaseAdapter<Schedule> {
     private RealmHelper mRealmHleper;
@@ -22,8 +23,8 @@ public class ScheduleAdapter extends BaseAdapter<Schedule> {
     protected void convert(Context mContext, BaseViewHolder holder, final Schedule schedule) {
         holder.setText(R.id.item_schedule_table_name, schedule.getScheduleName())
                 .setText(R.id.item_schedule_table_place, schedule.getSchedulePlace())
-                .setText(R.id.item_schedule_table_begin, new SimpleDateFormat("yyyy.MM.dd/HH:mm").format(new Date(schedule.getBeginTimestamp())))
-                .setText(R.id.item_schedule_table_terminal, new SimpleDateFormat("yyyy.MM.dd/HH:mm").format(new Date(schedule.getTerminalTimestamp())))
+                .setText(R.id.item_schedule_table_begin, new SimpleDateFormat("yyyy.MM.dd/HH:mm",Locale.getDefault()).format(new Date(schedule.getBeginTimestamp())))
+                .setText(R.id.item_schedule_table_terminal, new SimpleDateFormat("yyyy.MM.dd/HH:mm",Locale.getDefault()).format(new Date(schedule.getTerminalTimestamp())))
                 .setText(R.id.item_schedule_table_type, getType(schedule.getScheduleType()));
 
     }

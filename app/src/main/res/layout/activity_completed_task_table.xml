@@ -22,7 +22,8 @@
                 android:id="@+id/completed_task_table_toolbar_return"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_return" />
+                android:src="@drawable/ic_return"
+                android:contentDescription="@string/completed_task_table_toolbar_return" />
 
             <TextView
                 android:id="@+id/completed_task_table_toolbar_return_word"

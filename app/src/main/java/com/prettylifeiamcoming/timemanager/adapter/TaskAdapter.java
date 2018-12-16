@@ -1,9 +1,6 @@
 package com.prettylifeiamcoming.timemanager.adapter;
 
-import android.app.Application;
 import android.content.Context;
-import android.content.ContextWrapper;
-import android.view.View;
 
 import com.prettylifeiamcoming.timemanager.R;
 import com.prettylifeiamcoming.timemanager.Sundial;
@@ -13,6 +10,7 @@ import com.prettylifeiamcoming.timemanager.db.RealmHelper;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class TaskAdapter extends BaseAdapter<Task> {
 
@@ -25,7 +23,7 @@ public class TaskAdapter extends BaseAdapter<Task> {
     @Override
     protected void convert(Context mContext, BaseViewHolder holder, final Task task) {
         holder.setText(R.id.item_task_table_name, task.getTaskName())
-                .setText(R.id.item_task_table_deadline, new SimpleDateFormat("yyyy.MM.dd/HH:mm").format(new Date(task.getDeadline())))
+                .setText(R.id.item_task_table_deadline, new SimpleDateFormat("yyyy.MM.dd/HH:mm",Locale.getDefault()).format(new Date(task.getDeadline())))
                 .setText(R.id.item_task_table_type, getType(task.getTaskType()))
                 .setText(R.id.item_task_table_process, String.valueOf(task.getTaskProcess() + "%"))
                 .setText(R.id.item_task_table_custom_level, String.valueOf(task.getTaskCustomLevel()));

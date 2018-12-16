@@ -37,8 +37,7 @@ public abstract class BaseAdapter<T> extends RecyclerView.Adapter<BaseViewHolder
     @Override
     public BaseViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(mContext).inflate(mLayoutId, parent, false);
-        BaseViewHolder holder = new BaseViewHolder(view);
-        return holder;
+        return new BaseViewHolder(view);
     }
 
     @Override
@@ -51,20 +50,12 @@ public abstract class BaseAdapter<T> extends RecyclerView.Adapter<BaseViewHolder
     public void onBindViewHolder(BaseViewHolder holder, final int position) {
         convert(mContext, holder, mDatas.get(position));
         if (mItemClickListener != null) {
-            holder.mItemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    mItemClickListener.onItemClick(v, position);
-                }
-            });
+            holder.mItemView.setOnClickListener(v -> mItemClickListener.onItemClick(v, position));
         }
         if (mLongItemClickListener != null) {
-            holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
-                @Override
-                public boolean onLongClick(View v) {
-                    mLongItemClickListener.onLongItemClick(v, position);
-                    return true;
-                }
+            holder.itemView.setOnLongClickListener(v -> {
+                mLongItemClickListener.onLongItemClick(v, position);
+                return true;
             });
         }
     }

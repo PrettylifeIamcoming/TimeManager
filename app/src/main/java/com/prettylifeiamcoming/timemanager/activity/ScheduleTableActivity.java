@@ -4,19 +4,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.prettylifeiamcoming.timemanager.R;
 import com.prettylifeiamcoming.timemanager.adapter.ScheduleAdapter;
-import com.prettylifeiamcoming.timemanager.adapter.TaskAdapter;
 import com.prettylifeiamcoming.timemanager.bean.Schedule;
-import com.prettylifeiamcoming.timemanager.bean.Task;
 import com.prettylifeiamcoming.timemanager.db.RealmHelper;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -27,14 +23,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class ScheduleTableActivity extends AppCompatActivity {
-    private ImageView mImageView;
-    private TextView mTextView;
 
     private RecyclerView mRecyclerView;
-
-    private RealmHelper mRealmHelper;
-    private List<Schedule> mSchedules = new ArrayList<>();
-    private ScheduleAdapter mAdapter;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,33 +36,23 @@ public class ScheduleTableActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         //设置ImageView和TextView返回MainActivity
-        mImageView = findViewById(R.id.schedule_table_toolbar_return);
-        mTextView = findViewById(R.id.schedule_table_toolbar_return_word);
+        ImageView mImageView = findViewById(R.id.schedule_table_toolbar_return);
+        TextView mTextView = findViewById(R.id.schedule_table_toolbar_return_word);
 
-        mImageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(ScheduleTableActivity.this, MainActivity.class);
-                startActivity(intent);
-            }
+        mImageView.setOnClickListener(v -> {
+            Intent intent = new Intent(ScheduleTableActivity.this, MainActivity.class);
+            startActivity(intent);
         });
-        mTextView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(ScheduleTableActivity.this, MainActivity.class);
-                startActivity(intent);
-            }
+        mTextView.setOnClickListener(v -> {
+            Intent intent = new Intent(ScheduleTableActivity.this, MainActivity.class);
+            startActivity(intent);
         });
 
         //RecyclerView设置
         mRecyclerView = findViewById(R.id.recycler_view_schedule_table);
         mRecyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
 
-        try {
-            initData();
-        } catch (NullPointerException e) {
-            throw e;
-        }
+        initData();
     }
 
     //toolbar菜单填充
@@ -83,19 +63,15 @@ public class ScheduleTableActivity extends AppCompatActivity {
 
     //从数据库中读取数据
     private void initData() {
-        mRealmHelper = new RealmHelper(this);
+        RealmHelper mRealmHelper = new RealmHelper(this);
 
-        mSchedules = mRealmHelper.queryAllSchedule();
+        List<Schedule> mSchedules = mRealmHelper.queryAllSchedule();
 
         LinearLayoutManager manager = new LinearLayoutManager(this);
-        try {
-            mRecyclerView.setLayoutManager(manager);
-        } catch (NullPointerException e) {
-            throw e;
-        }
+        mRecyclerView.setLayoutManager(manager);
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
 
-        mAdapter = new ScheduleAdapter(this, mSchedules, R.layout.item_schedule_table);
+        ScheduleAdapter mAdapter = new ScheduleAdapter(this, mSchedules, R.layout.item_schedule_table);
         mRecyclerView.setAdapter(mAdapter);
 
     }

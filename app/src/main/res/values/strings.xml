@@ -29,6 +29,8 @@
     <!-- navigation_main -->
 
     <!-- nav_menu -->
+    <string name="nav_menu_name">那洪涛</string>
+    <string name="nav_menu_motto">一分耕耘，一分收获</string>
     <string name="nav_menu_task_table">任务表</string>
     <string name="nav_menu_schedule_table">日程表</string>
     <string name="nav_menu_daily_introspection_table">日省表</string>
