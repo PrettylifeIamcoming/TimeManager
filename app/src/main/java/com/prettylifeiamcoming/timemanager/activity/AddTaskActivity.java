@@ -131,10 +131,11 @@ public class AddTaskActivity extends AppCompatActivity {
                             if (b.equals("第三象限级") || b.equals("Third Quadrant Level")) {
                                 task.setTaskLevel(3);
                             }
-                            if (b.equals("第一四象限级") || b.equals("Fourth Quadrant Level")) {
+                            if (b.equals("第四象限级") || b.equals("Fourth Quadrant Level")) {
                                 task.setTaskLevel(4);
                             }
                             task.setTaskCustomLevel(Integer.parseInt(mEditText7.getText().toString()));
+                            task.setDuration(task.getTerminalTimestamp()-task.getBeginTimestamp());
                             RealmHelper realmHelper = new RealmHelper(AddTaskActivity.this);
                             realmHelper.addTask(task);
 

@@ -14,6 +14,10 @@
             android:icon="@drawable/nav_introspection"
             android:title="@string/nav_menu_daily_introspection_table" />
         <item
+            android:id="@+id/nav_menu_task_overdue_table"
+            android:icon="@drawable/nav_overdue"
+            android:title="@string/nav_menu_overdue_task" />
+        <item
             android:id="@+id/nav_menu_task_completed_table"
             android:icon="@drawable/nav_completed_task"
             android:title="@string/nav_menu_task_completed_table" />

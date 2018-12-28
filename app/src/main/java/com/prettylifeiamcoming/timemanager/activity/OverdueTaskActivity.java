@@ -14,12 +14,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class CompletedTaskTableActivity extends AppCompatActivity {
+public class OverdueTaskActivity extends AppCompatActivity {
 
     private RecyclerView mRecyclerView;
     private TaskAdapter mTaskAdpter;
@@ -28,33 +29,39 @@ public class CompletedTaskTableActivity extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_completed_task_table);
+        setContentView(R.layout.activity_overdue_task_table);
 
-        //设置ImageView和TextView返回TaskTableActivity
-        ImageView mImageView = findViewById(R.id.completed_task_table_toolbar_return);
-        TextView mTextView = findViewById(R.id.completed_task_table_toolbar_return_word);
+        //设置toolbar
+        Toolbar toolbar = findViewById(R.id.overdue_task_table_toolbar);
+        toolbar.setTitle("");
+        setSupportActionBar(toolbar);
+
+        //设置ImageView和TextView返回MainActivity
+        ImageView mImageView = findViewById(R.id.overdue_task_table_toolbar_return);
+        TextView mTextView = findViewById(R.id.overdue_task_table_toolbar_return_word);
 
         mImageView.setOnClickListener(v -> {
-            Intent intent = new Intent(CompletedTaskTableActivity.this, MainActivity.class);
+            Intent intent = new Intent(OverdueTaskActivity.this, MainActivity.class);
             startActivity(intent);
         });
         mTextView.setOnClickListener(v -> {
-            Intent intent = new Intent(CompletedTaskTableActivity.this, MainActivity.class);
+            Intent intent = new Intent(OverdueTaskActivity.this, MainActivity.class);
             startActivity(intent);
         });
 
         //RecyclerView设置
-        mRecyclerView = findViewById(R.id.recycler_view_completed_task_table);
+        mRecyclerView = findViewById(R.id.recycler_view_overdue_task_table);
         mRecyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
 
         initData();
+
     }
 
     //从数据库中读取数据
     private void initData() {
         mRealmHelper = new RealmHelper(this);
 
-        this.mTasks = mRealmHelper.queryCompletedTask();
+        this.mTasks = mRealmHelper.queryOverdueTask();
 
         LinearLayoutManager manager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(manager);
@@ -63,4 +70,5 @@ public class CompletedTaskTableActivity extends AppCompatActivity {
         this.mTaskAdpter = new TaskAdapter(this, mTasks, R.layout.item_task_table);
         mRecyclerView.setAdapter(this.mTaskAdpter);
     }
+
 }

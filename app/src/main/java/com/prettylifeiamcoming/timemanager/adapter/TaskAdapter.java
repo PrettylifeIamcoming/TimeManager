@@ -1,6 +1,7 @@
 package com.prettylifeiamcoming.timemanager.adapter;
 
 import android.content.Context;
+import android.graphics.Color;
 
 import com.prettylifeiamcoming.timemanager.R;
 import com.prettylifeiamcoming.timemanager.Sundial;
@@ -16,6 +17,9 @@ public class TaskAdapter extends BaseAdapter<Task> {
 
     private RealmHelper mRealmHleper;
 
+    //对应四个象限的颜色设置，红、黄、粉、绿
+    private String[] mColors = {"#FF7575","#FFFFB9","#FFC1E0","#BBFFBB"};
+
     public TaskAdapter(Context mContext, List<Task> mDatas, int mLayoutId) {
         super(mContext, mDatas, mLayoutId);
     }
@@ -27,22 +31,32 @@ public class TaskAdapter extends BaseAdapter<Task> {
                 .setText(R.id.item_task_table_type, getType(task.getTaskType()))
                 .setText(R.id.item_task_table_process, String.valueOf(task.getTaskProcess() + "%"))
                 .setText(R.id.item_task_table_custom_level, String.valueOf(task.getTaskCustomLevel()));
+                //.setProgressBar(R.id.item_task_table_process1,task.getTaskProcess());
 
-        //决定背景颜色
-//        switch (task.getTaskLevel()){
-//            case 1:
-//                holder.setBackgroundColor(R.layout.item_task_table,0xFFFF0000);
-//                break;
-//            case 2:
-//                holder.setBackgroundColor(R.layout.item_task_table,0xFFFFFF00);
-//                break;
-//            case 3:
-//                holder.setBackgroundColor(R.layout.item_task_table,0xFFFFF000);
-//                break;
-//            case 4:
-//                holder.setBackgroundColor(R.layout.item_task_table,0xFFFFFFF0);
-//                break;
-//        }
+        //填充颜色
+        switch (task.getTaskLevel()){
+            case 1:
+                holder.setCardViewBackgroundColor(R.id.item_task_table,Color.parseColor(mColors[0]));
+//                holder.setTextColor(R.id.item_task_table_name,Color.parseColor("#FFFFFF"));
+//                holder.setTextColor(R.id.item_task_table_deadline,Color.parseColor("#FFFFFF"));
+//                holder.setTextColor(R.id.item_task_table_type,Color.parseColor("#FFFFFF"));
+//                holder.setTextColor(R.id.item_task_table_process,Color.parseColor("#FFFFFF"));
+//                holder.setTextColor(R.id.item_task_table_custom_level,Color.parseColor("#FFFFFF"));
+//                holder.setTextColor(R.id.textView003,Color.parseColor("#FFFFFF"));
+//                holder.setTextColor(R.id.textView008,Color.parseColor("#FFFFFF"));
+//                holder.setTextColor(R.id.textView0010,Color.parseColor("#FFFFFF"));
+//                holder.setTextColor(R.id.textView0011,Color.parseColor("#FFFFFF"));
+                break;
+            case 2:
+                holder.setCardViewBackgroundColor(R.id.item_task_table,Color.parseColor(mColors[1]));
+                break;
+            case 3:
+                holder.setCardViewBackgroundColor(R.id.item_task_table,Color.parseColor(mColors[2]));
+                break;
+            case 4:
+                holder.setCardViewBackgroundColor(R.id.item_task_table,Color.parseColor(mColors[3]));
+                break;
+        }
     }
 
     /**
@@ -51,17 +65,17 @@ public class TaskAdapter extends BaseAdapter<Task> {
     private String getType(int i) {
         switch (i) {
             case 1:
-                return Sundial.getContext().getString(R.string.add_task_study);
+                return Sundial.getInstance().getString(R.string.add_task_study);
             case 2:
-                return Sundial.getContext().getString(R.string.add_task_social);
+                return Sundial.getInstance().getString(R.string.add_task_social);
             case 3:
-                return Sundial.getContext().getString(R.string.add_task_work);
+                return Sundial.getInstance().getString(R.string.add_task_work);
             case 4:
-                return Sundial.getContext().getString(R.string.add_task_play);
+                return Sundial.getInstance().getString(R.string.add_task_play);
             case 5:
-                return Sundial.getContext().getString(R.string.add_task_sleep);
+                return Sundial.getInstance().getString(R.string.add_task_sleep);
             case 6:
-                return Sundial.getContext().getString(R.string.add_task_others);
+                return Sundial.getInstance().getString(R.string.add_task_others);
         }
 
         return "类型错误";

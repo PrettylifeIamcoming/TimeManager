@@ -188,6 +188,7 @@ public class AddScheduleActivity extends AppCompatActivity {
                                         if (a.equals("其它") || a.equals("Others")) {
                                             schedule.setScheduleType(6);
                                         }
+                                        schedule.setDuration(schedule.getTerminalTimestamp()-schedule.getBeginTimestamp());
                                         RealmHelper realmHelper = new RealmHelper(AddScheduleActivity.this);
                                         realmHelper.addSchedule(schedule);
 

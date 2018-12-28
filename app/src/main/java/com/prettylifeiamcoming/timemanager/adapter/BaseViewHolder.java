@@ -10,8 +10,10 @@ import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.widget.Checkable;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class BaseViewHolder extends RecyclerView.ViewHolder {
@@ -23,7 +25,6 @@ public class BaseViewHolder extends RecyclerView.ViewHolder {
         mItemView = itemView;
         mViews = new SparseArray<>();
     }
-
 
     public <T extends View> T getView(int viewId) {
         View view = mViews.get(viewId);
@@ -40,6 +41,11 @@ public class BaseViewHolder extends RecyclerView.ViewHolder {
         return this;
     }
 
+    public BaseViewHolder setProgressBar(int progressBarId,int progress){
+        ProgressBar progressBar = getView(progressBarId);
+        progressBar.setProgress(progress);
+        return this;
+    }
 
     public BaseViewHolder setText(int viewId, String text) {
         TextView textView = getView(viewId);
@@ -77,6 +83,12 @@ public class BaseViewHolder extends RecyclerView.ViewHolder {
         return this;
     }
 
+    public BaseViewHolder setCardViewBackgroundColor(int cardViewId, int color){
+        CardView cardView = getView(cardViewId);
+        cardView.setCardBackgroundColor(color);
+        return this;
+    }
+
     public BaseViewHolder setBackgroundResource(int viewId, int backgroundRes) {
         View view = getView(viewId);
         view.setBackgroundResource(backgroundRes);
@@ -88,7 +100,6 @@ public class BaseViewHolder extends RecyclerView.ViewHolder {
         view.setTextColor(textColor);
         return this;
     }
-
 
     @SuppressLint("NewApi")
     public BaseViewHolder setAlpha(int viewId, float value) {

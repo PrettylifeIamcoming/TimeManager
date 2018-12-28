@@ -10,7 +10,7 @@ public class Schedule extends RealmObject implements Serializable {
     @PrimaryKey
     private String mScheduleID;          //日程ID
     private String mScheduleName;        //日程名称
-    private String mSchedulePlace;    //日程地点
+    private String mSchedulePlace;       //日程地点
     private long mBeginTimestamp;        //日程的起始时间
     private long mTerminalTimestamp;     //日程的终止时间
     private double mDuration;            //日程为持续的时长，(mTerminalTimestamp-mBeginTimestamp),单位为小时

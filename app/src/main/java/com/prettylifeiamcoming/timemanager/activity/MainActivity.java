@@ -117,31 +117,31 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.nav_menu_task_table:
                     intent = new Intent(MainActivity.this, TaskTableActivity.class);
                     startActivity(intent);
-                    test(0);
                     mDrawerLayout.closeDrawers();
                     break;
                 case R.id.nav_menu_schedule_table:
                     intent = new Intent(MainActivity.this, ScheduleTableActivity.class);
                     startActivity(intent);
-                    test(1);
                     mDrawerLayout.closeDrawers();
                     break;
                 case R.id.nav_menu_daily_introspection_table:
                     intent = new Intent(MainActivity.this, DailyIntrospectionActivity.class);
                     startActivity(intent);
-                    test(2);
+                    mDrawerLayout.closeDrawers();
+                    break;
+                case R.id.nav_menu_task_overdue_table:
+                    intent = new Intent(MainActivity.this, OverdueTaskActivity.class);
+                    startActivity(intent);
                     mDrawerLayout.closeDrawers();
                     break;
                 case R.id.nav_menu_task_completed_table:
                     intent = new Intent(MainActivity.this, CompletedTaskTableActivity.class);
                     startActivity(intent);
-                    test(3);
                     mDrawerLayout.closeDrawers();
                     break;
                 case R.id.nav_menu_schedule_completed_table:
                     intent = new Intent(MainActivity.this, CompletedScheduleTableActivity.class);
                     startActivity(intent);
-                    test(4);
                     mDrawerLayout.closeDrawers();
                     break;
                 default:
@@ -216,26 +216,5 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
         return true;
-    }
-
-    //测试用
-    private void test(int i) {
-        switch (i) {
-            case 0:
-                Toast.makeText(this, "You clicked Add Task", Toast.LENGTH_SHORT).show();
-                break;
-            case 1:
-                Toast.makeText(this, "You clicked Add Schedule", Toast.LENGTH_SHORT).show();
-                break;
-            case 2:
-                Toast.makeText(this, "You clicked Daily Introspection Table", Toast.LENGTH_SHORT).show();
-                break;
-            case 3:
-                Toast.makeText(this, "You clicked Task Completed Table", Toast.LENGTH_SHORT).show();
-                break;
-            case 4:
-                Toast.makeText(this, "You clicked Schedule Competed Table", Toast.LENGTH_SHORT).show();
-                break;
-        }
     }
 }

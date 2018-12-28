@@ -34,6 +34,7 @@
     <string name="nav_menu_task_table">任务表</string>
     <string name="nav_menu_schedule_table">日程表</string>
     <string name="nav_menu_daily_introspection_table">日省表</string>
+    <string name="nav_menu_overdue_task">逾期任务</string>
     <string name="nav_menu_task_completed_table">已完成任务表</string>
     <string name="nav_menu_schedule_completed_table">已完成日程表</string>
     <!-- nav_menu -->
@@ -71,6 +72,13 @@
     <string name="schedule_table_toolbar_delete">删除日程</string>
     <!-- ScheduleTableToolbar -->
     <!-- ScheduleTableActivity -->
+
+    <!-- OverdueTaskActivity -->
+    <!-- OverdueTaskToolbar -->
+    <string name="overdue_task_table_toolbar_return">日晷</string>
+    <string name="overdue_task_table_toolbar_title">逾期任务表</string>
+    <!-- OverdueTaskToolbar -->
+    <!-- OverdueTaskActivity -->
 
     <!-- AddTaskActivity -->
     <!-- AddTaskToolbar -->
@@ -179,4 +187,15 @@
     <string name="item_schedule_table_terminal">终止时间</string>
     <string name="item_schedule_table_place">日程地点</string>
     <!-- item_schedule_table -->
+
+    <!-- Color -->
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="burlywood">#DEB887</color>
+    <color name="turquoise">#ADEAEA</color>
+    <color name="magic_powder">#FAD8BE</color>
+    <color name="glass_gall">#CBF5FB</color>
+    <color name="bewitched_tree">#2AE0C8 </color>
+    <color name="mystical_green">#A2E1D4</color>
+    <!-- Color -->
 </resources>

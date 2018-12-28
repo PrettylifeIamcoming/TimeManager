@@ -34,6 +34,7 @@
     <string name="nav_menu_task_table">Task Table</string>
     <string name="nav_menu_schedule_table">Schedule Table</string>
     <string name="nav_menu_daily_introspection_table">Daily Introspection</string>
+    <string name="nav_menu_overdue_task">Overdue Task</string>
     <string name="nav_menu_task_completed_table">Completed Task</string>
     <string name="nav_menu_schedule_completed_table">Completed Schedule</string>
     <!-- nav_menu -->
@@ -71,6 +72,13 @@
     <string name="schedule_table_toolbar_delete">Delete Schedule</string>
     <!-- ScheduleTableToolbar -->
     <!-- ScheduleActivity -->
+
+    <!-- OverdueTaskActivity -->
+    <!-- OverdueTaskToolbar -->
+    <string name="overdue_task_table_toolbar_return">Signal</string>
+    <string name="overdue_task_table_toolbar_title">Overdue Task</string>
+    <!-- OverdueTaskToolbar -->
+    <!-- OverdueTaskActivity -->
 
     <!-- AddTaskActivity -->
     <!-- AddTaskToolbar -->

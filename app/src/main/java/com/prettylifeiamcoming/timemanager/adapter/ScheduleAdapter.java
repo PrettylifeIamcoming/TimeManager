@@ -1,6 +1,7 @@
 package com.prettylifeiamcoming.timemanager.adapter;
 
 import android.content.Context;
+import android.graphics.Color;
 
 import com.prettylifeiamcoming.timemanager.R;
 import com.prettylifeiamcoming.timemanager.Sundial;
@@ -27,6 +28,7 @@ public class ScheduleAdapter extends BaseAdapter<Schedule> {
                 .setText(R.id.item_schedule_table_terminal, new SimpleDateFormat("yyyy.MM.dd/HH:mm",Locale.getDefault()).format(new Date(schedule.getTerminalTimestamp())))
                 .setText(R.id.item_schedule_table_type, getType(schedule.getScheduleType()));
 
+        holder.setCardViewBackgroundColor(R.id.item_schedule_table,Color.parseColor("#ACD6FF"));
     }
 
     /**
@@ -35,17 +37,17 @@ public class ScheduleAdapter extends BaseAdapter<Schedule> {
     private String getType(int i) {
         switch (i) {
             case 1:
-                return Sundial.getContext().getString(R.string.add_task_study);
+                return Sundial.getInstance().getString(R.string.add_task_study);
             case 2:
-                return Sundial.getContext().getString(R.string.add_task_social);
+                return Sundial.getInstance().getString(R.string.add_task_social);
             case 3:
-                return Sundial.getContext().getString(R.string.add_task_work);
+                return Sundial.getInstance().getString(R.string.add_task_work);
             case 4:
-                return Sundial.getContext().getString(R.string.add_task_play);
+                return Sundial.getInstance().getString(R.string.add_task_play);
             case 5:
-                return Sundial.getContext().getString(R.string.add_task_sleep);
+                return Sundial.getInstance().getString(R.string.add_task_sleep);
             case 6:
-                return Sundial.getContext().getString(R.string.add_task_others);
+                return Sundial.getInstance().getString(R.string.add_task_others);
         }
 
         return "类型错误";
