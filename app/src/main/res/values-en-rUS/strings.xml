@@ -110,10 +110,10 @@
     <string name="add_task_play">Play</string>
     <string name="add_task_sleep">Sleep</string>
     <string name="add_task_others">Others</string>
-    <string name="add_task_level_first">First Quadrant Level</string>
-    <string name="add_task_level_second">Second Quadrant Level</string>
-    <string name="add_task_level_third">Third Quadrant Level</string>
-    <string name="add_task_level_fourth">Fourth Quadrant Level</string>
+    <string name="add_task_level_first">Important and Urgent</string>
+    <string name="add_task_level_second">Important But Not Urgent</string>
+    <string name="add_task_level_third">Not Important But Urgent</string>
+    <string name="add_task_level_fourth">Neither Important Nor Urgent</string>
 
     <!-- AddTaskHint -->
     <string name="add_task_hint_name">Task name cannot be empty.</string>
@@ -148,7 +148,7 @@
     <string name="add_schedule_hint_begin_time">The begin time cannot be less than the current time.</string>
     <string name="add_schedule_hint_terminal">Terminal time cannot be empty.</string>
     <string name="add_schedule_hint_terminal_time">The terminal time cannot be less than the current time.</string>
-    <string name="add_schedule_hint_begin_terminal">Begin time cannot be less than the terminal time.</string>
+    <string name="add_schedule_hint_begin_terminal">Begin time cannot be greater than the terminal time.</string>
     <string name="add_schedule_hint_place">Schedule place cannot be empty.</string>
     <!-- AddScheduleHint -->
     <!-- AddScheduleActivity -->
@@ -187,4 +187,29 @@
     <string name="item_schedule_table_terminal">Terminal Time</string>
     <string name="item_schedule_table_place">Schedule Place</string>
     <!-- item_schedule_table -->
+
+    <!-- item_main_task -->
+    <string name="item_main_task_begin">Begin Time</string>
+    <string name="item_main_task_terminal">Terminal Time</string>
+    <string name="item_main_task_place">Task Place</string>
+    <string name="item_main_task_process">Task Process</string>
+    <!-- item_main_task -->
+
+    <!-- dialog_set_task -->
+    <string name="dialog_set_task_begin">Begin Time</string>
+    <string name="dialog_set_task_terminal">Terminal Time</string>
+    <string name="dialog_set_task_place">Task Place</string>
+    <string name="dialog_set_task_ok">OK</string>
+    <string name="dialog_set_task_cancel">Cancel</string>
+
+    <!-- dialog_set_task_hint -->
+    <string name="dialog_set_task_hint_begin">Begin time cannot be empty.</string>
+    <string name="dialog_set_task_hint_begin_time">The begin time cannot be less than the current time.</string>
+    <string name="dialog_set_task_hint_terminal">Terminal time cannot be empty.</string>
+    <string name="dialog_set_task_hint_terminal_deadline">Terminal time cannot be greater than the deadline.</string>
+    <string name="dialog_set_task_hint_tetminal_time">The terminal time cannot be less than the current time.</string>
+    <string name="dialog_set_task_hint_begin_terminal">Begin time cannot be greater than the terminal time.</string>
+    <string name="dialog_set_task_hint_place">Place cannot be empty.</string>
+    <!-- dialog_set_task_hint -->
+    <!-- dialog_set_task -->
 </resources>

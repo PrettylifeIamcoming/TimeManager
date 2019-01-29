@@ -13,7 +13,7 @@ public class Task extends RealmObject implements Serializable {
     private String mTaskPlace;                       //任务地点
     private long mBeginTimestamp;                    //任务的起始时间
     private long mTerminalTimestamp;                 //任务的终止时间
-    private double mDuration;                        //任务持续的时长，(mTerminalTimestamp-mBeginTimestamp),单位为小时
+    private long mDuration=0;                        //任务持续的时长，(mTerminalTimestamp-mBeginTimestamp)
     private long mDeadline;                          //任务的deadline
     private int mTaskType;                           //任务类型，后期用switch绑定上具体的类型名称
     private int mTaskLevel;                          //任务级别，四象限，有四个级别，后期为了显示fragment的颜色服务
@@ -45,7 +45,7 @@ public class Task extends RealmObject implements Serializable {
         return mTerminalTimestamp;
     }
 
-    public double getDuration() {
+    public long getDuration() {
         return mDuration;
     }
 
@@ -85,7 +85,7 @@ public class Task extends RealmObject implements Serializable {
         mTerminalTimestamp = terminalTimestamp;
     }
 
-    public void setDuration(double duration) {
+    public void setDuration(long duration) {
         mDuration = duration;
     }
 

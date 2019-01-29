@@ -13,37 +13,39 @@
         android:orientation="vertical"
         tools:context=".activity.MainActivity">
 
+        <!--AppBarLayout解决了Toolbar被RecyclerView遮住问题-->
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appbar_main"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar_main"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
+                android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+                android:layout_above="@id/fragment_container"
+                app:layout_scrollFlags="scroll|enterAlways|snap"
+                app:popupTheme="@style/OverflowMenuStyle">
+
+                <TextView
+                    android:id="@+id/toolbar_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textColor="#FFF" />
+
+            </androidx.appcompat.widget.Toolbar>
+        </com.google.android.material.appbar.AppBarLayout>
+
         <!--CoordinatorLayout解决了FloatingActionButton被SnackBar遮住问题-->
         <androidx.coordinatorlayout.widget.CoordinatorLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1">
-
-            <!--AppBarLayout解决了Toolbar被RecyclerView遮住问题-->
-            <com.google.android.material.appbar.AppBarLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true">
-
-
-                <androidx.appcompat.widget.Toolbar
-                    android:id="@+id/toolbar_main"
-                    android:layout_width="match_parent"
-                    android:layout_height="?attr/actionBarSize"
-                    android:background="?attr/colorPrimary"
-                    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-                    app:layout_scrollFlags="scroll|enterAlways|snap"
-                    app:popupTheme="@style/OverflowMenuStyle">
-
-                    <TextView
-                        android:id="@+id/toolbar_time"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:textColor="#FFF" />
-
-                </androidx.appcompat.widget.Toolbar>
-            </com.google.android.material.appbar.AppBarLayout>
 
             <FrameLayout
                 android:id="@+id/fragment_container"

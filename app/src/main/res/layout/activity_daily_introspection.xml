@@ -53,6 +53,7 @@
             android:id="@+id/recycler_view_daily_introspection"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@color/gold"
             android:padding="4dp"
             android:scrollbars="vertical" />
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

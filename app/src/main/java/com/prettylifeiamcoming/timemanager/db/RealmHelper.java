@@ -8,6 +8,7 @@ import com.prettylifeiamcoming.timemanager.bean.Schedule;
 import com.prettylifeiamcoming.timemanager.bean.Task;
 import com.prettylifeiamcoming.timemanager.bean.User;
 
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -106,7 +107,45 @@ public class RealmHelper {
     /*
       update （改）
      */
+    //设置任务起始时间
+    public void updateTaskBeginTime(String id, long timeStamp) {
+        Task task = mRealm.where(Task.class).equalTo("mTaskID", id).findFirst();
+        mRealm.beginTransaction();
+        task.setBeginTimestamp(timeStamp);
+        mRealm.commitTransaction();
+    }
 
+    //设置任务终止时间
+    public void updateTaskTerminalTime(String id, long timeStamp) {
+        Task task = mRealm.where(Task.class).equalTo("mTaskID", id).findFirst();
+        mRealm.beginTransaction();
+        task.setTerminalTimestamp(timeStamp);
+        mRealm.commitTransaction();
+    }
+
+    //设置任务时间段
+    public void updateTaskDuration(String id, long timeStamp) {
+        Task task = mRealm.where(Task.class).equalTo("mTaskID", id).findFirst();
+        mRealm.beginTransaction();
+        task.setTerminalTimestamp(task.getDuration()+timeStamp);
+        mRealm.commitTransaction();
+    }
+
+    //设置任务地点
+    public void updateTaskPlace(String id, String place) {
+        Task task = mRealm.where(Task.class).equalTo("mTaskID", id).findFirst();
+        mRealm.beginTransaction();
+        task.setmTaskPlace(place);
+        mRealm.commitTransaction();
+    }
+
+    //设置任务进度
+    public void updateTaskProcess(String id, int process) {
+        Task task = mRealm.where(Task.class).equalTo("mTaskID", id).findFirst();
+        mRealm.beginTransaction();
+        task.setTaskProcess(process);
+        mRealm.commitTransaction();
+    }
 
     /**
      * query （查）
@@ -117,6 +156,20 @@ public class RealmHelper {
 
         //根据deadline越近排在越上面
         tasks = tasks.sort("mDeadline");
+
+        return mRealm.copyFromRealm(tasks);
+    }
+
+    //查询今日任务
+    public List<Task> queryTodayTask() {
+        RealmResults<Task> tasks = mRealm.where(Task.class)
+                .between("mBeginTimestamp", getToday(), getTomorrow())
+                .or()
+                .between("mTerminalTimestamp", getToday(), getTomorrow())
+                .findAll();
+
+        //根据deadline越近排在越上面
+        tasks = tasks.sort("mBeginTimestamp");
 
         return mRealm.copyFromRealm(tasks);
     }
@@ -165,10 +218,25 @@ public class RealmHelper {
         return mRealm.copyFromRealm(schedules);
     }
 
+    //查询今日日程
+    public List<Schedule> queryTodaySchedule() {
+        RealmResults<Schedule> schedules = mRealm.where(Schedule.class)
+                .between("mBeginTimestamp", getToday(), getTomorrow())
+                .or()
+                .between("mTerminalTimestamp", getToday(), getTomorrow())
+                .findAll();
+
+        //根据日程发生时间排序，越近越在上面
+        schedules = schedules.sort("mBeginTimestamp");
+
+        return mRealm.copyFromRealm(schedules);
+    }
+
     //查询日程表日程
     public List<Schedule> queryScheduleTable() {
         RealmResults<Schedule> schedules = mRealm.where(Schedule.class)
-                .greaterThan("mBeginTimestamp", new Date().getTime()).findAll();
+                .greaterThan("mTerminalTimestamp", getToday())
+                .findAll();
 
         //根据日程发生时间排序，越近越在上面
         schedules = schedules.sort("mBeginTimestamp");
@@ -185,5 +253,26 @@ public class RealmHelper {
         schedules = schedules.sort("mTerminalTimestamp", Sort.DESCENDING);
 
         return mRealm.copyFromRealm(schedules);
+    }
+
+    /*
+    获取时间戳
+     */
+    //获取今天0点的时间戳
+    public long getToday(){
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH),
+                0, 0, 0);
+        Date date = calendar.getTime();
+        return date.getTime();
+    }
+
+    //获取明天0点的时间戳
+    public long getTomorrow(){
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH),
+                24, 0, 0);
+        Date date = calendar.getTime();
+        return date.getTime();
     }
 }

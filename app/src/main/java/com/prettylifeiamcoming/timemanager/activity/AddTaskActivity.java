@@ -122,16 +122,16 @@ public class AddTaskActivity extends AppCompatActivity {
 
                             //提取任务四象限等级
                             String b = mSpinner2.getSelectedItem().toString();
-                            if (b.equals("第一象限级") || b.equals("First Quadrant Level")) {
+                            if (b.equals("重要且紧急") || b.equals("Important and Urgent")) {
                                 task.setTaskLevel(1);
                             }
-                            if (b.equals("第二象限级") || b.equals("Second Quadrant Level")) {
+                            if (b.equals("重要但不紧急") || b.equals("Important But Not Urgent")) {
                                 task.setTaskLevel(2);
                             }
-                            if (b.equals("第三象限级") || b.equals("Third Quadrant Level")) {
+                            if (b.equals("不重要但紧急") || b.equals("Not Important But Urgent")) {
                                 task.setTaskLevel(3);
                             }
-                            if (b.equals("第四象限级") || b.equals("Fourth Quadrant Level")) {
+                            if (b.equals("既不重要又不紧急") || b.equals("Neither Important Nor Urgent")) {
                                 task.setTaskLevel(4);
                             }
                             task.setTaskCustomLevel(Integer.parseInt(mEditText7.getText().toString()));
@@ -240,7 +240,7 @@ public class AddTaskActivity extends AppCompatActivity {
         }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH)).show();
     }
 
-    //测试用
+    //错误提示
     private void hint(int i) {
         switch (i) {
             case 0:

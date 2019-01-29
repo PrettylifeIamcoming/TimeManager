@@ -2,6 +2,9 @@ package com.prettylifeiamcoming.timemanager.adapter;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import com.prettylifeiamcoming.timemanager.R;
 import com.prettylifeiamcoming.timemanager.Sundial;
@@ -12,6 +15,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 public class TaskAdapter extends BaseAdapter<Task> {
 

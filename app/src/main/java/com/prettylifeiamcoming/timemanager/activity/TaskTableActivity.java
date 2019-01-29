@@ -4,14 +4,18 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.prettylifeiamcoming.timemanager.R;
+import com.prettylifeiamcoming.timemanager.adapter.BaseAdapter;
 import com.prettylifeiamcoming.timemanager.adapter.TaskAdapter;
 import com.prettylifeiamcoming.timemanager.bean.Task;
 import com.prettylifeiamcoming.timemanager.db.RealmHelper;
+import com.prettylifeiamcoming.timemanager.dialog.SetTaskDialogFragment;
 import com.prettylifeiamcoming.timemanager.util.DefaultItemTouchHelpCallback;
 
 import java.util.ArrayList;
@@ -60,6 +64,7 @@ public class TaskTableActivity extends AppCompatActivity {
 
         initData();
 
+        addListener();
     }
 
     //从数据库中读取数据
@@ -84,6 +89,17 @@ public class TaskTableActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.task_table_toolbar, menu);
         return true;
+    }
+
+    private void addListener() {
+        mTaskAdpter.setOnItemClickListener(new BaseAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                SetTaskDialogFragment setTaskDialogFragment = new SetTaskDialogFragment();
+                setTaskDialogFragment.setTask(mTasks.get(position));
+                setTaskDialogFragment.show(getSupportFragmentManager(),"SetTaskDialog");
+            }
+        });
     }
 
     //任务删除
