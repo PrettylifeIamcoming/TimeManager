@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="task_or_schedule_type">
+        <item>学习</item>
+        <item>社交 </item>
+        <item>工作</item>
+        <item>娱乐</item>
+        <item>睡觉</item>
+        <item>其他</item>
+    </string-array>
+
+    <string-array name="task_level">
+        <item>重要且紧急</item>
+        <item>I重要但不紧急</item>
+        <item>不重要但紧急</item>
+        <item>既不重要又不紧急</item>
+    </string-array>
+</resources>

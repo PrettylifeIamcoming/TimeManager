@@ -135,7 +135,7 @@ public class RealmHelper {
     public void updateTaskPlace(String id, String place) {
         Task task = mRealm.where(Task.class).equalTo("mTaskID", id).findFirst();
         mRealm.beginTransaction();
-        task.setmTaskPlace(place);
+        task.setTaskPlace(place);
         mRealm.commitTransaction();
     }
 

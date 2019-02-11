@@ -4,19 +4,16 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.prettylifeiamcoming.timemanager.R;
-import com.prettylifeiamcoming.timemanager.adapter.BaseAdapter;
+import com.prettylifeiamcoming.timemanager.adapter.DefaultItemTouchHelpCallback;
 import com.prettylifeiamcoming.timemanager.adapter.TaskAdapter;
 import com.prettylifeiamcoming.timemanager.bean.Task;
 import com.prettylifeiamcoming.timemanager.db.RealmHelper;
 import com.prettylifeiamcoming.timemanager.dialog.SetTaskDialogFragment;
-import com.prettylifeiamcoming.timemanager.util.DefaultItemTouchHelpCallback;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,7 +29,7 @@ import androidx.recyclerview.widget.RecyclerView;
 public class TaskTableActivity extends AppCompatActivity {
 
     private RecyclerView mRecyclerView;
-    private TaskAdapter mTaskAdpter;
+    private TaskAdapter mTaskAdapter;
     private List<Task> mTasks = new ArrayList<>();
     private RealmHelper mRealmHelper;
 
@@ -77,8 +74,8 @@ public class TaskTableActivity extends AppCompatActivity {
         mRecyclerView.setLayoutManager(manager);
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
 
-        this.mTaskAdpter = new TaskAdapter(this, mTasks, R.layout.item_task_table);
-        mRecyclerView.setAdapter(this.mTaskAdpter);
+        this.mTaskAdapter = new TaskAdapter(this, mTasks, R.layout.item_task_table);
+        mRecyclerView.setAdapter(this.mTaskAdapter);
 
         setSwipeDelete();
 
@@ -92,13 +89,10 @@ public class TaskTableActivity extends AppCompatActivity {
     }
 
     private void addListener() {
-        mTaskAdpter.setOnItemClickListener(new BaseAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(View view, int position) {
-                SetTaskDialogFragment setTaskDialogFragment = new SetTaskDialogFragment();
-                setTaskDialogFragment.setTask(mTasks.get(position));
-                setTaskDialogFragment.show(getSupportFragmentManager(),"SetTaskDialog");
-            }
+        mTaskAdapter.setOnItemClickListener((view, position) -> {
+            SetTaskDialogFragment setTaskDialogFragment = new SetTaskDialogFragment();
+            setTaskDialogFragment.setTask(mTasks.get(position));
+            setTaskDialogFragment.show(getSupportFragmentManager(),"SetTaskDialog");
         });
     }
 
@@ -115,7 +109,7 @@ public class TaskTableActivity extends AppCompatActivity {
                 mRealmHelper.deleteTask(mTasks.get(adapterPosition).getTaskID());
                 //滑动删除
                 mTasks.remove(adapterPosition);
-                mTaskAdpter.notifyItemRemoved(adapterPosition);
+                mTaskAdapter.notifyItemRemoved(adapterPosition);
             }
 
             @Override
@@ -139,11 +133,12 @@ public class TaskTableActivity extends AppCompatActivity {
                 startActivity(intent);
                 //Toast.makeText(this, "You clicked Add Task", Toast.LENGTH_SHORT).show();
                 break;
-            case R.id.task_table_toolbar_delete:
-                //Toast.makeText(this, "You clicked Delete Task", Toast.LENGTH_SHORT).show();
-                deleteTask();
-                break;
+//            case R.id.task_table_toolbar_delete:
+//                //Toast.makeText(this, "You clicked Delete Task", Toast.LENGTH_SHORT).show();
+//                deleteTask();
+//                break;
             default:
+                break;
         }
         return true;
     }

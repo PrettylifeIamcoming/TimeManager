@@ -33,7 +33,7 @@ public class Task extends RealmObject implements Serializable {
         return mTaskName;
     }
 
-    public String getmTaskPlace() {
+    public String getTaskPlace() {
         return mTaskPlace;
     }
 
@@ -73,7 +73,7 @@ public class Task extends RealmObject implements Serializable {
         mTaskName = taskName;
     }
 
-    public void setmTaskPlace(String taskPlace) {
+    public void setTaskPlace(String taskPlace) {
         mTaskPlace = taskPlace;
     }
 

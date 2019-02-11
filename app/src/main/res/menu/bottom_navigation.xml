@@ -3,7 +3,7 @@
 
     <item
         android:id="@+id/bottom_main_day"
-        android:icon="@drawable/botto_day"
+        android:icon="@drawable/bottom_day"
         android:title="@string/navigation_main_day" />
 
     <item

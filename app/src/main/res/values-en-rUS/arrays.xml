@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="task_or_schedule_type">
+        <item>Study</item>
+        <item>Social </item>
+        <item>Work</item>
+        <item>Play</item>
+        <item>Sleep</item>
+        <item>Others</item>
+    </string-array>
+
+    <string-array name="task_level">
+        <item>Important and Urgent</item>
+        <item>Important But Not Urgent</item>
+        <item>Not Important But Urgent</item>
+        <item>Neither Important Nor Urgent</item>
+    </string-array>
+</resources>

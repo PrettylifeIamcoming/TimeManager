@@ -7,10 +7,10 @@
         android:title="@string/task_table_toolbar_add"
         app:showAsAction="ifRoom" />
 
-    <item
-        android:id="@+id/schedule_table_toolbar_delete"
-        android:icon="@drawable/ic_delete"
-        android:title="@string/task_table_toolbar_delete"
-        app:showAsAction="ifRoom">
-    </item>
+    <!--<item-->
+        <!--android:id="@+id/schedule_table_toolbar_delete"-->
+        <!--android:icon="@drawable/ic_delete"-->
+        <!--android:title="@string/task_table_toolbar_delete"-->
+        <!--app:showAsAction="ifRoom">-->
+    <!--</item>-->
 </menu>

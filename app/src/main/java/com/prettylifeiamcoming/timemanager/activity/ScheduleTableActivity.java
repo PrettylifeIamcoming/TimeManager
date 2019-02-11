@@ -9,10 +9,10 @@ import android.widget.TextView;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.prettylifeiamcoming.timemanager.R;
+import com.prettylifeiamcoming.timemanager.adapter.DefaultItemTouchHelpCallback;
 import com.prettylifeiamcoming.timemanager.adapter.ScheduleAdapter;
 import com.prettylifeiamcoming.timemanager.bean.Schedule;
 import com.prettylifeiamcoming.timemanager.db.RealmHelper;
-import com.prettylifeiamcoming.timemanager.util.DefaultItemTouchHelpCallback;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -123,11 +123,12 @@ public class ScheduleTableActivity extends AppCompatActivity {
                 startActivity(intent);
                 //Toast.makeText(this, "You clicked Add Schedule", Toast.LENGTH_SHORT).show();
                 break;
-            case R.id.schedule_table_toolbar_delete:
-                //Toast.makeText(this, "You clicked Delete Schedule", Toast.LENGTH_SHORT).show();
-                deleteSchedule();
-                break;
+//            case R.id.schedule_table_toolbar_delete:
+//                //Toast.makeText(this, "You clicked Delete Schedule", Toast.LENGTH_SHORT).show();
+//                deleteSchedule();
+//                break;
             default:
+                break;
         }
         return true;
     }

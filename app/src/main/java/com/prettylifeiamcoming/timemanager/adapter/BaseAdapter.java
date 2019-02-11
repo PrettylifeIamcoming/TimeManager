@@ -11,30 +11,30 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public abstract class BaseAdapter<T> extends RecyclerView.Adapter<BaseViewHolder> {
     private Context mContext;
-    private List<T> mDatas;
+    private List<T> mData;
     private int mLayoutId;
     private OnItemClickListener mItemClickListener;
     private onLongItemClickListener mLongItemClickListener;
 
-    public BaseAdapter(Context mContext, List<T> mDatas){
+    public BaseAdapter(Context mContext, List<T> mData){
         this.mContext = mContext;
-        this.mDatas = mDatas;
+        this.mData = mData;
     }
 
-    public BaseAdapter(Context mContext, List<T> mDatas, int mLayoutId) {
+    public BaseAdapter(Context mContext, List<T> mData, int mLayoutId) {
         this.mContext = mContext;
-        this.mDatas = mDatas;
+        this.mData = mData;
         this.mLayoutId = mLayoutId;
     }
 
     public void updateData(List<T> data) {
-        mDatas.clear();
-        mDatas.addAll(data);
+        mData.clear();
+        mData.addAll(data);
         notifyDataSetChanged();
     }
 
     public void addAll(List<T> data) {
-        mDatas.addAll(data);
+        mData.addAll(data);
         notifyDataSetChanged();
     }
 
@@ -47,13 +47,13 @@ public abstract class BaseAdapter<T> extends RecyclerView.Adapter<BaseViewHolder
 
     @Override
     public int getItemCount() {
-        return mDatas.size();
+        return mData.size();
     }
 
 
     @Override
     public void onBindViewHolder(BaseViewHolder holder, final int position) {
-        convert(mContext, holder, mDatas.get(position));
+        convert(mContext, holder, mData.get(position));
         if (mItemClickListener != null) {
             holder.mItemView.setOnClickListener(v -> mItemClickListener.onItemClick(v, position));
         }
@@ -73,7 +73,7 @@ public abstract class BaseAdapter<T> extends RecyclerView.Adapter<BaseViewHolder
     }
 
     public interface onLongItemClickListener {
-        void onLongItemClick(View view, int postion);
+        void onLongItemClick(View view, int position);
     }
 
     public void setOnItemClickListener(OnItemClickListener listener) {

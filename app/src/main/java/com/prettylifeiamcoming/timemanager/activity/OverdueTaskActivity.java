@@ -10,7 +10,6 @@ import com.prettylifeiamcoming.timemanager.adapter.TaskAdapter;
 import com.prettylifeiamcoming.timemanager.bean.Task;
 import com.prettylifeiamcoming.timemanager.db.RealmHelper;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,9 +22,6 @@ import androidx.recyclerview.widget.RecyclerView;
 public class OverdueTaskActivity extends AppCompatActivity {
 
     private RecyclerView mRecyclerView;
-    private TaskAdapter mTaskAdpter;
-    private List<Task> mTasks = new ArrayList<>();
-    private RealmHelper mRealmHelper;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,16 +55,16 @@ public class OverdueTaskActivity extends AppCompatActivity {
 
     //从数据库中读取数据
     private void initData() {
-        mRealmHelper = new RealmHelper(this);
+        RealmHelper mRealmHelper = new RealmHelper(this);
 
-        this.mTasks = mRealmHelper.queryOverdueTask();
+        List<Task> mTasks = mRealmHelper.queryOverdueTask();
 
         LinearLayoutManager manager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(manager);
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
 
-        this.mTaskAdpter = new TaskAdapter(this, mTasks, R.layout.item_task_table);
-        mRecyclerView.setAdapter(this.mTaskAdpter);
+        TaskAdapter mTaskAdapter = new TaskAdapter(this, mTasks, R.layout.item_task_table);
+        mRecyclerView.setAdapter(mTaskAdapter);
     }
 
 }

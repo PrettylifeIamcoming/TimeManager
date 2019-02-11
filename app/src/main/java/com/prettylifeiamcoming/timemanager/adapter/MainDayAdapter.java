@@ -7,16 +7,14 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.prettylifeiamcoming.timemanager.R;
-import com.prettylifeiamcoming.timemanager.Sundial;
 import com.prettylifeiamcoming.timemanager.bean.Schedule;
 import com.prettylifeiamcoming.timemanager.bean.Task;
+import com.prettylifeiamcoming.timemanager.util.TaskOrScheduleTypeConverter;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
-
-import javax.annotation.Nonnull;
 
 import io.realm.RealmObject;
 
@@ -27,12 +25,12 @@ public class MainDayAdapter extends BaseAdapter<RealmObject> {
     private Context mContext;
     //对应四个象限的颜色设置，红、黄、粉、绿
     private String[] mColors = {"#FF7575","#FFFFB9","#FFC1E0","#BBFFBB"};
-    private List<RealmObject> mDatas;
+    private List<RealmObject> mData;
 
-    public MainDayAdapter(Context mContext, List<RealmObject> mDatas) {
-        super(mContext, mDatas);
+    public MainDayAdapter(Context mContext, List<RealmObject> mData) {
+        super(mContext, mData);
         this.mContext = mContext;
-        this.mDatas = mDatas;
+        this.mData = mData;
     }
 
     @Override
@@ -47,9 +45,9 @@ public class MainDayAdapter extends BaseAdapter<RealmObject> {
 
     @Override
     public int getItemViewType(int position) {
-        if (mDatas.get(position) instanceof Task)
+        if (mData.get(position) instanceof Task)
             return TYPE_TASK;
-        if (mDatas.get(position) instanceof Schedule)
+        if (mData.get(position) instanceof Schedule)
             return TYPE_SCHEDULE;
 
         return -1;
@@ -75,7 +73,7 @@ public class MainDayAdapter extends BaseAdapter<RealmObject> {
         holder.setText(R.id.item_main_task_name, task.getTaskName())
                 .setText(R.id.item_main_task_begin, new SimpleDateFormat("yyyy.MM.dd/HH:mm",Locale.getDefault()).format(new Date(task.getBeginTimestamp())))
                 .setText(R.id.item_main_task_terminal, new SimpleDateFormat("yyyy.MM.dd/HH:mm",Locale.getDefault()).format(new Date(task.getTerminalTimestamp())))
-                .setText(R.id.item_main_task_place, task.getmTaskPlace())
+                .setText(R.id.item_main_task_place, task.getTaskPlace())
                 .setText(R.id.item_main_task_process, String.valueOf(task.getTaskProcess() + "%"));
 
         //填充颜色
@@ -101,30 +99,8 @@ public class MainDayAdapter extends BaseAdapter<RealmObject> {
                 .setText(R.id.item_schedule_table_place, schedule.getSchedulePlace())
                 .setText(R.id.item_schedule_table_begin, new SimpleDateFormat("yyyy.MM.dd/HH:mm",Locale.getDefault()).format(new Date(schedule.getBeginTimestamp())))
                 .setText(R.id.item_schedule_table_terminal, new SimpleDateFormat("yyyy.MM.dd/HH:mm",Locale.getDefault()).format(new Date(schedule.getTerminalTimestamp())))
-                .setText(R.id.item_schedule_table_type, getType(schedule.getScheduleType()));
+                .setText(R.id.item_schedule_table_type, TaskOrScheduleTypeConverter.getType(schedule.getScheduleType()));
 
         holder.setCardViewBackgroundColor(R.id.item_schedule_table,Color.parseColor("#ACD6FF"));
-    }
-
-    /**
-     * 任务类型转换器
-     */
-    private String getType(int i) {
-        switch (i) {
-            case 1:
-                return Sundial.getInstance().getString(R.string.add_task_study);
-            case 2:
-                return Sundial.getInstance().getString(R.string.add_task_social);
-            case 3:
-                return Sundial.getInstance().getString(R.string.add_task_work);
-            case 4:
-                return Sundial.getInstance().getString(R.string.add_task_play);
-            case 5:
-                return Sundial.getInstance().getString(R.string.add_task_sleep);
-            case 6:
-                return Sundial.getInstance().getString(R.string.add_task_others);
-        }
-
-        return "类型错误";
     }
 }

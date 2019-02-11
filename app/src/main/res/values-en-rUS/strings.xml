@@ -51,7 +51,7 @@
     <string name="error_invalid_password">This password is too short</string>
     <string name="error_incorrect_password">This password is incorrect</string>
     <string name="error_field_required">This field is required</string>
-    <string name="permission_rationale">"Contacts permissions are needed for providing emailcompletions."</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email completions."</string>
     <!-- Strings related to login -->
     <!-- LoginActivity -->
 
@@ -96,20 +96,19 @@
     <string name="add_task_deadline">Deadline</string>
     <string name="add_task_ok">OK</string>
     <string name="add_task_cancel">Cancel</string>
-    <string name="add_task_name_edittext">Task Name</string>
-    <string name="add_task_place_edittext">Task Place</string>
-    <string name="add_task_begin_time_edittext">1997.00.00/00:00</string>
-    <string name="add_task_terminal_time_edittext">1997.00.00/00:00</string>
-    <string name="add_task_type_edittext">1.study,2.work,3.others</string>
-    <string name="add_task_level_edittext">1,2,3,4</string>
-    <string name="add_task_custom_level_edittext">CustomLevel</string>
-    <string name="add_task_deadline_edittext">1997.00.00/00:00</string>
+    <string name="add_task_name_edit_text">Task Name</string>
+    <string name="add_task_place_edit_text">Task Place</string>
+    <string name="add_task_begin_time_edit_text">1997.00.00/00:00</string>
+    <string name="add_task_terminal_time_edit_text">1997.00.00/00:00</string>
+    <string name="add_task_custom_level_edit_text">CustomLevel</string>
+    <string name="add_task_deadline_edit_text">1997.00.00/00:00</string>
     <string name="add_task_study">Study</string>
     <string name="add_task_social">Social</string>
     <string name="add_task_work">Work</string>
     <string name="add_task_play">Play</string>
     <string name="add_task_sleep">Sleep</string>
     <string name="add_task_others">Others</string>
+    <string name="add_task_error">Type Error</string>
     <string name="add_task_level_first">Important and Urgent</string>
     <string name="add_task_level_second">Important But Not Urgent</string>
     <string name="add_task_level_third">Not Important But Urgent</string>
@@ -136,11 +135,10 @@
     <string name="add_schedule_type">Schedule Type</string>
     <string name="add_schedule_ok">OK</string>
     <string name="add_schedule_cancel">Cancel</string>
-    <string name="add_schedule_name_edittext">Schedule Name</string>
-    <string name="add_schedule_place_edittext">Schedule Place</string>
-    <string name="add_schedule_begin_time_edittext">1997.00.00/00:00</string>
-    <string name="add_schedule_terminal_time_edittext">1997.00.00/00:00</string>
-    <string name="add_schedule_type_edittext">1,2,3</string>
+    <string name="add_schedule_name_edit_text">Schedule Name</string>
+    <string name="add_schedule_place_edit_text">Schedule Place</string>
+    <string name="add_schedule_begin_time_edit_text">1997.00.00/00:00</string>
+    <string name="add_schedule_terminal_time_edit_text">1997.00.00/00:00</string>
 
     <!-- AddScheduleHint -->
     <string name="add_schedule_hint_name">Schedule name cannot be empty.</string>
@@ -207,7 +205,7 @@
     <string name="dialog_set_task_hint_begin_time">The begin time cannot be less than the current time.</string>
     <string name="dialog_set_task_hint_terminal">Terminal time cannot be empty.</string>
     <string name="dialog_set_task_hint_terminal_deadline">Terminal time cannot be greater than the deadline.</string>
-    <string name="dialog_set_task_hint_tetminal_time">The terminal time cannot be less than the current time.</string>
+    <string name="dialog_set_task_hint_terminal_time">The terminal time cannot be less than the current time.</string>
     <string name="dialog_set_task_hint_begin_terminal">Begin time cannot be greater than the terminal time.</string>
     <string name="dialog_set_task_hint_place">Place cannot be empty.</string>
     <!-- dialog_set_task_hint -->

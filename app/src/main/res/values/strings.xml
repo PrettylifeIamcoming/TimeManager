@@ -96,20 +96,19 @@
     <string name="add_task_deadline">截止时间</string>
     <string name="add_task_ok">确定</string>
     <string name="add_task_cancel">取消</string>
-    <string name="add_task_name_edittext">任务名称</string>
-    <string name="add_task_place_edittext">任务地点</string>
-    <string name="add_task_begin_time_edittext">1997.00.00/00:00</string>
-    <string name="add_task_terminal_time_edittext">1997.00.00/00:00</string>
-    <string name="add_task_type_edittext">1.学习，2.工作，3.其他</string>
-    <string name="add_task_level_edittext">四象限级别:1,2,3,4</string>
-    <string name="add_task_custom_level_edittext">自己定义任务级别</string>
-    <string name="add_task_deadline_edittext">1997.00.00/00:00</string>
+    <string name="add_task_name_edit_text">任务名称</string>
+    <string name="add_task_place_edit_text">任务地点</string>
+    <string name="add_task_begin_time_edit_text">1997.00.00/00:00</string>
+    <string name="add_task_terminal_time_edit_text">1997.00.00/00:00</string>
+    <string name="add_task_custom_level_edit_text">自己定义任务级别</string>
+    <string name="add_task_deadline_edit_text">1997.00.00/00:00</string>
     <string name="add_task_study">学习</string>
     <string name="add_task_social">社交</string>
     <string name="add_task_work">工作</string>
     <string name="add_task_play">娱乐</string>
     <string name="add_task_sleep">睡觉</string>
     <string name="add_task_others">其它</string>
+    <string name="add_task_error">类型错误</string>
     <string name="add_task_level_first">重要且紧急</string>
     <string name="add_task_level_second">重要但不紧急</string>
     <string name="add_task_level_third">不重要但紧急</string>
@@ -136,11 +135,10 @@
     <string name="add_schedule_type">日程类型</string>
     <string name="add_schedule_ok">确定</string>
     <string name="add_schedule_cancel">取消</string>
-    <string name="add_schedule_name_edittext">日程名称</string>
-    <string name="add_schedule_place_edittext">日程地点</string>
-    <string name="add_schedule_begin_time_edittext">1997.00.00/00:00</string>
-    <string name="add_schedule_terminal_time_edittext">1997.00.00/00:00</string>
-    <string name="add_schedule_type_edittext">1.学习，2.工作，3.其他</string>
+    <string name="add_schedule_name_edit_text">日程名称</string>
+    <string name="add_schedule_place_edit_text">日程地点</string>
+    <string name="add_schedule_begin_time_edit_text">1997.00.00/00:00</string>
+    <string name="add_schedule_terminal_time_edit_text">1997.00.00/00:00</string>
 
     <!-- AddScheduleHint -->
     <string name="add_schedule_hint_name">日程名称不能为空</string>
@@ -207,7 +205,7 @@
     <string name="dialog_set_task_hint_begin_time">起始时间不能小于当前时间</string>
     <string name="dialog_set_task_hint_terminal">终止时间不能为空</string>
     <string name="dialog_set_task_hint_terminal_deadline">终止时间不能大于截止时间</string>
-    <string name="dialog_set_task_hint_tetminal_time">终止时间不能小于当前时间</string>
+    <string name="dialog_set_task_hint_terminal_time">终止时间不能小于当前时间</string>
     <string name="dialog_set_task_hint_begin_terminal">起始时间不能大于终止时间</string>
     <string name="dialog_set_task_hint_place">地点不能为空</string>
     <!-- dialog_set_task_hint -->

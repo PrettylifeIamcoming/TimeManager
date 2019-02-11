@@ -1,4 +1,4 @@
-package com.prettylifeiamcoming.timemanager.util;
+package com.prettylifeiamcoming.timemanager.adapter;
 
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.ItemTouchHelper;

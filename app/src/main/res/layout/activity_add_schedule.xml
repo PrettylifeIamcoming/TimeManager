@@ -10,6 +10,7 @@
         android:layout_height="?android:attr/actionBarSize"
         android:background="@android:color/holo_blue_dark"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:layout_constraintTop_toTopOf="parent"
         app:popupTheme="@style/OverflowMenuStyle">
 
         <ImageView
@@ -57,7 +58,7 @@
         android:layout_marginLeft="24dp"
         android:layout_marginEnd="24dp"
         android:layout_marginRight="24dp"
-        android:hint="@string/add_schedule_name_edittext"
+        android:hint="@string/add_schedule_name_edit_text"
         android:inputType=""
         android:singleLine="true"
         app:layout_constraintBottom_toBottomOf="@+id/textView01"
@@ -115,7 +116,7 @@
         android:layout_marginRight="24dp"
         android:focusable="false"
         android:focusableInTouchMode="true"
-        android:hint="@string/add_schedule_begin_time_edittext"
+        android:hint="@string/add_schedule_begin_time_edit_text"
         android:inputType="none"
         android:singleLine="true"
         app:layout_constraintBottom_toBottomOf="@+id/textView02"
@@ -145,7 +146,7 @@
         android:layout_marginRight="24dp"
         android:focusable="false"
         android:focusableInTouchMode="true"
-        android:hint="@string/add_schedule_terminal_time_edittext"
+        android:hint="@string/add_schedule_terminal_time_edit_text"
         android:inputType="none"
         android:singleLine="true"
         app:layout_constraintBottom_toBottomOf="@+id/textView03"
@@ -174,6 +175,7 @@
         android:layout_marginLeft="24dp"
         android:layout_marginEnd="24dp"
         android:layout_marginRight="24dp"
+        android:entries="@array/task_or_schedule_type"
         app:layout_constraintBottom_toBottomOf="@+id/textView04"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView04"
