@@ -11,10 +11,12 @@ import com.prettylifeiamcoming.timemanager.adapter.MainDayAdapter;
 import com.prettylifeiamcoming.timemanager.bean.Schedule;
 import com.prettylifeiamcoming.timemanager.bean.Task;
 import com.prettylifeiamcoming.timemanager.db.RealmHelper;
+import com.prettylifeiamcoming.timemanager.dialog.SetTaskProgressDialogFragment;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.DividerItemDecoration;
@@ -25,11 +27,8 @@ import io.realm.RealmObject;
 public class DayFragment extends Fragment {
 
     private RecyclerView mRecyclerView;
+    private MainDayAdapter mainDayAdapter;
     private final List<RealmObject> mList = new ArrayList<>();
-
-    public DayFragment() {
-
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -38,12 +37,24 @@ public class DayFragment extends Fragment {
         mRecyclerView = view.findViewById(R.id.recycler_view_day);
         mRecyclerView.addItemDecoration(new DividerItemDecoration(Sundial.getInstance(), DividerItemDecoration.VERTICAL));
         initData();
+        addListener();
 
         return view;
     }
 
+    private void addListener() {
+        mainDayAdapter.setOnItemClickListener((view, position) -> {
+            SetTaskProgressDialogFragment setTaskProgressDialogFragment = new SetTaskProgressDialogFragment();
+            if (mList.get(position) instanceof Task){
+                setTaskProgressDialogFragment.setTask((Task) mList.get(position));
+            }
+            setTaskProgressDialogFragment.show(getFragmentManager(),"SetProgressDialog");
+        });
+    }
+
     //从数据库中读取数据
     private void initData() {
+        mList.clear();
         RealmHelper mRealmHelper = new RealmHelper(getActivity());
 
         List<Task> mTask = mRealmHelper.queryTodayTask();
@@ -55,7 +66,7 @@ public class DayFragment extends Fragment {
         mRecyclerView.setLayoutManager(manager);
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
 
-        MainDayAdapter mainDayAdapter = new MainDayAdapter(getActivity(), mList);
+        this.mainDayAdapter = new MainDayAdapter(getActivity(), mList);
         mRecyclerView.setAdapter(mainDayAdapter);
     }
 }

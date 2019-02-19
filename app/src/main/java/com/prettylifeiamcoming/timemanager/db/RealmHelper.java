@@ -140,10 +140,10 @@ public class RealmHelper {
     }
 
     //设置任务进度
-    public void updateTaskProcess(String id, int process) {
+    public void updateTaskProgress(String id, int progress) throws NullPointerException{
         Task task = mRealm.where(Task.class).equalTo("mTaskID", id).findFirst();
         mRealm.beginTransaction();
-        task.setTaskProcess(process);
+        task.setTaskProgress(progress);
         mRealm.commitTransaction();
     }
 
@@ -178,7 +178,7 @@ public class RealmHelper {
     public List<Task> queryTaskTable() {
         RealmResults<Task> tasks = mRealm.where(Task.class)
                 .greaterThan("mDeadline",new Date().getTime())
-                .lessThan("mTaskProcess", 100).findAll();
+                .lessThan("mTaskProgress", 100).findAll();
 
         //根据deadline越近排在越上面
         tasks = tasks.sort("mDeadline");
@@ -189,7 +189,7 @@ public class RealmHelper {
     //查询所有已完成任务
     public List<Task> queryCompletedTask() {
         RealmResults<Task> tasks = mRealm.where(Task.class)
-                .equalTo("mTaskProcess", 100).findAll();
+                .equalTo("mTaskProgress", 100).findAll();
 
         //根据deadline越近排在越上面
         tasks = tasks.sort("mTerminalTimestamp", Sort.DESCENDING);

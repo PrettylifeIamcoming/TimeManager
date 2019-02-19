@@ -27,7 +27,7 @@ public class TaskAdapter extends BaseAdapter<Task> {
         holder.setText(R.id.item_task_table_name, task.getTaskName())
                 .setText(R.id.item_task_table_deadline, new SimpleDateFormat("yyyy.MM.dd/HH:mm",Locale.getDefault()).format(new Date(task.getDeadline())))
                 .setText(R.id.item_task_table_type, TaskOrScheduleTypeConverter.getType(task.getTaskType()))
-                .setText(R.id.item_task_table_process, String.valueOf(task.getTaskProcess() + "%"))
+                .setText(R.id.item_task_table_process, String.valueOf(task.getTaskProgress() + "%"))
                 .setText(R.id.item_task_table_custom_level, String.valueOf(task.getTaskCustomLevel()));
                 //.setProgressBar(R.id.item_task_table_process1,task.getTaskProcess());
 

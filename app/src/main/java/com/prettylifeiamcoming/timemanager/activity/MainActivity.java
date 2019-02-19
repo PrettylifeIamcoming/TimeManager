@@ -19,6 +19,8 @@ import androidx.fragment.app.Fragment;
 
 import com.google.android.material.navigation.NavigationView;
 import com.prettylifeiamcoming.timemanager.R;
+import com.prettylifeiamcoming.timemanager.adapter.MainDayAdapter;
+import com.prettylifeiamcoming.timemanager.dialog.SetTaskProgressDialogFragment;
 import com.prettylifeiamcoming.timemanager.fragment.DayFragment;
 import com.prettylifeiamcoming.timemanager.fragment.MonthFragment;
 import com.prettylifeiamcoming.timemanager.fragment.YearFragment;

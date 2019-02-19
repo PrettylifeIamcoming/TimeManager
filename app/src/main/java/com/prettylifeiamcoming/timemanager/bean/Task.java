@@ -17,7 +17,7 @@ public class Task extends RealmObject implements Serializable {
     private long mDeadline;                          //任务的deadline
     private int mTaskType;                           //任务类型，后期用switch绑定上具体的类型名称
     private int mTaskLevel;                          //任务级别，四象限，有四个级别，后期为了显示fragment的颜色服务
-    private int mTaskProcess;                        //任务的进度，需要由用户来进行填写
+    private int mTaskProgress;                        //任务的进度，需要由用户来进行填写
     private int mTaskCustomLevel;                    //任务的用户自定义级别，由用户来决定，让用户来具体区分
     private String mUserID;                          // 用户ID，为从数据库中寻找用户的日程服务
 
@@ -61,8 +61,8 @@ public class Task extends RealmObject implements Serializable {
         return mTaskLevel;
     }
 
-    public int getTaskProcess() {
-        return mTaskProcess;
+    public int getTaskProgress() {
+        return mTaskProgress;
     }
 
     public int getTaskCustomLevel() {
@@ -101,8 +101,8 @@ public class Task extends RealmObject implements Serializable {
         mTaskLevel = taskLevel;
     }
 
-    public void setTaskProcess(int taskProcess) {
-        mTaskProcess = taskProcess;
+    public void setTaskProgress(int taskProcess) {
+        mTaskProgress = taskProcess;
     }
 
     public void setTaskCustomLevel(int taskCustomLevel) {

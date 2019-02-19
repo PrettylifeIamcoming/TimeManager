@@ -74,7 +74,7 @@ public class MainDayAdapter extends BaseAdapter<RealmObject> {
                 .setText(R.id.item_main_task_begin, new SimpleDateFormat("yyyy.MM.dd/HH:mm",Locale.getDefault()).format(new Date(task.getBeginTimestamp())))
                 .setText(R.id.item_main_task_terminal, new SimpleDateFormat("yyyy.MM.dd/HH:mm",Locale.getDefault()).format(new Date(task.getTerminalTimestamp())))
                 .setText(R.id.item_main_task_place, task.getTaskPlace())
-                .setText(R.id.item_main_task_process, String.valueOf(task.getTaskProcess() + "%"));
+                .setText(R.id.item_main_task_process, String.valueOf(task.getTaskProgress() + "%"));
 
         //填充颜色
         switch (task.getTaskLevel()){

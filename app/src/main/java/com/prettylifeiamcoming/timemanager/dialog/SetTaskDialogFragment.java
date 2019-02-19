@@ -37,8 +37,7 @@ public class SetTaskDialogFragment extends DialogFragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState)
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
         View view = inflater.inflate(R.layout.dialog_set_task, container);
 
@@ -102,7 +101,7 @@ public class SetTaskDialogFragment extends DialogFragment {
                             Toast.makeText(Sundial.getInstance(), R.string.dialog_set_task_hint_terminal_time, Toast.LENGTH_SHORT).show();
                         }else {
                             if (f>task.getDeadline()) {
-                                Toast.makeText(Sundial.getInstance(), R.string.dialog_set_task_hint_terminal_deadline, Toast.LENGTH_SHORT).show();
+                                Toast.makeText(Sundial.getInstance(), getString(R.string.dialog_set_task_hint_terminal_deadline) + String.valueOf(fmt.format(task.getDeadline())), Toast.LENGTH_LONG).show();
                             }else {
 
                                 try {
@@ -159,6 +158,6 @@ public class SetTaskDialogFragment extends DialogFragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Bundle bundle = getArguments();
-        setStyle(DialogFragment.STYLE_NO_TITLE, android.R.style.Theme_Holo_Light_Dialog_MinWidth);
+        setStyle(DialogFragment.STYLE_NORMAL, android.R.style.Theme_Holo_Light_Dialog_MinWidth);
     }
 }

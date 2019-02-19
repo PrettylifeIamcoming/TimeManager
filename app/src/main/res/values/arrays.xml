@@ -11,7 +11,7 @@
 
     <string-array name="task_level">
         <item>重要且紧急</item>
-        <item>I重要但不紧急</item>
+        <item>重要但不紧急</item>
         <item>不重要但紧急</item>
         <item>既不重要又不紧急</item>
     </string-array>
