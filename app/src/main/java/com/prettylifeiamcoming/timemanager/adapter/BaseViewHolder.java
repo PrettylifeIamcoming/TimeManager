@@ -39,7 +39,7 @@ public class BaseViewHolder extends RecyclerView.ViewHolder {
         return this;
     }
 
-    public BaseViewHolder setProgressBar(int progressBarId,int progress){
+    public BaseViewHolder setProgressBar(int progressBarId, int progress) {
         ProgressBar progressBar = getView(progressBarId);
         progressBar.setProgress(progress);
         return this;
@@ -81,7 +81,7 @@ public class BaseViewHolder extends RecyclerView.ViewHolder {
         return this;
     }
 
-    public BaseViewHolder setCardViewBackgroundColor(int cardViewId, int color){
+    public BaseViewHolder setCardViewBackgroundColor(int cardViewId, int color) {
         CardView cardView = getView(cardViewId);
         cardView.setCardBackgroundColor(color);
         return this;

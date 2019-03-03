@@ -83,12 +83,12 @@ public class ScheduleTableActivity extends AppCompatActivity {
 
         setSwipeDelete();
 
-        Snackbar.make(mRecyclerView,"滑动删除日程、点击日程进入修改界面",Snackbar.LENGTH_LONG).show();
+        Snackbar.make(mRecyclerView, "滑动删除日程、点击日程进入修改界面", Snackbar.LENGTH_LONG).show();
     }
 
     //删除日程
-    private void deleteSchedule(){
-        Snackbar.make(mRecyclerView,"滑动删除日程、点击日程进入修改界面",Snackbar.LENGTH_LONG).show();
+    private void deleteSchedule() {
+        Snackbar.make(mRecyclerView, "滑动删除日程、点击日程进入修改界面", Snackbar.LENGTH_LONG).show();
     }
 
     private void setSwipeDelete() {

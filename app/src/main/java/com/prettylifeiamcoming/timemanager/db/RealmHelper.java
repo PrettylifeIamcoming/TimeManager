@@ -127,7 +127,7 @@ public class RealmHelper {
     public void updateTaskDuration(String id, long timeStamp) {
         Task task = mRealm.where(Task.class).equalTo("mTaskID", id).findFirst();
         mRealm.beginTransaction();
-        task.setTerminalTimestamp(task.getDuration()+timeStamp);
+        task.setDuration(task.getDuration() + timeStamp);
         mRealm.commitTransaction();
     }
 
@@ -140,7 +140,7 @@ public class RealmHelper {
     }
 
     //设置任务进度
-    public void updateTaskProgress(String id, int progress) throws NullPointerException{
+    public void updateTaskProgress(String id, int progress) throws NullPointerException {
         Task task = mRealm.where(Task.class).equalTo("mTaskID", id).findFirst();
         mRealm.beginTransaction();
         task.setTaskProgress(progress);
@@ -177,7 +177,7 @@ public class RealmHelper {
     //查询任务表任务
     public List<Task> queryTaskTable() {
         RealmResults<Task> tasks = mRealm.where(Task.class)
-                .greaterThan("mDeadline",new Date().getTime())
+                .greaterThan("mDeadline", new Date().getTime())
                 .lessThan("mTaskProgress", 100).findAll();
 
         //根据deadline越近排在越上面
@@ -200,7 +200,7 @@ public class RealmHelper {
     //查询所有逾期任务
     public List<Task> queryOverdueTask() {
         RealmResults<Task> tasks = mRealm.where(Task.class)
-                .lessThanOrEqualTo("mDeadline",new Date().getTime()).findAll();
+                .lessThanOrEqualTo("mDeadline", new Date().getTime()).findAll();
 
         //根据deadline越近排在越上面
         tasks = tasks.sort("mDeadline");
@@ -259,7 +259,7 @@ public class RealmHelper {
     获取时间戳
      */
     //获取今天0点的时间戳
-    public long getToday(){
+    public long getToday() {
         Calendar calendar = Calendar.getInstance();
         calendar.set(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH),
                 0, 0, 0);
@@ -268,7 +268,7 @@ public class RealmHelper {
     }
 
     //获取明天0点的时间戳
-    public long getTomorrow(){
+    public long getTomorrow() {
         Calendar calendar = Calendar.getInstance();
         calendar.set(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH),
                 24, 0, 0);

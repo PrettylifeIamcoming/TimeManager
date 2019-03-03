@@ -79,7 +79,7 @@ public class TaskTableActivity extends AppCompatActivity {
 
         setSwipeDelete();
 
-        Snackbar.make(mRecyclerView,"滑动删除任务、点击任务进入修改界面",Snackbar.LENGTH_LONG).show();
+        Snackbar.make(mRecyclerView, "滑动删除任务、点击任务进入修改界面", Snackbar.LENGTH_LONG).show();
     }
 
     //toolbar菜单填充
@@ -92,13 +92,13 @@ public class TaskTableActivity extends AppCompatActivity {
         mTaskAdapter.setOnItemClickListener((view, position) -> {
             SetTaskDialogFragment setTaskDialogFragment = new SetTaskDialogFragment();
             setTaskDialogFragment.setTask(mTasks.get(position));
-            setTaskDialogFragment.show(getSupportFragmentManager(),"SetTaskDialog");
+            setTaskDialogFragment.show(getSupportFragmentManager(), "SetTaskDialog");
         });
     }
 
     //任务删除
-    private void deleteTask(){
-        Snackbar.make(mRecyclerView,"滑动删除任务、点击任务进入修改界面",Snackbar.LENGTH_LONG).show();
+    private void deleteTask() {
+        Snackbar.make(mRecyclerView, "滑动删除任务、点击任务进入修改界面", Snackbar.LENGTH_LONG).show();
     }
 
     private void setSwipeDelete() {

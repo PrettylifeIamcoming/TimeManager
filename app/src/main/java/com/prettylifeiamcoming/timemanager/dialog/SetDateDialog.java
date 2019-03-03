@@ -1,5 +1,6 @@
 package com.prettylifeiamcoming.timemanager.dialog;
 
+import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Context;
 import android.widget.EditText;
@@ -12,7 +13,7 @@ public class SetDateDialog {
      */
     public static void showDatePickerDialog(Context context, EditText editText) {
         Calendar calendar = Calendar.getInstance();
-        new android.app.DatePickerDialog(context, (view, year, monthOfYear, dayOfMonth) -> {
+        new DatePickerDialog(context, (view, year, monthOfYear, dayOfMonth) -> {
             final String a = year + "." + (monthOfYear + 1) + "." + dayOfMonth;
             // 时间对话框
             new TimePickerDialog(context, (view1, hourOfDay, minute) -> {

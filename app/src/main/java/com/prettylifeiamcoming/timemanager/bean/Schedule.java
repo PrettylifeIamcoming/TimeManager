@@ -17,7 +17,7 @@ public class Schedule extends RealmObject implements Serializable {
     private int mScheduleType;           //日程的类型，后期用switch绑定上具体的类型名称
     private String mUserID;              //用户ID，为从数据库中寻找用户的日程服务
 
-    public Schedule(){
+    public Schedule() {
         mScheduleID = UUID.randomUUID().toString();
     }
 
@@ -29,7 +29,7 @@ public class Schedule extends RealmObject implements Serializable {
         return mScheduleName;
     }
 
-    public String getSchedulePlace(){
+    public String getSchedulePlace() {
         return mSchedulePlace;
     }
 
@@ -53,7 +53,7 @@ public class Schedule extends RealmObject implements Serializable {
         mScheduleName = scheduleName;
     }
 
-    public void setSchedulePlace(String schedulePlace){
+    public void setSchedulePlace(String schedulePlace) {
         mSchedulePlace = schedulePlace;
     }
 

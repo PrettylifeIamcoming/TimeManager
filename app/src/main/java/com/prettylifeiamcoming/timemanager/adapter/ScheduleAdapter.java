@@ -24,10 +24,10 @@ public class ScheduleAdapter extends BaseAdapter<Schedule> {
     protected void convert(Context mContext, BaseViewHolder holder, final Schedule schedule) {
         holder.setText(R.id.item_schedule_table_name, schedule.getScheduleName())
                 .setText(R.id.item_schedule_table_place, schedule.getSchedulePlace())
-                .setText(R.id.item_schedule_table_begin, new SimpleDateFormat("yyyy.MM.dd/HH:mm",Locale.getDefault()).format(new Date(schedule.getBeginTimestamp())))
-                .setText(R.id.item_schedule_table_terminal, new SimpleDateFormat("yyyy.MM.dd/HH:mm",Locale.getDefault()).format(new Date(schedule.getTerminalTimestamp())))
+                .setText(R.id.item_schedule_table_begin, new SimpleDateFormat("yyyy.MM.dd/HH:mm", Locale.getDefault()).format(new Date(schedule.getBeginTimestamp())))
+                .setText(R.id.item_schedule_table_terminal, new SimpleDateFormat("yyyy.MM.dd/HH:mm", Locale.getDefault()).format(new Date(schedule.getTerminalTimestamp())))
                 .setText(R.id.item_schedule_table_type, TaskOrScheduleTypeConverter.getType(schedule.getScheduleType()));
 
-        holder.setCardViewBackgroundColor(R.id.item_schedule_table,Color.parseColor("#ACD6FF"));
+        holder.setCardViewBackgroundColor(R.id.item_schedule_table, Color.parseColor("#ACD6FF"));
     }
 }

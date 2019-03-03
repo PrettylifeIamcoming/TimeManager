@@ -76,7 +76,7 @@ public class AddTaskActivity extends AppCompatActivity {
 
         mButton1.setOnClickListener(v -> {
             Date date;
-            DateFormat fmt = new SimpleDateFormat("yyyy.MM.dd/kk:mm",Locale.getDefault());
+            DateFormat fmt = new SimpleDateFormat("yyyy.MM.dd/kk:mm", Locale.getDefault());
             //判断输入是否有误
             if (TextUtils.isEmpty(mEditText1.getText().toString())) {                 //任务名称不能为空
                 Toast.makeText(this, R.string.add_task_hint_name, Toast.LENGTH_SHORT).show();

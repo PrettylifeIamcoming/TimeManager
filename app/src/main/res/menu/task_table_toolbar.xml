@@ -8,9 +8,9 @@
         app:showAsAction="ifRoom" />
 
     <!--<item-->
-        <!--android:id="@+id/task_table_toolbar_delete"-->
-        <!--android:icon="@drawable/ic_delete"-->
-        <!--android:title="@string/task_table_toolbar_delete"-->
-        <!--app:showAsAction="ifRoom">-->
+    <!--android:id="@+id/task_table_toolbar_delete"-->
+    <!--android:icon="@drawable/ic_delete"-->
+    <!--android:title="@string/task_table_toolbar_delete"-->
+    <!--app:showAsAction="ifRoom">-->
     <!--</item>-->
 </menu>

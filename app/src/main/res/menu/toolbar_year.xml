@@ -11,6 +11,5 @@
         android:id="@+id/toolbar_year_delete"
         android:icon="@drawable/ic_delete"
         android:title="@string/toolbar_year_delete"
-        app:showAsAction="always">
-    </item>
+        app:showAsAction="always"></item>
 </menu>

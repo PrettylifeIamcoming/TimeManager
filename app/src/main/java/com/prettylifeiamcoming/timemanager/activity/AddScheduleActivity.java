@@ -82,7 +82,7 @@ public class AddScheduleActivity extends AppCompatActivity {
 
         mButton1.setOnClickListener(v -> {
             Date date = new Date();
-            DateFormat fmt = new SimpleDateFormat("yyyy.MM.dd/kk:mm",Locale.getDefault());
+            DateFormat fmt = new SimpleDateFormat("yyyy.MM.dd/kk:mm", Locale.getDefault());
             long f = 0, h = 0;
 
             if (TextUtils.isEmpty(mEditText1.getText().toString())) {            //日程名称不能为空

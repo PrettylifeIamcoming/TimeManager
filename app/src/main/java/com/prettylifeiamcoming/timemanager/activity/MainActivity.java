@@ -54,14 +54,14 @@ public class MainActivity extends AppCompatActivity {
             switch (item.getItemId()) {
                 case R.id.bottom_main_day:
                     mTextView = findViewById(R.id.toolbar_time);
-                    sdf = new SimpleDateFormat("yyyy.MM.dd",Locale.getDefault());
+                    sdf = new SimpleDateFormat("yyyy.MM.dd", Locale.getDefault());
                     a = sdf.format(date);
                     mTextView.setText(a);
                     invalidateOptionsMenu();
                     selectedFragment = mDayFragment;
                     break;
                 case R.id.bottom_main_month:
-                    sdf = new SimpleDateFormat("yyyy.MM",Locale.getDefault());
+                    sdf = new SimpleDateFormat("yyyy.MM", Locale.getDefault());
                     mTextView = findViewById(R.id.toolbar_time);
                     a = sdf.format(date);
                     mTextView.setText(a);
@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
                     selectedFragment = mMonthFragment;
                     break;
                 case R.id.bottom_main_year:
-                    sdf = new SimpleDateFormat("yyyy",Locale.getDefault());
+                    sdf = new SimpleDateFormat("yyyy", Locale.getDefault());
                     mTextView = findViewById(R.id.toolbar_time);
                     a = sdf.format(date);
                     mTextView.setText(a);
@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
         SimpleDateFormat sdf;
         Date date = new Date();
         String a;
-        sdf = new SimpleDateFormat("yyyy.MM.dd",Locale.getDefault());
+        sdf = new SimpleDateFormat("yyyy.MM.dd", Locale.getDefault());
         a = sdf.format(date);
         mTextView.setText(a);
         ActionBar actionBar = getSupportActionBar();

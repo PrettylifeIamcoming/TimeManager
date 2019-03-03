@@ -16,7 +16,7 @@ public abstract class BaseAdapter<T> extends RecyclerView.Adapter<BaseViewHolder
     private OnItemClickListener mItemClickListener;
     private onLongItemClickListener mLongItemClickListener;
 
-    public BaseAdapter(Context mContext, List<T> mData){
+    public BaseAdapter(Context mContext, List<T> mData) {
         this.mContext = mContext;
         this.mData = mData;
     }

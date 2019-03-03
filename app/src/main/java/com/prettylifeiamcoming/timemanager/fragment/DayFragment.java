@@ -45,10 +45,10 @@ public class DayFragment extends Fragment {
     private void addListener() {
         mainDayAdapter.setOnItemClickListener((view, position) -> {
             SetTaskProgressDialogFragment setTaskProgressDialogFragment = new SetTaskProgressDialogFragment();
-            if (mList.get(position) instanceof Task){
+            if (mList.get(position) instanceof Task) {
                 setTaskProgressDialogFragment.setTask((Task) mList.get(position));
             }
-            setTaskProgressDialogFragment.show(getFragmentManager(),"SetProgressDialog");
+            setTaskProgressDialogFragment.show(getFragmentManager(), "SetProgressDialog");
         });
     }
 

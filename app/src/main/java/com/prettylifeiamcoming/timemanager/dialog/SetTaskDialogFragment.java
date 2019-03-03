@@ -32,14 +32,15 @@ public class SetTaskDialogFragment extends DialogFragment {
 
     private Task task;
 
-    public void setTask(Task task){
+    public void setTask(Task task) {
         this.task = task;
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
-    {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.dialog_set_task, container);
+
+        getDialog().setTitle("Set Task");
 
         mEditText1 = view.findViewById(R.id.dialog_set_task_begin);
         mEditText2 = view.findViewById(R.id.dialog_set_task_terminal);
@@ -71,11 +72,11 @@ public class SetTaskDialogFragment extends DialogFragment {
 
         mButton1.setOnClickListener(v -> {
             Date date = new Date();
-            DateFormat fmt = new SimpleDateFormat("yyyy.MM.dd/kk:mm",Locale.getDefault());
+            DateFormat fmt = new SimpleDateFormat("yyyy.MM.dd/kk:mm", Locale.getDefault());
             //判断输入是否有误
             if (TextUtils.isEmpty(mEditText1.getText().toString())) {                 //起始时间不能为空
                 Toast.makeText(Sundial.getInstance(), R.string.dialog_set_task_hint_begin, Toast.LENGTH_SHORT).show();
-            }else{
+            } else {
                 long f = 0, h = 0;
                 try {
                     f = fmt.parse(mEditText1.getText().toString()).getTime();
@@ -85,10 +86,10 @@ public class SetTaskDialogFragment extends DialogFragment {
                 }
                 if (f < h) {                                   //起始时间不能小于当前时间
                     Toast.makeText(Sundial.getInstance(), R.string.dialog_set_task_hint_begin_time, Toast.LENGTH_SHORT).show();
-                }else {
+                } else {
                     if (TextUtils.isEmpty(mEditText2.getText().toString())) {                 //终止时间不能为空
                         Toast.makeText(Sundial.getInstance(), R.string.dialog_set_task_hint_terminal, Toast.LENGTH_SHORT).show();
-                    }else {
+                    } else {
                         f = 0;
                         h = 0;
                         try {
@@ -99,10 +100,10 @@ public class SetTaskDialogFragment extends DialogFragment {
                         }
                         if (f < h) {                                   //终止时间不能小于当前时间
                             Toast.makeText(Sundial.getInstance(), R.string.dialog_set_task_hint_terminal_time, Toast.LENGTH_SHORT).show();
-                        }else {
-                            if (f>task.getDeadline()) {
+                        } else {
+                            if (f > task.getDeadline()) {
                                 Toast.makeText(Sundial.getInstance(), getString(R.string.dialog_set_task_hint_terminal_deadline) + String.valueOf(fmt.format(task.getDeadline())), Toast.LENGTH_LONG).show();
-                            }else {
+                            } else {
 
                                 try {
                                     f = fmt.parse(mEditText1.getText().toString()).getTime();
@@ -110,30 +111,30 @@ public class SetTaskDialogFragment extends DialogFragment {
                                 } catch (ParseException e) {
                                     e.printStackTrace();
                                 }
-                                if (f>h){
+                                if (f > h) {
                                     Toast.makeText(Sundial.getInstance(), R.string.dialog_set_task_hint_begin_terminal, Toast.LENGTH_SHORT).show();
-                                }else {
-                                    if (TextUtils.isEmpty(mEditText3.getText().toString())){
+                                } else {
+                                    if (TextUtils.isEmpty(mEditText3.getText().toString())) {
                                         Toast.makeText(Sundial.getInstance(), R.string.dialog_set_task_hint_place, Toast.LENGTH_SHORT).show();
-                                    }else {
+                                    } else {
                                         //此处设置task的属性
                                         RealmHelper realmHelper = new RealmHelper(Sundial.getInstance());
                                         try {
                                             date = fmt.parse(mEditText1.getText().toString());
-                                            realmHelper.updateTaskBeginTime(task.getTaskID(),date.getTime());
-                                            f=date.getTime();
+                                            realmHelper.updateTaskBeginTime(task.getTaskID(), date.getTime());
+                                            f = date.getTime();
                                         } catch (ParseException e) {
                                             e.printStackTrace();
                                         }
                                         try {
                                             date = fmt.parse(mEditText2.getText().toString());
-                                            realmHelper.updateTaskTerminalTime(task.getTaskID(),date.getTime());
-                                            h=date.getTime();
+                                            realmHelper.updateTaskTerminalTime(task.getTaskID(), date.getTime());
+                                            h = date.getTime();
                                         } catch (ParseException e) {
                                             e.printStackTrace();
                                         }
-                                        realmHelper.updateTaskDuration(task.getTaskID(),h-f);
-                                        realmHelper.updateTaskPlace(task.getTaskID(),mEditText3.getText().toString());
+                                        realmHelper.updateTaskDuration(task.getTaskID(), h - f);
+                                        realmHelper.updateTaskPlace(task.getTaskID(), mEditText3.getText().toString());
 
                                         // 关闭对话框
                                         dismiss();

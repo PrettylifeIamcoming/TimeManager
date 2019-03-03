@@ -21,14 +21,15 @@ public class SetTaskProgressDialogFragment extends DialogFragment implements See
 
     private Task task;
 
-    public void setTask(Task task){
+    public void setTask(Task task) {
         this.task = task;
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
-    {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.dialog_set_task_progress, container);
+
+        getDialog().setTitle("Set Task Progress");
 
         mSeekBar = view.findViewById(R.id.dialog_task_progress_seek_bar);
         mTaskProgress = view.findViewById(R.id.dialog_task_progress_data);
@@ -59,7 +60,7 @@ public class SetTaskProgressDialogFragment extends DialogFragment implements See
 
     @Override
     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-        mTaskProgress.setText("当前任务进度："+ progress +"%");
+        mTaskProgress.setText("当前任务进度：" + progress + "%");
         task.setTaskProgress(progress);
 
         RealmHelper realmHelper = new RealmHelper(getContext());

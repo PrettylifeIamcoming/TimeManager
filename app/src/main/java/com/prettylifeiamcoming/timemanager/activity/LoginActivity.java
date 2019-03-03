@@ -13,7 +13,7 @@ import androidx.appcompat.widget.Toolbar;
 /**
  * A login screen that offers login via telephone/password.
  */
-public class LoginActivity extends AppCompatActivity{
+public class LoginActivity extends AppCompatActivity {
     // UI references.
     private AutoCompleteTextView mEmailView;
     private EditText mPasswordView;

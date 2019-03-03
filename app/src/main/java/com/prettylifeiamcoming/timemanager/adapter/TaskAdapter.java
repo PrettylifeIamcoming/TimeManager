@@ -16,7 +16,7 @@ import java.util.Locale;
 public class TaskAdapter extends BaseAdapter<Task> {
 
     //对应四个象限的颜色设置，红、黄、粉、绿
-    private String[] mColors = {"#FF7575","#FFFFB9","#FFC1E0","#BBFFBB"};
+    private String[] mColors = {"#FF7575", "#FFFFB9", "#FFC1E0", "#BBFFBB"};
 
     public TaskAdapter(Context mContext, List<Task> mData, int mLayoutId) {
         super(mContext, mData, mLayoutId);
@@ -25,16 +25,16 @@ public class TaskAdapter extends BaseAdapter<Task> {
     @Override
     protected void convert(Context mContext, BaseViewHolder holder, final Task task) {
         holder.setText(R.id.item_task_table_name, task.getTaskName())
-                .setText(R.id.item_task_table_deadline, new SimpleDateFormat("yyyy.MM.dd/HH:mm",Locale.getDefault()).format(new Date(task.getDeadline())))
+                .setText(R.id.item_task_table_deadline, new SimpleDateFormat("yyyy.MM.dd/HH:mm", Locale.getDefault()).format(new Date(task.getDeadline())))
                 .setText(R.id.item_task_table_type, TaskOrScheduleTypeConverter.getType(task.getTaskType()))
                 .setText(R.id.item_task_table_process, String.valueOf(task.getTaskProgress() + "%"))
                 .setText(R.id.item_task_table_custom_level, String.valueOf(task.getTaskCustomLevel()));
-                //.setProgressBar(R.id.item_task_table_process1,task.getTaskProcess());
+        //.setProgressBar(R.id.item_task_table_process1,task.getTaskProcess());
 
         //填充颜色
-        switch (task.getTaskLevel()){
+        switch (task.getTaskLevel()) {
             case 1:
-                holder.setCardViewBackgroundColor(R.id.item_task_table,Color.parseColor(mColors[0]));
+                holder.setCardViewBackgroundColor(R.id.item_task_table, Color.parseColor(mColors[0]));
 //                holder.setTextColor(R.id.item_task_table_name,Color.parseColor("#FFFFFF"));
 //                holder.setTextColor(R.id.item_task_table_deadline,Color.parseColor("#FFFFFF"));
 //                holder.setTextColor(R.id.item_task_table_type,Color.parseColor("#FFFFFF"));
@@ -46,13 +46,13 @@ public class TaskAdapter extends BaseAdapter<Task> {
 //                holder.setTextColor(R.id.textView0011,Color.parseColor("#FFFFFF"));
                 break;
             case 2:
-                holder.setCardViewBackgroundColor(R.id.item_task_table,Color.parseColor(mColors[1]));
+                holder.setCardViewBackgroundColor(R.id.item_task_table, Color.parseColor(mColors[1]));
                 break;
             case 3:
-                holder.setCardViewBackgroundColor(R.id.item_task_table,Color.parseColor(mColors[2]));
+                holder.setCardViewBackgroundColor(R.id.item_task_table, Color.parseColor(mColors[2]));
                 break;
             case 4:
-                holder.setCardViewBackgroundColor(R.id.item_task_table,Color.parseColor(mColors[3]));
+                holder.setCardViewBackgroundColor(R.id.item_task_table, Color.parseColor(mColors[3]));
                 break;
         }
     }

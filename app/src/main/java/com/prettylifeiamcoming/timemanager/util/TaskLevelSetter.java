@@ -5,8 +5,8 @@ import android.widget.Spinner;
 import com.prettylifeiamcoming.timemanager.bean.Task;
 
 public class TaskLevelSetter {
-    public static Task setTaskLevel(Spinner spinner, Task task) throws IllegalArgumentException{
-        switch (spinner.getSelectedItemPosition()){
+    public static Task setTaskLevel(Spinner spinner, Task task) throws IllegalArgumentException {
+        switch (spinner.getSelectedItemPosition()) {
             case 0:
                 task.setTaskLevel(1);
                 break;
@@ -19,8 +19,8 @@ public class TaskLevelSetter {
             case 3:
                 task.setTaskLevel(4);
                 break;
-                default:
-                    throw new IllegalArgumentException("任务级别出错");
+            default:
+                throw new IllegalArgumentException("任务级别出错");
         }
 
         return task;
