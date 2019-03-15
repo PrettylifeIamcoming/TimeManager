@@ -24,10 +24,12 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 public class ScheduleTableActivity extends AppCompatActivity {
 
     private RecyclerView mRecyclerView;
+    private SwipeRefreshLayout swipeRefreshLayout;
     private RealmHelper mRealmHelper;
     private List<Schedule> mSchedules = new ArrayList<>();
     private ScheduleAdapter mScheduleAdapter;
@@ -58,8 +60,43 @@ public class ScheduleTableActivity extends AppCompatActivity {
         mRecyclerView = findViewById(R.id.recycler_view_schedule_table);
         mRecyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
 
+        swipeRefreshLayout = findViewById(R.id.swipe_refresh_schedule_table);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                mScheduleAdapter.updateData(mRealmHelper.queryScheduleTable());
+                swipeRefreshLayout.setRefreshing(false);
+            }
+        });
+
         initData();
+
+        Snackbar.make(mRecyclerView, "滑动删除日程、点击日程进入修改界面", Snackbar.LENGTH_LONG).show();
+        setSwipeDelete();
+
+//        updateUI();
     }
+
+    @Override
+    protected void onResume() {
+        mScheduleAdapter.updateData(mRealmHelper.queryScheduleTable());
+        super.onResume();
+    }
+
+    //    public void updateUI() {
+//        this.runOnUiThread(new Runnable() {
+//            @Override
+//            public void run() {
+//                //此时已在主线程中，可以更新UI了
+//                try {
+//                    Thread.sleep(1000);
+//                    onResume();
+//                } catch (InterruptedException e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//        });
+//    }
 
     //toolbar菜单填充
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -79,11 +116,6 @@ public class ScheduleTableActivity extends AppCompatActivity {
 
         mScheduleAdapter = new ScheduleAdapter(this, mSchedules, R.layout.item_schedule_table);
         mRecyclerView.setAdapter(mScheduleAdapter);
-
-
-        setSwipeDelete();
-
-        Snackbar.make(mRecyclerView, "滑动删除日程、点击日程进入修改界面", Snackbar.LENGTH_LONG).show();
     }
 
     //删除日程

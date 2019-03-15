@@ -210,4 +210,10 @@
     <string name="dialog_set_task_hint_place">Place cannot be empty.</string>
     <!-- dialog_set_task_hint -->
     <!-- dialog_set_task -->
+
+    <!-- dialog_set_task_progress -->
+    <string name="dialog_set_task_progress_begin_prompt">Current task progress: 0%</string>
+    <string name="dialog_set_task_progress_prompt">Current task progress: </string>
+    <string name="dialog_set_task_progress_percent">%</string>
+    <!-- dialog_set_task_progress -->
 </resources>

@@ -1,5 +1,6 @@
 package com.prettylifeiamcoming.timemanager.fragment;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,6 +8,7 @@ import android.view.ViewGroup;
 
 import com.prettylifeiamcoming.timemanager.R;
 import com.prettylifeiamcoming.timemanager.Sundial;
+import com.prettylifeiamcoming.timemanager.activity.MainActivity;
 import com.prettylifeiamcoming.timemanager.adapter.MainDayAdapter;
 import com.prettylifeiamcoming.timemanager.bean.Schedule;
 import com.prettylifeiamcoming.timemanager.bean.Task;
@@ -22,13 +24,16 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import io.realm.RealmObject;
 
 public class DayFragment extends Fragment {
 
     private RecyclerView mRecyclerView;
+    private SwipeRefreshLayout swipeRefreshLayout;
     private MainDayAdapter mainDayAdapter;
-    private final List<RealmObject> mList = new ArrayList<>();
+    private List<RealmObject> mList = new ArrayList<>();
+    private RealmHelper mRealmHelper;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -36,31 +41,47 @@ public class DayFragment extends Fragment {
         //RecyclerView设置
         mRecyclerView = view.findViewById(R.id.recycler_view_day);
         mRecyclerView.addItemDecoration(new DividerItemDecoration(Sundial.getInstance(), DividerItemDecoration.VERTICAL));
+
+        swipeRefreshLayout = view.findViewById(R.id.swipe_refresh_day);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                mainDayAdapter.updateData(mRealmHelper.queryToday());
+                swipeRefreshLayout.setRefreshing(false);
+            }
+        });
+
         initData();
+
         addListener();
 
         return view;
     }
 
+    @Override
+    public void onResume() {
+        mainDayAdapter.updateData(mRealmHelper.queryToday());
+        super.onResume();
+    }
+
     private void addListener() {
         mainDayAdapter.setOnItemClickListener((view, position) -> {
-            SetTaskProgressDialogFragment setTaskProgressDialogFragment = new SetTaskProgressDialogFragment();
             if (mList.get(position) instanceof Task) {
+                SetTaskProgressDialogFragment setTaskProgressDialogFragment = new SetTaskProgressDialogFragment();
                 setTaskProgressDialogFragment.setTask((Task) mList.get(position));
+                setTaskProgressDialogFragment.show(getFragmentManager(), "SetProgressDialog");
+            } else {
+
             }
-            setTaskProgressDialogFragment.show(getFragmentManager(), "SetProgressDialog");
         });
     }
 
     //从数据库中读取数据
     private void initData() {
-        mList.clear();
-        RealmHelper mRealmHelper = new RealmHelper(getActivity());
+//        mList.clear();
+        mRealmHelper = new RealmHelper(getActivity());
 
-        List<Task> mTask = mRealmHelper.queryTodayTask();
-        mList.addAll(mTask);
-        List<Schedule> mSchedule = mRealmHelper.queryTodaySchedule();
-        mList.addAll(mSchedule);
+        mList = mRealmHelper.queryToday();
 
         LinearLayoutManager manager = new LinearLayoutManager(getActivity());
         mRecyclerView.setLayoutManager(manager);

@@ -8,11 +8,13 @@ import com.prettylifeiamcoming.timemanager.bean.Schedule;
 import com.prettylifeiamcoming.timemanager.bean.Task;
 import com.prettylifeiamcoming.timemanager.bean.User;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
 import io.realm.Realm;
+import io.realm.RealmObject;
 import io.realm.RealmResults;
 import io.realm.Sort;
 
@@ -253,6 +255,18 @@ public class RealmHelper {
         schedules = schedules.sort("mTerminalTimestamp", Sort.DESCENDING);
 
         return mRealm.copyFromRealm(schedules);
+    }
+
+    //查询今天的所有事情
+    public List<RealmObject> queryToday(){
+        List<RealmObject> realmObjects = new ArrayList<>();
+
+        List<Task> mTask = queryTodayTask();
+        realmObjects.addAll(mTask);
+        List<Schedule> mSchedule = queryTodaySchedule();
+        realmObjects.addAll(mSchedule);
+
+        return realmObjects;
     }
 
     /*

@@ -34,10 +34,19 @@ public class SetTaskProgressDialogFragment extends DialogFragment implements See
         mSeekBar = view.findViewById(R.id.dialog_task_progress_seek_bar);
         mTaskProgress = view.findViewById(R.id.dialog_task_progress_data);
 
+        String a = getString(R.string.dialog_set_task_progress_prompt) + task.getTaskProgress() + getString(R.string.dialog_set_task_progress_percent);
+        mTaskProgress.setText(a);
+
+        mSeekBar.setProgress(task.getTaskProgress());
+
         Button button1 = view.findViewById(R.id.dialog_set_task_progress_ok);
         Button button2 = view.findViewById(R.id.dialog_set_task_progress_cancel);
 
         button1.setOnClickListener(v -> {
+            task.setTaskProgress(mSeekBar.getProgress());
+
+            RealmHelper realmHelper = new RealmHelper(getContext());
+            realmHelper.updateTaskProgress(task.getTaskID(), mSeekBar.getProgress());
             dismiss();
         });
 
@@ -60,11 +69,8 @@ public class SetTaskProgressDialogFragment extends DialogFragment implements See
 
     @Override
     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-        mTaskProgress.setText("当前任务进度：" + progress + "%");
-        task.setTaskProgress(progress);
-
-        RealmHelper realmHelper = new RealmHelper(getContext());
-        realmHelper.updateTaskProgress(task.getTaskID(), progress);
+        String a = getString(R.string.dialog_set_task_progress_prompt) + progress + getString(R.string.dialog_set_task_progress_percent);
+        mTaskProgress.setText(a);
     }
 
     @Override

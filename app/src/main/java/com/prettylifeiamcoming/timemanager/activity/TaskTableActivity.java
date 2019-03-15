@@ -1,11 +1,18 @@
 package com.prettylifeiamcoming.timemanager.activity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.util.AttributeSet;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.prettylifeiamcoming.timemanager.R;
@@ -13,6 +20,7 @@ import com.prettylifeiamcoming.timemanager.adapter.DefaultItemTouchHelpCallback;
 import com.prettylifeiamcoming.timemanager.adapter.TaskAdapter;
 import com.prettylifeiamcoming.timemanager.bean.Task;
 import com.prettylifeiamcoming.timemanager.db.RealmHelper;
+import com.prettylifeiamcoming.timemanager.db.TaskLab;
 import com.prettylifeiamcoming.timemanager.dialog.SetTaskDialogFragment;
 
 import java.util.ArrayList;
@@ -25,13 +33,27 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 public class TaskTableActivity extends AppCompatActivity {
 
     private RecyclerView mRecyclerView;
+    private SwipeRefreshLayout swipeRefreshLayout;
     private TaskAdapter mTaskAdapter;
     private List<Task> mTasks = new ArrayList<>();
     private RealmHelper mRealmHelper;
+
+    private Handler handler = new Handler();
+
+//    private MyRunnable myRunnable = new MyRunnable();
+//
+//    class MyRunnable implements Runnable{
+//        @Override
+//        public void run() {
+//            initData();
+//            handler.postDelayed(myRunnable, 10000);
+//        }
+//    }
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,10 +81,114 @@ public class TaskTableActivity extends AppCompatActivity {
         mRecyclerView = findViewById(R.id.recycler_view_task_table);
         mRecyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
 
+        swipeRefreshLayout = findViewById(R.id.swipe_refresh_task_table);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                mTaskAdapter.updateData(mRealmHelper.queryTaskTable());
+                swipeRefreshLayout.setRefreshing(false);
+            }
+        });
+
+        Snackbar.make(mRecyclerView, "滑动删除任务、点击任务进入修改界面", Snackbar.LENGTH_LONG).show();
+        setSwipeDelete();
+
+//        handler.postDelayed(myRunnable, 10000);
+
+//        new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//                while (true) {
+//                    try {
+//                        Thread.sleep(10000);
+//                        Log.d("TESTTESTTEST", "验证外层线程");
+//
+//                        handler.post(new Runnable() {
+//                            @Override
+//                            public void run() {
+//                                Log.d("testtesttest", "验证内层线程");
+//                                initData();
+//                            }
+//                        });
+//                    } catch (InterruptedException e) {
+//                        e.printStackTrace();
+//                    }
+//                }
+//            }
+//        }).start();
+
         initData();
+
+//        getWindow().getDecorView().invalidate();
+//        updateUI();
 
         addListener();
     }
+
+//    @Override
+//    public View onCreateView(String name, Context context, AttributeSet attrs) {
+//        View view = super.onCreateView(name, context, attrs);
+//        initData();
+//        return view;
+//    }
+
+    @Override
+    protected void onResume() {
+        mTaskAdapter.updateData(mRealmHelper.queryTaskTable());
+        super.onResume();
+//        updateUI();
+    }
+//
+//    private void updateUI() {
+//        TaskLab taskLab = TaskLab.get(this);
+//        taskLab.refreshTaskTableTasks();
+//        mTasks = taskLab.getTaskTableTasks();
+//
+//        if (mTaskAdapter == null) {
+//            mTaskAdapter = new TaskAdapter(this, mTasks, R.layout.item_task_table);
+//            mRecyclerView.setAdapter(mTaskAdapter);
+//        } else {
+//            mTaskAdapter.notifyDataSetChanged();
+//        }
+//    }
+
+//    @Override
+//    protected void onResume() {
+//        initData();
+//        super.onResume();
+//    }
+
+//    public void updateUI() {
+//        new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//                try {
+//                    Thread.sleep(1000);
+//
+//                    handler.post(new Runnable() {
+//                        @Override
+//                        public void run() {
+//                            initData();
+//                        }
+//                    });
+//                } catch (InterruptedException e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//        }).start();
+//        this.runOnUiThread(new Runnable() {
+//            @Override
+//            public void run() {
+//                //此时已在主线程中，可以更新UI了
+//                try {
+//                    Thread.sleep(1000);
+//                    onResume();
+//                } catch (InterruptedException e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//        });
+//    }
 
     //从数据库中读取数据
     private void initData() {
@@ -76,10 +202,6 @@ public class TaskTableActivity extends AppCompatActivity {
 
         this.mTaskAdapter = new TaskAdapter(this, mTasks, R.layout.item_task_table);
         mRecyclerView.setAdapter(this.mTaskAdapter);
-
-        setSwipeDelete();
-
-        Snackbar.make(mRecyclerView, "滑动删除任务、点击任务进入修改界面", Snackbar.LENGTH_LONG).show();
     }
 
     //toolbar菜单填充

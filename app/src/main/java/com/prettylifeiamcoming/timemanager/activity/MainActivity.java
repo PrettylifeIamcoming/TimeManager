@@ -153,6 +153,8 @@ public class MainActivity extends AppCompatActivity {
             return true;
         });
 
+//        updateUI();
+
         /*
           底部导航栏
          */
@@ -160,6 +162,21 @@ public class MainActivity extends AppCompatActivity {
         mBottomNavigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, mDayFragment).commit();
     }
+
+//    public void updateUI() {
+//        this.runOnUiThread(new Runnable() {
+//            @Override
+//            public void run() {
+//                //此时已在主线程中，可以更新UI了
+//                try {
+//                    Thread.sleep(1000);
+//                    onResume();
+//                } catch (InterruptedException e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//        });
+//    }
 
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {

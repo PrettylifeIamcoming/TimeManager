@@ -25,4 +25,6 @@ public class Sundial extends Application {
     public static Sundial getInstance() {
         return sundial;
     }
+
+
 }

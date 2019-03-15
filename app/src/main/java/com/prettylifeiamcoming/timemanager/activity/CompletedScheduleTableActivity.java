@@ -17,10 +17,14 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 public class CompletedScheduleTableActivity extends AppCompatActivity {
 
     private RecyclerView mRecyclerView;
+    private SwipeRefreshLayout swipeRefreshLayout;
+    private RealmHelper mRealmHelper;
+    private ScheduleAdapter mScheduleAdapter;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,12 +47,44 @@ public class CompletedScheduleTableActivity extends AppCompatActivity {
         mRecyclerView = findViewById(R.id.recycler_view_completed_schedule_table);
         mRecyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
 
+        swipeRefreshLayout = findViewById(R.id.swipe_refresh_completed_schedule_table);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                mScheduleAdapter.updateData(mRealmHelper.queryCompletedSchedule());
+                swipeRefreshLayout.setRefreshing(false);
+            }
+        });
+
         initData();
+
+//        updateUI();
     }
+
+    @Override
+    protected void onResume() {
+        mScheduleAdapter.updateData(mRealmHelper.queryCompletedSchedule());
+        super.onResume();
+    }
+
+    //    public void updateUI() {
+//        this.runOnUiThread(new Runnable() {
+//            @Override
+//            public void run() {
+//                //此时已在主线程中，可以更新UI了
+//                try {
+//                    Thread.sleep(1000);
+//                    onResume();
+//                } catch (InterruptedException e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//        });
+//    }
 
     //从数据库中读取数据
     private void initData() {
-        RealmHelper mRealmHelper = new RealmHelper(this);
+        mRealmHelper = new RealmHelper(this);
 
         List<Schedule> mSchedules = mRealmHelper.queryCompletedSchedule();
 
@@ -56,7 +92,7 @@ public class CompletedScheduleTableActivity extends AppCompatActivity {
         mRecyclerView.setLayoutManager(manager);
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
 
-        ScheduleAdapter mScheduleAdapter = new ScheduleAdapter(this, mSchedules, R.layout.item_schedule_table);
+        mScheduleAdapter = new ScheduleAdapter(this, mSchedules, R.layout.item_schedule_table);
         mRecyclerView.setAdapter(mScheduleAdapter);
     }
 

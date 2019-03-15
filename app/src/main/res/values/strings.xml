@@ -211,15 +211,9 @@
     <!-- dialog_set_task_hint -->
     <!-- dialog_set_task -->
 
-    <!-- Color -->
-    <color name="white">#FFFFFF</color>
-    <color name="black">#000000</color>
-    <color name="burlywood">#DEB887</color>
-    <color name="turquoise">#ADEAEA</color>
-    <color name="magic_powder">#FAD8BE</color>
-    <color name="glass_gall">#CBF5FB</color>
-    <color name="bewitched_tree">#2AE0C8 </color>
-    <color name="mystical_green">#A2E1D4</color>
-    <color name="gold">#FFD700</color>
-    <!-- Color -->
+    <!-- dialog_set_task_progress -->
+    <string name="dialog_set_task_progress_begin_prompt">当前任务进度：0%</string>
+    <string name="dialog_set_task_progress_prompt">当前任务进度：</string>
+    <string name="dialog_set_task_progress_percent">%</string>
+    <!-- dialog_set_task_progress -->
 </resources>
