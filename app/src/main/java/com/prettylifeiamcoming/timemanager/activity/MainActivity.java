@@ -8,19 +8,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.fragment.app.Fragment;
-
 import com.google.android.material.navigation.NavigationView;
 import com.prettylifeiamcoming.timemanager.R;
-import com.prettylifeiamcoming.timemanager.adapter.MainDayAdapter;
-import com.prettylifeiamcoming.timemanager.dialog.SetTaskProgressDialogFragment;
 import com.prettylifeiamcoming.timemanager.fragment.DayFragment;
 import com.prettylifeiamcoming.timemanager.fragment.MonthFragment;
 import com.prettylifeiamcoming.timemanager.fragment.YearFragment;
@@ -29,6 +18,14 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 import java.util.Objects;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
 
 
 public class MainActivity extends AppCompatActivity {

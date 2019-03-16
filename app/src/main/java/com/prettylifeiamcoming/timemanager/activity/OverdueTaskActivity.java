@@ -2,6 +2,7 @@ package com.prettylifeiamcoming.timemanager.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -9,6 +10,8 @@ import com.prettylifeiamcoming.timemanager.R;
 import com.prettylifeiamcoming.timemanager.adapter.TaskAdapter;
 import com.prettylifeiamcoming.timemanager.bean.Task;
 import com.prettylifeiamcoming.timemanager.db.RealmHelper;
+import com.prettylifeiamcoming.timemanager.dialog.SetOverduerTaskDialogFragment;
+import com.prettylifeiamcoming.timemanager.dialog.SetTaskDialogFragment;
 
 import java.util.List;
 
@@ -26,6 +29,7 @@ public class OverdueTaskActivity extends AppCompatActivity {
     private SwipeRefreshLayout swipeRefreshLayout;
     private RealmHelper mRealmHelper;
     private TaskAdapter mTaskAdapter;
+    private List<Task> mTasks;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,7 +61,7 @@ public class OverdueTaskActivity extends AppCompatActivity {
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                mRealmHelper.queryOverdueTask();
+                mTaskAdapter.updateData(mRealmHelper.queryOverdueTask());
                 swipeRefreshLayout.setRefreshing(false);
             }
         });
@@ -66,12 +70,21 @@ public class OverdueTaskActivity extends AppCompatActivity {
 
 //        updateUI();
 
+        addListener();
     }
 
     @Override
     protected void onResume() {
         mTaskAdapter.updateData(mRealmHelper.queryOverdueTask());
         super.onResume();
+    }
+
+    private void addListener() {
+        mTaskAdapter.setOnItemClickListener((view, position) -> {
+            SetOverduerTaskDialogFragment setOverdueTaskDialogFragment = new SetOverduerTaskDialogFragment();
+            setOverdueTaskDialogFragment.setTask(mTasks.get(position));
+            setOverdueTaskDialogFragment.show(getSupportFragmentManager(), "SetOverdueTaskDialog");
+        });
     }
 
     //    public void updateUI() {
@@ -93,7 +106,7 @@ public class OverdueTaskActivity extends AppCompatActivity {
     private void initData() {
         mRealmHelper = new RealmHelper(this);
 
-        List<Task> mTasks = mRealmHelper.queryOverdueTask();
+        mTasks = mRealmHelper.queryOverdueTask();
 
         LinearLayoutManager manager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(manager);

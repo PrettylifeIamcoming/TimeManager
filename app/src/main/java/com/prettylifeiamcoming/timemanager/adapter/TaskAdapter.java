@@ -5,7 +5,6 @@ import android.graphics.Color;
 
 import com.prettylifeiamcoming.timemanager.R;
 import com.prettylifeiamcoming.timemanager.bean.Task;
-import com.prettylifeiamcoming.timemanager.db.RealmHelper;
 import com.prettylifeiamcoming.timemanager.util.TaskOrScheduleTypeConverter;
 
 import java.text.SimpleDateFormat;

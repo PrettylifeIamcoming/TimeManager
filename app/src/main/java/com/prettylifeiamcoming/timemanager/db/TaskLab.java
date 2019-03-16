@@ -5,9 +5,7 @@ import android.content.Context;
 import com.prettylifeiamcoming.timemanager.Sundial;
 import com.prettylifeiamcoming.timemanager.bean.Task;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 public class TaskLab {
     private static TaskLab sTaskLab;

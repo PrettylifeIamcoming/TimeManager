@@ -1,18 +1,12 @@
 package com.prettylifeiamcoming.timemanager.activity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.Looper;
-import android.util.AttributeSet;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.prettylifeiamcoming.timemanager.R;
@@ -20,7 +14,6 @@ import com.prettylifeiamcoming.timemanager.adapter.DefaultItemTouchHelpCallback;
 import com.prettylifeiamcoming.timemanager.adapter.TaskAdapter;
 import com.prettylifeiamcoming.timemanager.bean.Task;
 import com.prettylifeiamcoming.timemanager.db.RealmHelper;
-import com.prettylifeiamcoming.timemanager.db.TaskLab;
 import com.prettylifeiamcoming.timemanager.dialog.SetTaskDialogFragment;
 
 import java.util.ArrayList;

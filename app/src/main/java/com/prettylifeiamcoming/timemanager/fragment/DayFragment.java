@@ -1,6 +1,5 @@
 package com.prettylifeiamcoming.timemanager.fragment;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,9 +7,7 @@ import android.view.ViewGroup;
 
 import com.prettylifeiamcoming.timemanager.R;
 import com.prettylifeiamcoming.timemanager.Sundial;
-import com.prettylifeiamcoming.timemanager.activity.MainActivity;
 import com.prettylifeiamcoming.timemanager.adapter.MainDayAdapter;
-import com.prettylifeiamcoming.timemanager.bean.Schedule;
 import com.prettylifeiamcoming.timemanager.bean.Task;
 import com.prettylifeiamcoming.timemanager.db.RealmHelper;
 import com.prettylifeiamcoming.timemanager.dialog.SetTaskProgressDialogFragment;
@@ -18,7 +15,6 @@ import com.prettylifeiamcoming.timemanager.dialog.SetTaskProgressDialogFragment;
 import java.util.ArrayList;
 import java.util.List;
 
-import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.DividerItemDecoration;

@@ -149,6 +149,14 @@ public class RealmHelper {
         mRealm.commitTransaction();
     }
 
+    //设置任务截止时间
+    public void updateTaskDeadline(String id, long deadline) throws NullPointerException {
+        Task task = mRealm.where(Task.class).equalTo("mTaskID", id).findFirst();
+        mRealm.beginTransaction();
+        task.setDeadline(deadline);
+        mRealm.commitTransaction();
+    }
+
     /**
      * query （查）
      */
@@ -258,7 +266,7 @@ public class RealmHelper {
     }
 
     //查询今天的所有事情
-    public List<RealmObject> queryToday(){
+    public List<RealmObject> queryToday() {
         List<RealmObject> realmObjects = new ArrayList<>();
 
         List<Task> mTask = queryTodayTask();
