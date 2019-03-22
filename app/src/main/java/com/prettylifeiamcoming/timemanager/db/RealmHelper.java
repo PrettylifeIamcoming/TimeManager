@@ -184,6 +184,20 @@ public class RealmHelper {
         return mRealm.copyFromRealm(tasks);
     }
 
+    //查询某日任务
+    public List<Task> queryOneDayTask(Long oneDay) {
+        RealmResults<Task> tasks = mRealm.where(Task.class)
+                .between("mBeginTimestamp", oneDay, oneDay + 86399984)
+                .or()
+                .between("mTerminalTimestamp", oneDay, oneDay + 86399984)
+                .findAll();
+
+        //根据deadline越近排在越上面
+        tasks = tasks.sort("mBeginTimestamp");
+
+        return mRealm.copyFromRealm(tasks);
+    }
+
     //查询任务表任务
     public List<Task> queryTaskTable() {
         RealmResults<Task> tasks = mRealm.where(Task.class)
@@ -242,6 +256,20 @@ public class RealmHelper {
         return mRealm.copyFromRealm(schedules);
     }
 
+    //查询某日日程
+    public List<Schedule> queryOneDaySchedule(Long oneDay) {
+        RealmResults<Schedule> schedules = mRealm.where(Schedule.class)
+                .between("mBeginTimestamp", oneDay, oneDay + 86399984)
+                .or()
+                .between("mTerminalTimestamp", oneDay, oneDay + 86399984)
+                .findAll();
+
+        //根据日程发生时间排序，越近越在上面
+        schedules = schedules.sort("mBeginTimestamp");
+
+        return mRealm.copyFromRealm(schedules);
+    }
+
     //查询日程表日程
     public List<Schedule> queryScheduleTable() {
         RealmResults<Schedule> schedules = mRealm.where(Schedule.class)
@@ -272,6 +300,18 @@ public class RealmHelper {
         List<Task> mTask = queryTodayTask();
         realmObjects.addAll(mTask);
         List<Schedule> mSchedule = queryTodaySchedule();
+        realmObjects.addAll(mSchedule);
+
+        return realmObjects;
+    }
+
+    //查询某天所有的事情
+    public List<RealmObject> queryOneDay(Long oneDay) {
+        List<RealmObject> realmObjects = new ArrayList<>();
+
+        List<Task> mTask = queryOneDayTask(oneDay);
+        realmObjects.addAll(mTask);
+        List<Schedule> mSchedule = queryOneDaySchedule(oneDay);
         realmObjects.addAll(mSchedule);
 
         return realmObjects;

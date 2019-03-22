@@ -12,6 +12,7 @@ import com.prettylifeiamcoming.timemanager.R;
 import com.prettylifeiamcoming.timemanager.bean.Task;
 import com.prettylifeiamcoming.timemanager.db.RealmHelper;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 
@@ -25,8 +26,16 @@ public class SetTaskProgressDialogFragment extends DialogFragment implements See
         this.task = task;
     }
 
+    public int getProgress(){
+        if (mSeekBar != null){
+            return mSeekBar.getProgress();
+        } else {
+            return -1;
+        }
+    }
+
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.dialog_set_task_progress, container);
 
         getDialog().setTitle("Set Task Progress");

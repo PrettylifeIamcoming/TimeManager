@@ -16,6 +16,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
+import androidx.annotation.NonNull;
 import io.realm.RealmObject;
 
 public class MainDayAdapter extends BaseAdapter<RealmObject> {
@@ -53,6 +54,7 @@ public class MainDayAdapter extends BaseAdapter<RealmObject> {
         return -1;
     }
 
+    @NonNull
     @Override
     public BaseViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         if (viewType == TYPE_TASK) {
@@ -92,6 +94,11 @@ public class MainDayAdapter extends BaseAdapter<RealmObject> {
                 break;
         }
     }
+
+//    public void resetTaskProgress(BaseViewHolder holder, int progress) {
+//        holder.itemView.invalidate();
+//        holder.setText(R.id.item_main_task_process, progress + "%");
+//    }
 
     //初始化日程界面
     private void initScheduleUI(BaseViewHolder holder, Schedule schedule) {

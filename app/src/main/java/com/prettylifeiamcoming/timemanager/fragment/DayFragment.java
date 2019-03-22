@@ -1,12 +1,15 @@
 package com.prettylifeiamcoming.timemanager.fragment;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.prettylifeiamcoming.timemanager.R;
 import com.prettylifeiamcoming.timemanager.Sundial;
+import com.prettylifeiamcoming.timemanager.adapter.BaseViewHolder;
 import com.prettylifeiamcoming.timemanager.adapter.MainDayAdapter;
 import com.prettylifeiamcoming.timemanager.bean.Task;
 import com.prettylifeiamcoming.timemanager.db.RealmHelper;
@@ -15,6 +18,7 @@ import com.prettylifeiamcoming.timemanager.dialog.SetTaskProgressDialogFragment;
 import java.util.ArrayList;
 import java.util.List;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.DividerItemDecoration;
@@ -32,7 +36,7 @@ public class DayFragment extends Fragment {
     private RealmHelper mRealmHelper;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_day, container, false);
         //RecyclerView设置
         mRecyclerView = view.findViewById(R.id.recycler_view_day);
@@ -66,6 +70,15 @@ public class DayFragment extends Fragment {
                 SetTaskProgressDialogFragment setTaskProgressDialogFragment = new SetTaskProgressDialogFragment();
                 setTaskProgressDialogFragment.setTask((Task) mList.get(position));
                 setTaskProgressDialogFragment.show(getFragmentManager(), "SetProgressDialog");
+
+                Handler handler = new Handler();
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        mainDayAdapter.updateData(mRealmHelper.queryToday());
+                        mRecyclerView.invalidate();
+                    }
+                });
             } else {
 
             }

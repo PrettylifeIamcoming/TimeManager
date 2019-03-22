@@ -17,6 +17,17 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:scheme="http"
+                    android:host="wojtek-kalicinski.github.io"
+                    android:pathPrefix="/recipe/" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".activity.LoginActivity"
@@ -62,6 +73,10 @@
             android:name=".activity.OverdueTaskActivity"
             android:launchMode="singleTask"
             android:label="@string/overdue_task_table_toolbar_title">
+        </activity>
+        <activity
+            android:name=".activity.ShowOneDayActivity"
+            android:launchMode="singleTask">
         </activity>
     </application>
 </manifest>

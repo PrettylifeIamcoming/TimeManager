@@ -6,6 +6,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.prettylifeiamcoming.timemanager.R;
+import com.prettylifeiamcoming.timemanager.adapter.CompletedTaskAdapter;
 import com.prettylifeiamcoming.timemanager.adapter.TaskAdapter;
 import com.prettylifeiamcoming.timemanager.bean.Task;
 import com.prettylifeiamcoming.timemanager.db.RealmHelper;
@@ -23,7 +24,7 @@ public class CompletedTaskTableActivity extends AppCompatActivity {
 
     private RecyclerView mRecyclerView;
     private SwipeRefreshLayout swipeRefreshLayout;
-    private TaskAdapter mTaskAdapter;
+    private CompletedTaskAdapter mTaskAdapter;
     private RealmHelper mRealmHelper;
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,7 +93,7 @@ public class CompletedTaskTableActivity extends AppCompatActivity {
         mRecyclerView.setLayoutManager(manager);
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
 
-        mTaskAdapter = new TaskAdapter(this, mTasks, R.layout.item_task_table);
+        mTaskAdapter = new CompletedTaskAdapter(this, mTasks, R.layout.item_completed_task);
         mRecyclerView.setAdapter(mTaskAdapter);
     }
 }
