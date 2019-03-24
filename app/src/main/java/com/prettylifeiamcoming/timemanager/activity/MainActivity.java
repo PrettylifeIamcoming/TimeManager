@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -35,6 +36,8 @@ public class MainActivity extends AppCompatActivity {
     private DrawerLayout mDrawerLayout;
     private BottomNavigationView mBottomNavigationView;
 
+    private FrameLayout frameLayout;
+
     private final DayFragment mDayFragment = new DayFragment();
     private final MonthFragment mMonthFragment = new MonthFragment();
     private final YearFragment mYearFragment = new YearFragment();
@@ -50,13 +53,13 @@ public class MainActivity extends AppCompatActivity {
             String a;
             switch (item.getItemId()) {
                 case R.id.bottom_main_day:
-
                     mTextView = findViewById(R.id.toolbar_time);
                     sdf = new SimpleDateFormat("yyyy.MM.dd", Locale.getDefault());
                     a = sdf.format(date);
                     mTextView.setText(a);
                     invalidateOptionsMenu();
                     selectedFragment = mDayFragment;
+//                    frameLayout.removeView(selectedFragment.getView());
                     break;
                 case R.id.bottom_main_month:
                     sdf = new SimpleDateFormat("yyyy.MM", Locale.getDefault());
@@ -65,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
                     mTextView.setText(a);
                     invalidateOptionsMenu();
                     selectedFragment = mMonthFragment;
+//                    frameLayout.removeView(selectedFragment.getView());
                     break;
                 case R.id.bottom_main_year:
                     sdf = new SimpleDateFormat("yyyy", Locale.getDefault());
@@ -73,6 +77,7 @@ public class MainActivity extends AppCompatActivity {
                     mTextView.setText(a);
                     invalidateOptionsMenu();
                     selectedFragment = mYearFragment;
+//                    frameLayout.removeView(selectedFragment.getView());
                     break;
             }
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, Objects.requireNonNull(selectedFragment)).commit();
@@ -104,6 +109,8 @@ public class MainActivity extends AppCompatActivity {
             actionBar.setDisplayHomeAsUpEnabled(true);
             actionBar.setHomeAsUpIndicator(R.drawable.ic_menu);
         }
+
+        frameLayout = findViewById(R.id.fragment_container);
 
         /*
           DrawerLayout和NavigationView

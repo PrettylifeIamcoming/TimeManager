@@ -12,4 +12,7 @@
     <color name="bewitched_tree">#2AE0C8 </color>
     <color name="mystical_green">#A2E1D4</color>
     <color name="gold">#FFD700</color>
+    <color name="line_color">#e7e7e7</color>
+    <color name="content_background">#f2f2f2</color>
+    <color name="solar_background">#009988</color>
 </resources>
