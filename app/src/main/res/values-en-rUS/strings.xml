@@ -216,4 +216,21 @@
     <string name="dialog_set_task_progress_prompt">Current task progress: </string>
     <string name="dialog_set_task_progress_percent">%</string>
     <!-- dialog_set_task_progress -->
+
+    <!-- fragment_month -->
+    <string name="fragment_month">Month</string>
+    <string name="fragment_month_year">Year</string>
+    <string name="fragment_month_today">Today</string>
+    <string name="fragment_month_switch">Switch</string>
+    <string name="fragment_month_change">Change</string>
+    <string name="fragment_month_next">Next Month</string>
+    <string name="fragment_month_last">Last Month</string>
+    <string name="fragment_month_mon">Mon</string>
+    <string name="fragment_month_tue">Tue</string>
+    <string name="fragment_month_wed">Wed</string>
+    <string name="fragment_month_thu">Thu</string>
+    <string name="fragment_month_fri">Fri</string>
+    <string name="fragment_month_sat">Sat</string>
+    <string name="fragment_month_sun">Sun</string>
+    <!-- fragment_month -->
 </resources>

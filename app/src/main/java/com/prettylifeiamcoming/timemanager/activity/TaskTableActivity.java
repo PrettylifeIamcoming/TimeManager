@@ -74,6 +74,8 @@ public class TaskTableActivity extends AppCompatActivity {
         mRecyclerView = findViewById(R.id.recycler_view_task_table);
         mRecyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
 
+        mRecyclerView.getItemAnimator();
+
         swipeRefreshLayout = findViewById(R.id.swipe_refresh_task_table);
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override

@@ -15,4 +15,21 @@
         <item>不重要但紧急</item>
         <item>既不重要又不紧急</item>
     </string-array>
+
+    <string-array name="titles">
+        <item>好好学习</item>
+        <item>天天向上</item>
+        <item>不坑队友</item>
+        <item>不找对象</item>
+        <item>道可道</item>
+        <item>非常道</item>
+        <item>名可名</item>
+        <item>非常名</item>
+        <item>圣人处无为之事</item>
+        <item>行不言之教</item>
+        <item>生而不恃</item>
+        <item>为而不有</item>
+        <item>夫唯弗居</item>
+        <item>是以不去</item>
+    </string-array>
 </resources>

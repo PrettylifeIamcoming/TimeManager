@@ -2,14 +2,12 @@ package com.prettylifeiamcoming.timemanager.fragment;
 
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.prettylifeiamcoming.timemanager.R;
 import com.prettylifeiamcoming.timemanager.Sundial;
-import com.prettylifeiamcoming.timemanager.adapter.BaseViewHolder;
 import com.prettylifeiamcoming.timemanager.adapter.MainDayAdapter;
 import com.prettylifeiamcoming.timemanager.bean.Task;
 import com.prettylifeiamcoming.timemanager.db.RealmHelper;

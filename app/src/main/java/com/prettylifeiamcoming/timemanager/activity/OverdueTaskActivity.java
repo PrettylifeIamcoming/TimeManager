@@ -2,7 +2,6 @@ package com.prettylifeiamcoming.timemanager.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -11,7 +10,6 @@ import com.prettylifeiamcoming.timemanager.adapter.TaskAdapter;
 import com.prettylifeiamcoming.timemanager.bean.Task;
 import com.prettylifeiamcoming.timemanager.db.RealmHelper;
 import com.prettylifeiamcoming.timemanager.dialog.SetOverduerTaskDialogFragment;
-import com.prettylifeiamcoming.timemanager.dialog.SetTaskDialogFragment;
 
 import java.util.List;
 
