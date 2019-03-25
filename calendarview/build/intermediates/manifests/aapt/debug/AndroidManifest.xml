@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest
+    package="com.haibin.calendarview"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:versionCode="356"
+    android:versionName="3.5.6" >
+
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="23" />
+
+</manifest>

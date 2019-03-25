@@ -3,11 +3,11 @@ package com.prettylifeiamcoming.timemanager.fragment;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CalendarView;
 import android.widget.TextView;
 
 import com.ldf.calendar.Utils;
@@ -51,29 +51,38 @@ public class MonthFragment extends Fragment {
     private CalendarViewAdapter calendarAdapter;
     private IDayRenderer iDayRenderer;
     private OnSelectDateListener onSelectDateListener;
+    private static CalendarDate selectDate = new CalendarDate();
     private int mCurrentPage = MonthPager.CURRENT_DAY_INDEX;
     private Context context;
     private CalendarDate currentDate;
     private boolean initiated = false;
 
+    private Handler handler = new Handler();
+
+    private static int lock = 0;
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_month, container, false);
         context = getActivity();
-        content = (CoordinatorLayout) view.findViewById(R.id.content);
-        monthPager = (MonthPager) view.findViewById(R.id.calendar_view);
+        content = view.findViewById(R.id.content);
+        monthPager = view.findViewById(R.id.calendar_view);
         //此处强行setViewHeight，毕竟你知道你的日历牌的高度
         monthPager.setViewHeight(Utils.dpi2px(context, 270));
-        tvYear = (TextView) view.findViewById(R.id.show_year_view);
-        tvMonth = (TextView) view.findViewById(R.id.show_month_view);
-        backToday = (TextView) view.findViewById(R.id.back_today_button);
-        scrollSwitch = (TextView) view.findViewById(R.id.scroll_switch);
-        themeSwitch = (TextView) view.findViewById(R.id.theme_switch);
-        nextMonthBtn = (TextView) view.findViewById(R.id.next_month);
-        lastMonthBtn = (TextView) view.findViewById(R.id.last_month);
-        rvToDoList = (RecyclerView) view.findViewById(R.id.list);
+        tvYear = view.findViewById(R.id.show_year_view);
+        tvMonth = view.findViewById(R.id.show_month_view);
+        backToday = view.findViewById(R.id.back_today_button);
+        scrollSwitch = view.findViewById(R.id.scroll_switch);
+        themeSwitch = view.findViewById(R.id.theme_switch);
+        nextMonthBtn = view.findViewById(R.id.next_month);
+        lastMonthBtn = view.findViewById(R.id.last_month);
+        rvToDoList = view.findViewById(R.id.list);
         rvToDoList.setHasFixedSize(true);
         //这里用线性显示 类似于listview
         rvToDoList.setLayoutManager(new LinearLayoutManager(getActivity()));
@@ -81,7 +90,6 @@ public class MonthFragment extends Fragment {
         initCurrentDate();
         initCalendarView();
         initToolbarClickListener();
-        Log.e("ldf","OnCreated");
 
         return view;
     }
@@ -98,46 +106,82 @@ public class MonthFragment extends Fragment {
 //        calendarAdapter.switchToWeek(monthPager.getRowIndex());
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+    }
+
+    private MyRunnable myRunnable = new MyRunnable();
+
+    class MyRunnable implements Runnable{
+        @Override
+        public void run() {
+            String a = currentDate.getYear() + getResources().getString(R.string.fragment_month_year);
+            tvYear.setText(a);
+            String b = currentDate.getMonth() + "";
+            tvMonth.setText(b);
+        }
+    }
+
+    private WeekRunnable weekRunnable = new WeekRunnable();     //确保刷新周的时候可以字可以同步
+
+    class WeekRunnable implements Runnable{
+        @Override
+        public void run() {
+            CalendarDate calendarDate  = new CalendarDate();
+            String a = calendarDate.getYear() + getResources().getString(R.string.fragment_month_year);
+            tvYear.setText(a);
+            String b = calendarDate.getMonth() + "";
+            tvMonth.setText(b);
+        }
+    }
+
     /**
      * 初始化对应功能的listener
      *
      * @return void
      */
     private void initToolbarClickListener() {
-        backToday.setOnClickListener(new View.OnClickListener() {
+        backToday.setOnClickListener(new View.OnClickListener() {   //有效
             @Override
             public void onClick(View view) {
                 onClickBackToDayBtn();
             }
         });
-        scrollSwitch.setOnClickListener(new View.OnClickListener() {
+        scrollSwitch.setOnClickListener(new View.OnClickListener() {    //无效
             @Override
             public void onClick(View view) {
+                calendarAdapter.notifyDataSetChanged();
+                calendarAdapter.notifyDataChanged(selectDate);
                 if (calendarAdapter.getCalendarType() == CalendarAttr.CalendarType.WEEK) {
                     Utils.scrollTo(content, rvToDoList, monthPager.getViewHeight(), 200);
                     calendarAdapter.switchToMonth();
+                    handler.post(weekRunnable);
                 } else {
                     Utils.scrollTo(content, rvToDoList, monthPager.getCellHeight(), 200);
                     calendarAdapter.switchToWeek(monthPager.getRowIndex());
+                    handler.post(weekRunnable);
                 }
             }
         });
-        themeSwitch.setOnClickListener(new View.OnClickListener() {
+        themeSwitch.setOnClickListener(new View.OnClickListener() {     //有效
             @Override
             public void onClick(View view) {
                 refreshSelectBackground();
             }
         });
-        nextMonthBtn.setOnClickListener(new View.OnClickListener() {
+        nextMonthBtn.setOnClickListener(new View.OnClickListener() {    //无效
             @Override
             public void onClick(View view) {
                 monthPager.setCurrentItem(monthPager.getCurrentPosition() + 1);
+                handler.post(myRunnable);
             }
         });
-        lastMonthBtn.setOnClickListener(new View.OnClickListener() {
+        lastMonthBtn.setOnClickListener(new View.OnClickListener() {    //无效
             @Override
             public void onClick(View view) {
                 monthPager.setCurrentItem(monthPager.getCurrentPosition() - 1);
+                handler.post(myRunnable);
             }
         });
     }
@@ -149,10 +193,7 @@ public class MonthFragment extends Fragment {
      */
     private void initCurrentDate() {
         currentDate = new CalendarDate();
-        String a = currentDate.getYear() + getResources().getString(R.string.fragment_month_year);
-        tvYear.setText(a);
-        String b = currentDate.getMonth() + "";
-        tvMonth.setText(b);
+        handler.post(myRunnable);
     }
 
     /**
@@ -193,6 +234,7 @@ public class MonthFragment extends Fragment {
         onSelectDateListener = new OnSelectDateListener() {
             @Override
             public void onSelectDate(CalendarDate date) {
+                selectDate = date;
                 refreshClickDate(date);
                 Intent intent = new Intent(getActivity(), ShowOneDayActivity.class);
                 java.util.Calendar cal = java.util.Calendar.getInstance();
@@ -215,10 +257,7 @@ public class MonthFragment extends Fragment {
 
     private void refreshClickDate(CalendarDate date) {
         currentDate = date;
-        String a = currentDate.getYear() + getResources().getString(R.string.fragment_month_year);
-        tvYear.setText(a);
-        String b = currentDate.getMonth() + "";
-        tvMonth.setText(b);
+        handler.post(myRunnable);
     }
 
     /**
@@ -238,6 +277,12 @@ public class MonthFragment extends Fragment {
         monthPager.addOnPageChangeListener(new MonthPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+                Log.d("shibushi", "onPageScrolled: "+position);
+                if (lock == 0){
+                    calendarAdapter.notifyDataSetChanged();
+                    calendarAdapter.notifyDataChanged(selectDate);
+                    lock = 1;
+                }
             }
 
             @Override
@@ -247,10 +292,7 @@ public class MonthFragment extends Fragment {
                 if (currentCalendars.get(position % currentCalendars.size()) != null) {
                     CalendarDate date = currentCalendars.get(position % currentCalendars.size()).getSeedDate();
                     currentDate = date;
-                    String a = currentDate.getYear() + getResources().getString(R.string.fragment_month_year);
-                    tvYear.setText(a);
-                    String b = currentDate.getMonth() + "";
-                    tvMonth.setText(b);
+                    handler.post(myRunnable);
                 }
             }
 
@@ -267,10 +309,7 @@ public class MonthFragment extends Fragment {
     private void refreshMonthPager() {
         CalendarDate today = new CalendarDate();
         calendarAdapter.notifyDataChanged(today);
-        String a = currentDate.getYear() + getResources().getString(R.string.fragment_month_year);
-        tvYear.setText(a);
-        String b = currentDate.getMonth() + "";
-        tvMonth.setText(b);
+        handler.post(myRunnable);
     }
 
     private void refreshSelectBackground() {

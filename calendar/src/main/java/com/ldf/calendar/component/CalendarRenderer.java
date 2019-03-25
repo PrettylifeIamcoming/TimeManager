@@ -26,7 +26,7 @@ public class CalendarRenderer {
     private IDayRenderer dayRenderer;
     private Context context;
     private OnSelectDateListener onSelectDateListener;    // 单元格点击回调事件
-    private CalendarDate seedDate; //种子日期
+    private CalendarDate seedDate = new CalendarDate(); //种子日期
     private CalendarDate selectedDate; //被选中的日期
     private int selectedRowIndex = 0;
 

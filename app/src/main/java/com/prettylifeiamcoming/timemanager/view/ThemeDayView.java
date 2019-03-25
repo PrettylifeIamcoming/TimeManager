@@ -31,8 +31,8 @@ public class ThemeDayView extends DayView {
      */
     public ThemeDayView(Context context, int layoutResource) {
         super(context, layoutResource);
-        dateTv = (TextView) findViewById(R.id.date);
-        marker = (ImageView) findViewById(R.id.maker);
+        dateTv = findViewById(R.id.date);
+        marker = findViewById(R.id.maker);
         selectedBackground = findViewById(R.id.selected_background);
         selectedBackground = findViewById(R.id.selected_background);
         todayBackground = findViewById(R.id.today_background);

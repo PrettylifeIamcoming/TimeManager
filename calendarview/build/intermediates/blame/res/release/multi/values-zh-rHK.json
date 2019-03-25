@@ -1,0 +1,791 @@
+[
+    {
+        "outputFile": "/Users/prettylife/Code/Android_Code/CalendarView-master/calendarview/build/intermediates/incremental/mergeReleaseResources/merged.dir/values-zh-rHK/values-zh-rHK.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 100,
+                    "endLine": 15,
+                    "endColumn": 20,
+                    "endOffset": 443
+                },
+                "from": {
+                    "file": "/Users/prettylife/Code/Android_Code/CalendarView-master/calendarview/src/main/res/values-zh-rHK/strings.xml",
+                    "position": {
+                        "startLine": 175,
+                        "startColumn": 4,
+                        "startOffset": 4319,
+                        "endLine": 188,
+                        "endColumn": 20,
+                        "endOffset": 4662
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 16,
+                    "startColumn": 4,
+                    "startOffset": 448,
+                    "endLine": 30,
+                    "endColumn": 19,
+                    "endOffset": 786
+                },
+                "from": {
+                    "file": "/Users/prettylife/Code/Android_Code/CalendarView-master/calendarview/src/main/res/values-zh-rHK/strings.xml",
+                    "position": {
+                        "startLine": 190,
+                        "startColumn": 4,
+                        "startOffset": 4668,
+                        "endLine": 204,
+                        "endColumn": 19,
+                        "endOffset": 5006
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 31,
+                    "startColumn": 4,
+                    "startOffset": 791,
+                    "endLine": 44,
+                    "endColumn": 19,
+                    "endOffset": 1141
+                },
+                "from": {
+                    "file": "/Users/prettylife/Code/Android_Code/CalendarView-master/calendarview/src/main/res/values-zh-rHK/strings.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 116,
+                        "endLine": 15,
+                        "endColumn": 19,
+                        "endOffset": 466
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 45,
+                    "startColumn": 4,
+                    "startOffset": 1146,
+                    "endLine": 76,
+                    "endColumn": 19,
+                    "endOffset": 1917
+                },
+                "from": {
+                    "file": "/Users/prettylife/Code/Android_Code/CalendarView-master/calendarview/src/main/res/values-zh-rHK/strings.xml",
+                    "position": {
+                        "startLine": 27,
+                        "startColumn": 4,
+                        "startOffset": 730,
+                        "endLine": 58,
+                        "endColumn": 19,
+                        "endOffset": 1501
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 77,
+                    "startColumn": 4,
+                    "startOffset": 1922,
+                    "endLine": 90,
+                    "endColumn": 19,
+                    "endOffset": 2273
+                },
+                "from": {
+                    "file": "/Users/prettylife/Code/Android_Code/CalendarView-master/calendarview/src/main/res/values-zh-rHK/strings.xml",
+                    "position": {
+                        "startLine": 133,
+                        "startColumn": 4,
+                        "startOffset": 3365,
+                        "endLine": 146,
+                        "endColumn": 19,
+                        "endOffset": 3716
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 91,
+                    "startColumn": 4,
+                    "startOffset": 2278,
+                    "endLine": 110,
+                    "endColumn": 19,
+                    "endOffset": 2888
+                },
+                "from": {
+                    "file": "/Users/prettylife/Code/Android_Code/CalendarView-master/calendarview/src/main/res/values-zh-rHK/strings.xml",
+                    "position": {
+                        "startLine": 60,
+                        "startColumn": 4,
+                        "startOffset": 1507,
+                        "endLine": 79,
+                        "endColumn": 19,
+                        "endOffset": 2119
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 111,
+                    "startColumn": 4,
+                    "startOffset": 2893,
+                    "endLine": 136,
+                    "endColumn": 19,
+                    "endOffset": 3521
+                },
+                "from": {
+                    "file": "/Users/prettylife/Code/Android_Code/CalendarView-master/calendarview/src/main/res/values-zh-rHK/strings.xml",
+                    "position": {
+                        "startLine": 81,
+                        "startColumn": 4,
+                        "startOffset": 2125,
+                        "endLine": 106,
+                        "endColumn": 19,
+                        "endOffset": 2753
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 137,
+                    "startColumn": 4,
+                    "startOffset": 3526,
+                    "endLine": 141,
+                    "endColumn": 19,
+                    "endOffset": 3660
+                },
+                "from": {
+                    "file": "/Users/prettylife/Code/Android_Code/CalendarView-master/calendarview/src/main/res/values-zh-rHK/strings.xml",
+                    "position": {
+                        "startLine": 108,
+                        "startColumn": 4,
+                        "startOffset": 2759,
+                        "endLine": 112,
+                        "endColumn": 19,
+                        "endOffset": 2893
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 142,
+                    "startColumn": 4,
+                    "startOffset": 3665,
+                    "endLine": 150,
+                    "endColumn": 19,
+                    "endOffset": 3917
+                },
+                "from": {
+                    "file": "/Users/prettylife/Code/Android_Code/CalendarView-master/calendarview/src/main/res/values-zh-rHK/strings.xml",
+                    "position": {
+                        "startLine": 17,
+                        "startColumn": 4,
+                        "startOffset": 472,
+                        "endLine": 25,
+                        "endColumn": 19,
+                        "endOffset": 724
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 151,
+                    "startColumn": 4,
+                    "startOffset": 3922,
+                    "endLine": 163,
+                    "endColumn": 20,
+                    "endOffset": 4217
+                },
+                "from": {
+                    "file": "/Users/prettylife/Code/Android_Code/CalendarView-master/calendarview/src/main/res/values-zh-rHK/strings.xml",
+                    "position": {
+                        "startLine": 148,
+                        "startColumn": 4,
+                        "startOffset": 3722,
+                        "endLine": 160,
+                        "endColumn": 20,
+                        "endOffset": 4017
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 164,
+                    "startColumn": 4,
+                    "startOffset": 4222,
+                    "endLine": 175,
+                    "endColumn": 19,
+                    "endOffset": 4512
+                },
+                "from": {
+                    "file": "/Users/prettylife/Code/Android_Code/CalendarView-master/calendarview/src/main/res/values-zh-rHK/strings.xml",
+                    "position": {
+                        "startLine": 162,
+                        "startColumn": 4,
+                        "startOffset": 4023,
+                        "endLine": 173,
+                        "endColumn": 19,
+                        "endOffset": 4313
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 176,
+                    "startColumn": 4,
+                    "startOffset": 4517,
+                    "endLine": 184,
+                    "endColumn": 19,
+                    "endOffset": 4737
+                },
+                "from": {
+                    "file": "/Users/prettylife/Code/Android_Code/CalendarView-master/calendarview/src/main/res/values-zh-rHK/strings.xml",
+                    "position": {
+                        "startLine": 123,
+                        "startColumn": 4,
+                        "startOffset": 3139,
+                        "endLine": 131,
+                        "endColumn": 19,
+                        "endOffset": 3359
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 185,
+                    "startColumn": 4,
+                    "startOffset": 4742,
+                    "endColumn": 94,
+                    "endOffset": 4832
+                },
+                "from": {
+                    "file": "/Users/prettylife/Code/Android_Code/CalendarView-master/calendarview/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/values-zh-rHK/values-zh-rHK.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 55,
+                        "endColumn": 94,
+                        "endOffset": 145
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 186,
+                    "startColumn": 4,
+                    "startOffset": 4837,
+                    "endColumn": 106,
+                    "endOffset": 4939
+                },
+                "from": {
+                    "file": "/Users/prettylife/Code/Android_Code/CalendarView-master/calendarview/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/values-zh-rHK/values-zh-rHK.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 150,
+                        "endColumn": 106,
+                        "endOffset": 252
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 187,
+                    "startColumn": 4,
+                    "startOffset": 4944,
+                    "endColumn": 122,
+                    "endOffset": 5062
+                },
+                "from": {
+                    "file": "/Users/prettylife/Code/Android_Code/CalendarView-master/calendarview/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/values-zh-rHK/values-zh-rHK.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 257,
+                        "endColumn": 122,
+                        "endOffset": 375
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 188,
+                    "startColumn": 4,
+                    "startOffset": 5067,
+                    "endColumn": 92,
+                    "endOffset": 5155
+                },
+                "from": {
+                    "file": "/Users/prettylife/Code/Android_Code/CalendarView-master/calendarview/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/values-zh-rHK/values-zh-rHK.xml",
+                    "position": {
+                        "startLine": 5,
+                        "startColumn": 4,
+                        "startOffset": 380,
+                        "endColumn": 92,
+                        "endOffset": 468
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 189,
+                    "startColumn": 4,
+                    "startOffset": 5160,
+                    "endColumn": 99,
+                    "endOffset": 5255
+                },
+                "from": {
+                    "file": "/Users/prettylife/Code/Android_Code/CalendarView-master/calendarview/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/values-zh-rHK/values-zh-rHK.xml",
+                    "position": {
+                        "startLine": 6,
+                        "startColumn": 4,
+                        "startOffset": 473,
+                        "endColumn": 99,
+                        "endOffset": 568
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 190,
+                    "startColumn": 4,
+                    "startOffset": 5260,
+                    "endColumn": 81,
+                    "endOffset": 5337
+                },
+                "from": {
+                    "file": "/Users/prettylife/Code/Android_Code/CalendarView-master/calendarview/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/values-zh-rHK/values-zh-rHK.xml",
+                    "position": {
+                        "startLine": 7,
+                        "startColumn": 4,
+                        "startOffset": 573,
+                        "endColumn": 81,
+                        "endOffset": 650
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 191,
+                    "startColumn": 4,
+                    "startOffset": 5342,
+                    "endColumn": 96,
+                    "endOffset": 5434
+                },
+                "from": {
+                    "file": "/Users/prettylife/Code/Android_Code/CalendarView-master/calendarview/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/values-zh-rHK/values-zh-rHK.xml",
+                    "position": {
+                        "startLine": 8,
+                        "startColumn": 4,
+                        "startOffset": 655,
+                        "endColumn": 96,
+                        "endOffset": 747
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 192,
+                    "startColumn": 4,
+                    "startOffset": 5439,
+                    "endColumn": 107,
+                    "endOffset": 5542
+                },
+                "from": {
+                    "file": "/Users/prettylife/Code/Android_Code/CalendarView-master/calendarview/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/values-zh-rHK/values-zh-rHK.xml",
+                    "position": {
+                        "startLine": 9,
+                        "startColumn": 4,
+                        "startOffset": 752,
+                        "endColumn": 107,
+                        "endOffset": 855
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 193,
+                    "startColumn": 4,
+                    "startOffset": 5547,
+                    "endColumn": 75,
+                    "endOffset": 5618
+                },
+                "from": {
+                    "file": "/Users/prettylife/Code/Android_Code/CalendarView-master/calendarview/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/values-zh-rHK/values-zh-rHK.xml",
+                    "position": {
+                        "startLine": 10,
+                        "startColumn": 4,
+                        "startOffset": 860,
+                        "endColumn": 75,
+                        "endOffset": 931
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 194,
+                    "startColumn": 4,
+                    "startOffset": 5623,
+                    "endColumn": 75,
+                    "endOffset": 5694
+                },
+                "from": {
+                    "file": "/Users/prettylife/Code/Android_Code/CalendarView-master/calendarview/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/values-zh-rHK/values-zh-rHK.xml",
+                    "position": {
+                        "startLine": 11,
+                        "startColumn": 4,
+                        "startOffset": 936,
+                        "endColumn": 75,
+                        "endOffset": 1007
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 195,
+                    "startColumn": 4,
+                    "startOffset": 5699,
+                    "endColumn": 77,
+                    "endOffset": 5772
+                },
+                "from": {
+                    "file": "/Users/prettylife/Code/Android_Code/CalendarView-master/calendarview/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/values-zh-rHK/values-zh-rHK.xml",
+                    "position": {
+                        "startLine": 12,
+                        "startColumn": 4,
+                        "startOffset": 1012,
+                        "endColumn": 77,
+                        "endOffset": 1085
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 196,
+                    "startColumn": 4,
+                    "startOffset": 5777,
+                    "endColumn": 95,
+                    "endOffset": 5868
+                },
+                "from": {
+                    "file": "/Users/prettylife/Code/Android_Code/CalendarView-master/calendarview/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/values-zh-rHK/values-zh-rHK.xml",
+                    "position": {
+                        "startLine": 13,
+                        "startColumn": 4,
+                        "startOffset": 1090,
+                        "endColumn": 95,
+                        "endOffset": 1181
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 197,
+                    "startColumn": 4,
+                    "startOffset": 5873,
+                    "endColumn": 95,
+                    "endOffset": 5964
+                },
+                "from": {
+                    "file": "/Users/prettylife/Code/Android_Code/CalendarView-master/calendarview/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/values-zh-rHK/values-zh-rHK.xml",
+                    "position": {
+                        "startLine": 14,
+                        "startColumn": 4,
+                        "startOffset": 1186,
+                        "endColumn": 95,
+                        "endOffset": 1277
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 198,
+                    "startColumn": 4,
+                    "startOffset": 5969,
+                    "endColumn": 94,
+                    "endOffset": 6059
+                },
+                "from": {
+                    "file": "/Users/prettylife/Code/Android_Code/CalendarView-master/calendarview/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/values-zh-rHK/values-zh-rHK.xml",
+                    "position": {
+                        "startLine": 15,
+                        "startColumn": 4,
+                        "startOffset": 1282,
+                        "endColumn": 94,
+                        "endOffset": 1372
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 199,
+                    "startColumn": 4,
+                    "startOffset": 6064,
+                    "endColumn": 96,
+                    "endOffset": 6156
+                },
+                "from": {
+                    "file": "/Users/prettylife/Code/Android_Code/CalendarView-master/calendarview/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/values-zh-rHK/values-zh-rHK.xml",
+                    "position": {
+                        "startLine": 16,
+                        "startColumn": 4,
+                        "startOffset": 1377,
+                        "endColumn": 96,
+                        "endOffset": 1469
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 200,
+                    "startColumn": 4,
+                    "startOffset": 6161,
+                    "endColumn": 94,
+                    "endOffset": 6251
+                },
+                "from": {
+                    "file": "/Users/prettylife/Code/Android_Code/CalendarView-master/calendarview/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/values-zh-rHK/values-zh-rHK.xml",
+                    "position": {
+                        "startLine": 17,
+                        "startColumn": 4,
+                        "startOffset": 1474,
+                        "endColumn": 94,
+                        "endOffset": 1564
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 201,
+                    "startColumn": 4,
+                    "startOffset": 6256,
+                    "endColumn": 97,
+                    "endOffset": 6349
+                },
+                "from": {
+                    "file": "/Users/prettylife/Code/Android_Code/CalendarView-master/calendarview/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/values-zh-rHK/values-zh-rHK.xml",
+                    "position": {
+                        "startLine": 18,
+                        "startColumn": 4,
+                        "startOffset": 1569,
+                        "endColumn": 97,
+                        "endOffset": 1662
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 202,
+                    "startColumn": 4,
+                    "startOffset": 6354,
+                    "endColumn": 112,
+                    "endOffset": 6462
+                },
+                "from": {
+                    "file": "/Users/prettylife/Code/Android_Code/CalendarView-master/calendarview/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/values-zh-rHK/values-zh-rHK.xml",
+                    "position": {
+                        "startLine": 19,
+                        "startColumn": 4,
+                        "startOffset": 1667,
+                        "endColumn": 112,
+                        "endOffset": 1775
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 203,
+                    "startColumn": 4,
+                    "startOffset": 6467,
+                    "endColumn": 93,
+                    "endOffset": 6556
+                },
+                "from": {
+                    "file": "/Users/prettylife/Code/Android_Code/CalendarView-master/calendarview/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/values-zh-rHK/values-zh-rHK.xml",
+                    "position": {
+                        "startLine": 20,
+                        "startColumn": 4,
+                        "startOffset": 1780,
+                        "endColumn": 93,
+                        "endOffset": 1869
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 204,
+                    "startColumn": 4,
+                    "startOffset": 6561,
+                    "endColumn": 52,
+                    "endOffset": 6609
+                },
+                "from": {
+                    "file": "/Users/prettylife/Code/Android_Code/CalendarView-master/calendarview/src/main/res/values-zh-rHK/strings.xml",
+                    "position": {
+                        "startLine": 1,
+                        "startColumn": 4,
+                        "startOffset": 63,
+                        "endColumn": 52,
+                        "endOffset": 111
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 205,
+                    "startColumn": 4,
+                    "startOffset": 6614,
+                    "endColumn": 33,
+                    "endOffset": 6643
+                },
+                "from": {
+                    "file": "/Users/prettylife/Code/Android_Code/CalendarView-master/calendarview/src/main/res/values-zh-rHK/strings.xml",
+                    "position": {
+                        "startLine": 119,
+                        "startColumn": 4,
+                        "startOffset": 3069,
+                        "endColumn": 33,
+                        "endOffset": 3098
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 206,
+                    "startColumn": 4,
+                    "startOffset": 6648,
+                    "endColumn": 33,
+                    "endOffset": 6677
+                },
+                "from": {
+                    "file": "/Users/prettylife/Code/Android_Code/CalendarView-master/calendarview/src/main/res/values-zh-rHK/strings.xml",
+                    "position": {
+                        "startLine": 115,
+                        "startColumn": 4,
+                        "startOffset": 2933,
+                        "endColumn": 33,
+                        "endOffset": 2962
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 207,
+                    "startColumn": 4,
+                    "startOffset": 6682,
+                    "endColumn": 33,
+                    "endOffset": 6711
+                },
+                "from": {
+                    "file": "/Users/prettylife/Code/Android_Code/CalendarView-master/calendarview/src/main/res/values-zh-rHK/strings.xml",
+                    "position": {
+                        "startLine": 120,
+                        "startColumn": 4,
+                        "startOffset": 3103,
+                        "endColumn": 33,
+                        "endOffset": 3132
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 208,
+                    "startColumn": 4,
+                    "startOffset": 6716,
+                    "endColumn": 101,
+                    "endOffset": 6813
+                },
+                "from": {
+                    "file": "/Users/prettylife/Code/Android_Code/CalendarView-master/calendarview/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/values-zh-rHK/values-zh-rHK.xml",
+                    "position": {
+                        "startLine": 21,
+                        "startColumn": 4,
+                        "startOffset": 1874,
+                        "endColumn": 101,
+                        "endOffset": 1971
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 209,
+                    "startColumn": 4,
+                    "startOffset": 6818,
+                    "endColumn": 33,
+                    "endOffset": 6847
+                },
+                "from": {
+                    "file": "/Users/prettylife/Code/Android_Code/CalendarView-master/calendarview/src/main/res/values-zh-rHK/strings.xml",
+                    "position": {
+                        "startLine": 114,
+                        "startColumn": 4,
+                        "startOffset": 2899,
+                        "endColumn": 33,
+                        "endOffset": 2928
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 210,
+                    "startColumn": 4,
+                    "startOffset": 6852,
+                    "endColumn": 33,
+                    "endOffset": 6881
+                },
+                "from": {
+                    "file": "/Users/prettylife/Code/Android_Code/CalendarView-master/calendarview/src/main/res/values-zh-rHK/strings.xml",
+                    "position": {
+                        "startLine": 118,
+                        "startColumn": 4,
+                        "startOffset": 3035,
+                        "endColumn": 33,
+                        "endOffset": 3064
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 211,
+                    "startColumn": 4,
+                    "startOffset": 6886,
+                    "endColumn": 33,
+                    "endOffset": 6915
+                },
+                "from": {
+                    "file": "/Users/prettylife/Code/Android_Code/CalendarView-master/calendarview/src/main/res/values-zh-rHK/strings.xml",
+                    "position": {
+                        "startLine": 116,
+                        "startColumn": 4,
+                        "startOffset": 2967,
+                        "endColumn": 33,
+                        "endOffset": 2996
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 212,
+                    "startColumn": 4,
+                    "startOffset": 6920,
+                    "endColumn": 33,
+                    "endOffset": 6949
+                },
+                "from": {
+                    "file": "/Users/prettylife/Code/Android_Code/CalendarView-master/calendarview/src/main/res/values-zh-rHK/strings.xml",
+                    "position": {
+                        "startLine": 117,
+                        "startColumn": 4,
+                        "startOffset": 3001,
+                        "endColumn": 33,
+                        "endOffset": 3030
+                    }
+                }
+            }
+        ]
+    }
+]

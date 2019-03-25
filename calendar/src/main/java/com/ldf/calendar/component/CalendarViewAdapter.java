@@ -16,6 +16,7 @@ import com.ldf.calendar.view.Calendar;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
 
 public class CalendarViewAdapter extends PagerAdapter {
@@ -126,6 +127,7 @@ public class CalendarViewAdapter extends PagerAdapter {
         container.removeView(container);
     }
 
+    @NonNull
     public ArrayList<Calendar> getPagers() {
         return calendars;
     }
@@ -150,7 +152,6 @@ public class CalendarViewAdapter extends PagerAdapter {
             Calendar calendar = calendars.get(i);
             calendar.update();
             if (calendar.getCalendarType() == CalendarAttr.CalendarType.WEEK) {
-                Log.d("zhazha", "shinizhejiahuo");
                 calendar.updateWeek(rowCount);
             }
         }

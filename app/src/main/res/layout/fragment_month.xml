@@ -105,21 +105,6 @@
                     android:textSize="14sp" />
 
                 <TextView
-                    android:id="@+id/next_month"
-                    android:layout_width="wrap_content"
-                    android:layout_height="24dp"
-                    android:layout_centerVertical="true"
-                    android:layout_marginRight="8dp"
-                    android:layout_toLeftOf="@id/scroll_switch"
-                    android:background="@drawable/button_bg"
-                    android:gravity="center"
-                    android:paddingLeft="4dp"
-                    android:paddingRight="4dp"
-                    android:text="@string/fragment_month_next"
-                    android:textColor="#ff9c0e"
-                    android:textSize="14sp" />
-
-                <TextView
                     android:id="@+id/last_month"
                     android:layout_width="wrap_content"
                     android:layout_height="24dp"
@@ -131,6 +116,21 @@
                     android:paddingLeft="4dp"
                     android:paddingRight="4dp"
                     android:text="@string/fragment_month_last"
+                    android:textColor="#ff9c0e"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/next_month"
+                    android:layout_width="wrap_content"
+                    android:layout_height="24dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="8dp"
+                    android:layout_toLeftOf="@id/scroll_switch"
+                    android:background="@drawable/button_bg"
+                    android:gravity="center"
+                    android:paddingLeft="4dp"
+                    android:paddingRight="4dp"
+                    android:text="@string/fragment_month_next"
                     android:textColor="#ff9c0e"
                     android:textSize="14sp" />
             </LinearLayout>

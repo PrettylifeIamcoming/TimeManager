@@ -47,7 +47,7 @@ public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ViewHold
 
         ViewHolder(View view) {
             super(view);
-            textView = (TextView) view.findViewById(R.id.text_view);
+            textView = view.findViewById(R.id.text_view);
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
