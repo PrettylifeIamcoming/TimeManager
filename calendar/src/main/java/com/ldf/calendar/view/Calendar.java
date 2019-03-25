@@ -5,6 +5,7 @@ package com.ldf.calendar.view;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Canvas;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
@@ -78,12 +79,13 @@ public class Calendar extends View {
      */
     @Override
     public boolean onTouchEvent(MotionEvent event) {
+        Log.d("action1", "onTouchEvent: " + event.getAction());
         switch (event.getAction()) {
-            case MotionEvent.ACTION_DOWN:
+            case MotionEvent.ACTION_DOWN:   //MotionEvent.ACTION_DOWN = 0
                 posX = event.getX();
                 posY = event.getY();
                 break;
-            case MotionEvent.ACTION_UP:
+            case MotionEvent.ACTION_UP:     //MotionEvent.ACTION_UP = 1
                 float disX = event.getX() - posX;
                 float disY = event.getY() - posY;
                 if (Math.abs(disX) < touchSlop && Math.abs(disY) < touchSlop) {

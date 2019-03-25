@@ -147,12 +147,14 @@ public class CalendarViewAdapter extends PagerAdapter {
         }
     }
 
+    private static int lock1 = 0;
+
     public void invalidateCurrentCalendar() {
         for (int i = 0; i < calendars.size(); i++) {
             Calendar calendar = calendars.get(i);
             calendar.update();
             if (calendar.getCalendarType() == CalendarAttr.CalendarType.WEEK) {
-                calendar.updateWeek(rowCount);
+                    calendar.updateWeek(rowCount);
             }
         }
     }

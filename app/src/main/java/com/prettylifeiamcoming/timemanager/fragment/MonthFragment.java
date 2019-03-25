@@ -102,13 +102,18 @@ public class MonthFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-//        Utils.scrollTo(content, rvToDoList, monthPager.getCellHeight(), 200);
-//        calendarAdapter.switchToWeek(monthPager.getRowIndex());
+//        if (lock == 0) {
+//            Utils.scrollTo(content, rvToDoList, monthPager.getCellHeight(), 200);
+//            calendarAdapter.switchToWeek(monthPager.getRowIndex());
+//            lock = 1;
+//        }
+
     }
 
     @Override
     public void onStart() {
         super.onStart();
+        themeSwitch.performClick();
     }
 
     private MyRunnable myRunnable = new MyRunnable();
@@ -167,6 +172,8 @@ public class MonthFragment extends Fragment {
         themeSwitch.setOnClickListener(new View.OnClickListener() {     //有效
             @Override
             public void onClick(View view) {
+                calendarAdapter.notifyDataSetChanged();
+                calendarAdapter.notifyDataChanged(new CalendarDate());
                 refreshSelectBackground();
             }
         });
