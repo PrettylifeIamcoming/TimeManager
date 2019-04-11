@@ -1,33 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/swipe_refresh_year"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+    android:orientation="vertical">
 
-    <LinearLayout
+        <TextView
+            android:id="@+id/year"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:paddingLeft="16dp"
+            android:textColor="#000000"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            tools:ignore="RtlSymmetry" />
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:orientation="horizontal">
-        <CalendarView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"/>
-        <CalendarView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"/>
-        <CalendarView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"/>
-    </LinearLayout>
+        android:layout_height="match_parent">
+        <com.github.prettylife.yearview.CalendarLayout
+            android:id="@+id/calendarLayout_year"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#fff"
+            android:orientation="vertical"
+            app:calendar_show_mode="both_month_week_view"
+            app:default_status="shrink">
 
+            <com.github.prettylife.yearview.CalendarView
+                android:id="@+id/calendarView_year"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#fff"
+                app:calendar_padding="10dp"
+                app:current_day_lunar_text_color="#ff0000"
+                app:current_day_text_color="#ff0000"
+                app:current_month_lunar_text_color="#CFCFCF"
+                app:current_month_text_color="#333333"
+                app:lunar_text_size="10sp"
+                app:max_year="2030"
+                app:max_year_day="31"
+                app:max_year_month="12"
+                app:min_year="2000"
+                app:min_year_day="1"
+                app:min_year_month="1"
+                app:month_view="com.github.prettylife.yearview.CustomMonthView"
+                app:month_view_show_mode="mode_only_current"
+                app:other_month_lunar_text_color="#e1e1e1"
+                app:other_month_text_color="#e1e1e1"
+                app:scheme_lunar_text_color="#CFCFCF"
+                app:scheme_text="假"
+                app:scheme_text_color="#333"
+                app:scheme_theme_color="#128c4b"
+                app:selected_lunar_text_color="#128c4b"
+                app:selected_text_color="#128c4b"
+                app:selected_theme_color="#80cfcfcf"
+                app:week_background="#fff"
+                app:week_bar_height="46dp"
+                app:week_bar_view="com.github.prettylife.yearview.CustomWeekBar"
+                app:week_line_background="#00000000"
+                app:week_line_margin="16dp"
+                app:week_start_with="mon"
+                app:week_text_size="10sp"
+                app:week_view="com.github.prettylife.yearview.CustomWeekView"
+                app:year_view_background="#f6f6f6"
+                app:year_view_day_text_color="#333333"
+                app:year_view_day_text_size="8sp"
+                app:year_view_month_text_color="#ff0000"
+                app:year_view_month_text_size="20sp"
+                app:year_view_scheme_color="#f17706"
+                app:year_view_week_height="0dp"
+                app:year_view_week_text_color="#666666"
+                app:year_view_week_text_size="7sp" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view_year"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+        </com.github.prettylife.yearview.CalendarLayout>
+    </ScrollView>
+
+</LinearLayout>
