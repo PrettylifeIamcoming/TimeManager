@@ -50,7 +50,6 @@ public class MainActivity extends AppCompatActivity {
             String a;
             switch (item.getItemId()) {
                 case R.id.bottom_main_day:
-
                     mTextView = findViewById(R.id.toolbar_time);
                     sdf = new SimpleDateFormat("yyyy.MM.dd", Locale.getDefault());
                     a = sdf.format(date);

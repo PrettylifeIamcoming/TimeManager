@@ -26,5 +26,4 @@ public class Sundial extends Application {
         return sundial;
     }
 
-
 }
